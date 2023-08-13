@@ -7,8 +7,10 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
+import javax.swing.*;
 import java.io.IOException;
 
 public class App extends Application {
@@ -21,6 +23,8 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("inicio-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 500);
+        Image iconImage = new Image("file:///C:/Users/Orlay.molina/programacion3/almacen/src/main/resources/co/edu/uniquindio/programacion3/almacen_uq/main/img/logo.PNG");
+        stage.getIcons().add(iconImage);
         stage.setTitle("Almacen UQ | Inicio");
         stage.setScene(scene);
         stage.show();
