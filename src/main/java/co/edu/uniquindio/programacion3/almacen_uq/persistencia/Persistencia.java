@@ -11,6 +11,8 @@ public class Persistencia {
 
     public ArchivoUtil archivoUtil = new ArchivoUtil();
 
+    // OJO, tener el cuenta cambiar la ruta donde se almacenan los archivos.
+
     public static final String rutaArchivos ="C:\\Users\\Orlay.molina\\programacion3\\almacen\\src\\main\\java\\co\\edu\\uniquindio\\programacion3\\almacen_uq\\archivos\\Cliente.txt";
 
     public static final String rutaLog = "C:\\Users\\Orlay.molina\\programacion3\\almacen\\src\\main\\java\\co\\edu\\uniquindio\\programacion3\\almacen_uq\\archivos\\ClienteLog.txt";
