@@ -37,6 +37,8 @@ public class App extends Application {
             Scene scene = new Scene(root);
             Stage newStage = new Stage();
             newStage.centerOnScreen();
+            Image iconImage = new Image("file:///C:/Users/Orlay.molina/programacion3/almacen/src/main/resources/co/edu/uniquindio/programacion3/almacen_uq/main/img/logo.PNG");
+            newStage.getIcons().add(iconImage);
             newStage.setTitle("Almacen UQ | Inicio");
             newStage.setResizable(false);
             newStage.setScene(scene);
@@ -57,6 +59,8 @@ public class App extends Application {
             Scene scene = new Scene(root);
             Stage newStage = new Stage();
             newStage.centerOnScreen();
+            Image iconImage = new Image("file:///C:/Users/Orlay.molina/programacion3/almacen/src/main/resources/co/edu/uniquindio/programacion3/almacen_uq/main/img/logo.PNG");
+            newStage.getIcons().add(iconImage);
             newStage.setTitle("Almacen UQ | Gestor de Clientes");
             newStage.setResizable(false);
             newStage.setScene(scene);
