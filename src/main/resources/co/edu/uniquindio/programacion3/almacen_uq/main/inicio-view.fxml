@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.programacion3.almacen_uq.controlador.InicioController">
+   <children>
+      <GridPane layoutX="150.0" layoutY="317.0" prefHeight="68.0" prefWidth="500.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="20.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="20.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button fx:id="btnProductos" mnemonicParsing="false" onAction="#menuProductos">
+               <graphic>
+                  <ImageView fitHeight="103.0" fitWidth="87.0">
+                     <image>
+                        <Image url="@img/tienda.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnClientes" mnemonicParsing="false" onAction="#menuClientes" GridPane.columnIndex="2">
+               <graphic>
+                  <ImageView fitHeight="103.0" fitWidth="87.0">
+                     <image>
+                        <Image url="@img/clientes.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnVentas" mnemonicParsing="false" onAction="#menuVentas" GridPane.columnIndex="4">
+               <graphic>
+                  <ImageView fitHeight="103.0" fitWidth="87.0">
+                     <image>
+                        <Image url="@img/ventas.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </GridPane>
+      <ImageView fitHeight="190.0" fitWidth="280.0" layoutX="269.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/logo.PNG" />
+         </image>
+      </ImageView>
+      <Label layoutX="158.0" layoutY="422.0" text="Productos">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="355.0" layoutY="422.0" text="Clientes">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="545.0" layoutY="422.0" text="Ventas">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
