@@ -1,5 +1,6 @@
 package co.edu.uniquindio.programacion3.almacen_uq.controlador;
 
+import co.edu.uniquindio.programacion3.almacen_uq.main.App;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,6 +15,8 @@ import java.io.IOException;
 
 public class InicioController {
 
+    public App app = new App();
+
     @FXML
     private Button btnClientes;
 
@@ -24,9 +27,12 @@ public class InicioController {
     private Button btnVentas;
 
     @FXML
+    private Button btnSalir;
+
+    @FXML
     void menuClientes(ActionEvent event) throws IOException {
-
-
+        cerrarVentana(btnClientes);
+        app.cargarVentanaClientes();
     }
 
     @FXML
@@ -37,6 +43,16 @@ public class InicioController {
     @FXML
     void menuVentas(ActionEvent event) {
 
+    }
+
+    @FXML
+    void salirAplicacion(ActionEvent event) {
+        System.exit(0);
+    }
+
+    public void cerrarVentana(Button btn) {
+        Stage stage = (Stage) btn.getScene().getWindow();
+        stage.close();
     }
 
 }

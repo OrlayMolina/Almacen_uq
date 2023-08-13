@@ -1,6 +1,7 @@
 package co.edu.uniquindio.programacion3.almacen_uq.controlador;
 
 import co.edu.uniquindio.programacion3.almacen_uq.factory.Factory;
+import co.edu.uniquindio.programacion3.almacen_uq.main.App;
 import co.edu.uniquindio.programacion3.almacen_uq.modelo.Cliente;
 import co.edu.uniquindio.programacion3.almacen_uq.modelo.ClienteNatural;
 import co.edu.uniquindio.programacion3.almacen_uq.persistencia.Persistencia;
@@ -12,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -20,6 +22,8 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class ClientesController implements Initializable {
+
+    public App app = new App();
 
     private final ObservableList<ClienteNatural> listaClientesNaturales = FXCollections.observableArrayList();
 
@@ -112,7 +116,8 @@ public class ClientesController implements Initializable {
 
     @FXML
     void salirClientes(ActionEvent event) throws IOException {
-
+        cerrarVentana(btnSalir);
+        app.cargarVentanaInicio();
     }
 
     public void guardarNuevoCliente(){
@@ -231,6 +236,11 @@ public class ClientesController implements Initializable {
         subController = new ClienteSubController(factory);
         new ClientesController();
         inicializarProcesamientosView();
+    }
+
+    public void cerrarVentana(Button btn) {
+        Stage stage = (Stage) btn.getScene().getWindow();
+        stage.close();
     }
 
     @Override
