@@ -22,7 +22,7 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <ImageView fitHeight="99.0" fitWidth="134.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="108.0" fitWidth="129.0" layoutX="7.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img/logo.PNG" />
          </image>
@@ -111,10 +111,10 @@
                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
            </rowConstraints>
            <children>
-               <Button fx:id="btnCrear" mnemonicParsing="false" onAction="#crearCliente" prefHeight="25.0" prefWidth="68.0" text="Crear" />
+               <Button fx:id="btnCrear" mnemonicParsing="false" onAction="#crearCliente" prefHeight="32.0" prefWidth="82.0" text="Crear" />
                <Button fx:id="btnActualizar" mnemonicParsing="false" onAction="#actualizarCliente" text="Actualizar" GridPane.columnIndex="2" />
-               <Button fx:id="btnEliminar" mnemonicParsing="false" onAction="#eliminarCliente" text="Eliminar" GridPane.columnIndex="4" />
-               <Button fx:id="btnLimpiar" mnemonicParsing="false" onAction="#limpiarCampo" text="Limpiar" GridPane.columnIndex="6" />
+               <Button fx:id="btnEliminar" mnemonicParsing="false" onAction="#eliminarCliente" prefHeight="32.0" prefWidth="80.0" text="Eliminar" GridPane.columnIndex="4" />
+               <Button fx:id="btnLimpiar" mnemonicParsing="false" onAction="#limpiarCampo" prefHeight="32.0" prefWidth="80.0" text="Limpiar" GridPane.columnIndex="6" />
            </children>
        </GridPane>
       <TableView fx:id="tableClientes" layoutX="34.0" layoutY="282.0" prefHeight="174.0" prefWidth="735.0">
