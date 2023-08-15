@@ -2,6 +2,7 @@
 
 <?import java.net.URL?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -15,19 +16,19 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="800.0" styleClass="background" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.programacion3.almacen_uq.controlador.ClientesController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" styleClass="background" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.programacion3.almacen_uq.controlador.ClientesController">
    <children>
       <Label layoutX="281.0" layoutY="40.0" text="GESTIÓN DE CLIENTES">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <ImageView fitHeight="108.0" fitWidth="129.0" layoutX="7.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="108.0" fitWidth="129.0" layoutX="34.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img/logo.PNG" />
          </image>
       </ImageView>
-      <GridPane layoutX="116.0" layoutY="111.0">
+      <GridPane layoutX="115.0" layoutY="185.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="120.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
@@ -66,10 +67,10 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-             <TextField fx:id="txtNombres" GridPane.rowIndex="1" />
-            <TextField fx:id="txtApellidos" prefHeight="37.0" prefWidth="120.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <TextField fx:id="txtIdentificacion" prefHeight="36.0" prefWidth="120.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-            <TextField fx:id="txtDireccion" prefHeight="34.0" prefWidth="120.0" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+             <TextField fx:id="txtNombres" promptText="Nombres..." GridPane.rowIndex="1" />
+            <TextField fx:id="txtApellidos" prefHeight="37.0" prefWidth="120.0" promptText="Apellidos..." GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <TextField fx:id="txtIdentificacion" prefHeight="36.0" prefWidth="120.0" promptText="Identificacion..." GridPane.columnIndex="4" GridPane.rowIndex="1" />
+            <TextField fx:id="txtDireccion" prefHeight="34.0" prefWidth="120.0" promptText="Dirección..." GridPane.columnIndex="6" GridPane.rowIndex="1" />
             <Label text="TELEFONO:" GridPane.rowIndex="3">
                <font>
                   <Font name="System Bold" size="12.0" />
@@ -85,19 +86,19 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <Label text="NIT:" GridPane.columnIndex="6" GridPane.rowIndex="3">
+            <Label fx:id="lbNit" text="NIT:" GridPane.columnIndex="6" GridPane.rowIndex="3">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <TextField fx:id="txtTelefono" prefHeight="37.0" prefWidth="120.0" GridPane.rowIndex="4" />
+            <TextField fx:id="txtTelefono" prefHeight="37.0" prefWidth="120.0" promptText="Teléfono..." GridPane.rowIndex="4" />
              <DatePicker fx:id="dateFechaNacimiento" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-            <TextField fx:id="txtEmail" prefHeight="40.0" prefWidth="120.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
-            <TextField fx:id="txtNit" prefHeight="43.0" prefWidth="120.0" GridPane.columnIndex="6" GridPane.rowIndex="4" />
+            <TextField fx:id="txtEmail" prefHeight="40.0" prefWidth="120.0" promptText="Email..." GridPane.columnIndex="4" GridPane.rowIndex="4" />
+            <TextField fx:id="txtNit" prefHeight="43.0" prefWidth="120.0" promptText="NIT..." GridPane.columnIndex="6" GridPane.rowIndex="4" />
 
          </children>
       </GridPane>
-       <GridPane layoutX="193.0" layoutY="235.0">
+       <GridPane layoutX="191.0" layoutY="306.0">
            <columnConstraints>
                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="90.0" />
                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="20.0" />
@@ -114,10 +115,10 @@
                <Button fx:id="btnCrear" mnemonicParsing="false" onAction="#crearCliente" prefHeight="32.0" prefWidth="82.0" text="Crear" />
                <Button fx:id="btnActualizar" mnemonicParsing="false" onAction="#actualizarCliente" text="Actualizar" GridPane.columnIndex="2" />
                <Button fx:id="btnEliminar" mnemonicParsing="false" onAction="#eliminarCliente" prefHeight="32.0" prefWidth="80.0" text="Eliminar" GridPane.columnIndex="4" />
-               <Button fx:id="btnLimpiar" mnemonicParsing="false" onAction="#limpiarCampo" prefHeight="32.0" prefWidth="80.0" text="Limpiar" GridPane.columnIndex="6" />
+               <Button fx:id="btnLimpiar" mnemonicParsing="false" onAction="#limpiarCampo" prefHeight="32.0" prefWidth="80.0" text="Cancelar" GridPane.columnIndex="6" />
            </children>
        </GridPane>
-      <TableView fx:id="tableClientes" layoutX="34.0" layoutY="282.0" prefHeight="174.0" prefWidth="735.0">
+      <TableView fx:id="tableClientes" layoutX="36.0" layoutY="356.0" prefHeight="174.0" prefWidth="735.0">
         <columns>
           <TableColumn fx:id="colNombres" prefWidth="104.0" text="NOMBRES" />
           <TableColumn fx:id="colApellidos" prefWidth="106.0" text="APELLIDOS" />
@@ -130,7 +131,13 @@
         </columns>
       </TableView>
 
-       <Button fx:id="btnSalir" layoutX="717.0" layoutY="461.0" mnemonicParsing="false" onAction="#salirClientes" text="SALIR" />
+       <Button fx:id="btnSalir" layoutX="715.0" layoutY="544.0" mnemonicParsing="false" onAction="#salirClientes" text="SALIR" />
+      <ComboBox fx:id="cmbTipoCliente" layoutX="115.0" layoutY="136.0" onAction="#opcionTipoCliente" prefWidth="150.0" />
+      <Label layoutX="115.0" layoutY="119.0" text="TIPO CLIENTE:">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
    </children>
    <stylesheets>
       <URL value="@TableView.css" />
