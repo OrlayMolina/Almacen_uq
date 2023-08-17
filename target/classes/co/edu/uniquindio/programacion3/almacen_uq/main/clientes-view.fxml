@@ -90,18 +90,18 @@
        </GridPane>
       <TableView fx:id="tableClientes" layoutX="34.0" layoutY="294.0" prefHeight="155.0" prefWidth="733.0">
         <columns>
-          <TableColumn fx:id="colNombres" prefWidth="104.0" text="NOMBRES" />
-          <TableColumn fx:id="colApellidos" prefWidth="106.0" text="APELLIDOS" />
-            <TableColumn fx:id="colIdentificacion" prefWidth="63.0" text="ID" />
-            <TableColumn fx:id="colDireccion" prefWidth="87.0" text="DIRECCION" />
-            <TableColumn fx:id="colTelefono" prefWidth="84.0" text="TELEFONO" />
-            <TableColumn fx:id="colFechaNacimiento" prefWidth="102.0" text="FECHA DE NAC." />
-            <TableColumn fx:id="colEmail" prefWidth="107.0" text="EMAIL" />
-            <TableColumn fx:id="colNit" prefWidth="81.0" text="NIT" />
+          <TableColumn fx:id="colNombres" prefWidth="104.0" text="Nombres" />
+          <TableColumn fx:id="colApellidos" prefWidth="106.0" text="Apellidos" />
+            <TableColumn fx:id="colIdentificacion" prefWidth="63.0" text="Id" />
+            <TableColumn fx:id="colDireccion" prefWidth="87.0" text="Dirección" />
+            <TableColumn fx:id="colTelefono" prefWidth="84.0" text="Teléfono" />
+            <TableColumn fx:id="colFechaNacimiento" prefWidth="112.0" text="Fecha Nacimiento" />
+            <TableColumn fx:id="colEmail" prefWidth="97.0" text="Email" />
+            <TableColumn fx:id="colNit" prefWidth="81.0" text="Nit" />
         </columns>
       </TableView>
 
-       <Button fx:id="btnSalir" layoutX="717.0" layoutY="461.0" mnemonicParsing="false" onAction="#salirClientes" text="SALIR" />
+       <Button fx:id="btnSalir" layoutX="717.0" layoutY="461.0" mnemonicParsing="false" onAction="#salirClientes" text="ATRÁS" />
    </children>
    <stylesheets>
       <URL value="@TableView.css" />

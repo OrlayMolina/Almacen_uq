@@ -46,7 +46,8 @@ public class InicioController {
 
     @FXML
     void menuProductos(ActionEvent event) {
-
+        cerrarVentana(btnProductos);
+        app.cargarVentanaProductosInicio();
     }
 
     @FXML
