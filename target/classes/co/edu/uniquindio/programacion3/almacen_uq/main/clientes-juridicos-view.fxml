@@ -16,7 +16,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="800.0" styleClass="background" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.programacion3.almacen_uq.controlador.ClientesController">
+<AnchorPane prefHeight="500.0" prefWidth="800.0" styleClass="background" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.programacion3.almacen_uq.controlador.ClientesJuridicosController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ebebeb" height="46.0" layoutX="36.0" layoutY="234.0" stroke="#cdc7c7" strokeType="INSIDE" width="733.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ebebeb" height="123.0" layoutX="36.0" layoutY="105.0" stroke="#bcb6b6" strokeType="INSIDE" width="733.0" />

@@ -1,56 +1,10 @@
 ago 13, 2023 8:23:52 A. M. co.edu.uniquindio.programacion3.almacen_uq.persistencia.ArchivoUtil guardarRegistroLog
 INFORMACIÓN: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-08-13
-ago 13, 2023 8:24:44 A. M. co.edu.uniquindio.programacion3.almacen_uq.persistencia.ArchivoUtil guardarRegistroLog
-INFORMACIÓN: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-08-13
-ago 13, 2023 8:32:29 A. M. co.edu.uniquindio.programacion3.almacen_uq.persistencia.ArchivoUtil guardarRegistroLog
-INFORMACIÓN: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-08-13
-ago 13, 2023 8:33:07 A. M. co.edu.uniquindio.programacion3.almacen_uq.persistencia.ArchivoUtil guardarRegistroLog
-INFORMACIÓN: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-08-13
-ago 13, 2023 8:42:19 A. M. co.edu.uniquindio.programacion3.almacen_uq.persistencia.ArchivoUtil guardarRegistroLog
-INFORMACIÓN: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-08-13
-ago 13, 2023 8:42:21 A. M. co.edu.uniquindio.programacion3.almacen_uq.persistencia.ArchivoUtil guardarRegistroLog
-INFORMACIÓN: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-08-13
-ago 13, 2023 8:42:24 A. M. co.edu.uniquindio.programacion3.almacen_uq.persistencia.ArchivoUtil guardarRegistroLog
-INFORMACIÓN: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-08-13
-ago 13, 2023 8:42:26 A. M. co.edu.uniquindio.programacion3.almacen_uq.persistencia.ArchivoUtil guardarRegistroLog
-INFORMACIÓN: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-08-13
-ago 13, 2023 9:11:42 A. M. co.edu.uniquindio.programacion3.almacen_uq.persistencia.ArchivoUtil guardarRegistroLog
-INFORMACIÓN: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-08-13
-ago 13, 2023 9:12:29 A. M. co.edu.uniquindio.programacion3.almacen_uq.persistencia.ArchivoUtil guardarRegistroLog
-INFORMACIÓN: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-08-13
-ago 13, 2023 9:14:00 A. M. co.edu.uniquindio.programacion3.almacen_uq.persistencia.ArchivoUtil guardarRegistroLog
-INFORMACIÓN: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-08-13
-ago 13, 2023 9:14:54 A. M. co.edu.uniquindio.programacion3.almacen_uq.persistencia.ArchivoUtil guardarRegistroLog
-INFORMACIÓN: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-08-13
-ago 13, 2023 9:15:42 A. M. co.edu.uniquindio.programacion3.almacen_uq.persistencia.ArchivoUtil guardarRegistroLog
-INFORMACIÓN: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-08-13
-ago 13, 2023 12:58:51 P. M. co.edu.uniquindio.programacion3.almacen_uq.persistencia.ArchivoUtil guardarRegistroLog
-INFORMACIÓN: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-08-13
-ago 13, 2023 1:19:59 P. M. co.edu.uniquindio.programacion3.almacen_uq.persistencia.ArchivoUtil guardarRegistroLog
-INFORMACIÓN: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-08-13
-ago 13, 2023 1:22:37 P. M. co.edu.uniquindio.programacion3.almacen_uq.persistencia.ArchivoUtil guardarRegistroLog
-INFORMACIÓN: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-08-13
-ago 13, 2023 1:22:41 P. M. co.edu.uniquindio.programacion3.almacen_uq.persistencia.ArchivoUtil guardarRegistroLog
-INFORMACIÓN: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-08-13
-ago 13, 2023 3:41:25 P. M. co.edu.uniquindio.programacion3.almacen_uq.persistencia.ArchivoUtil guardarRegistroLog
-INFORMACIÓN: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-08-13
-ago 13, 2023 3:42:03 P. M. co.edu.uniquindio.programacion3.almacen_uq.persistencia.ArchivoUtil guardarRegistroLog
-INFORMACIÓN: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-08-13
-ago 13, 2023 3:42:05 P. M. co.edu.uniquindio.programacion3.almacen_uq.persistencia.ArchivoUtil guardarRegistroLog
-INFORMACIÓN: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-08-13
-ago 13, 2023 3:44:08 P. M. co.edu.uniquindio.programacion3.almacen_uq.persistencia.ArchivoUtil guardarRegistroLog
-INFORMACIÓN: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-08-13
-ago 13, 2023 3:46:27 P. M. co.edu.uniquindio.programacion3.almacen_uq.persistencia.ArchivoUtil guardarRegistroLog
-INFORMACIÓN: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-08-13
-ago 13, 2023 3:48:06 P. M. co.edu.uniquindio.programacion3.almacen_uq.persistencia.ArchivoUtil guardarRegistroLog
-INFORMACIÓN: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-08-13
-ago 13, 2023 3:52:31 P. M. co.edu.uniquindio.programacion3.almacen_uq.persistencia.ArchivoUtil guardarRegistroLog
-INFORMACIÓN: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-08-13
-ago 13, 2023 3:52:47 P. M. co.edu.uniquindio.programacion3.almacen_uq.persistencia.ArchivoUtil guardarRegistroLog
-INFORMACIÓN: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-08-13
-ago 13, 2023 3:52:52 P. M. co.edu.uniquindio.programacion3.almacen_uq.persistencia.ArchivoUtil guardarRegistroLog
-INFORMACIÓN: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-08-13
-ago 13, 2023 3:56:33 P. M. co.edu.uniquindio.programacion3.almacen_uq.persistencia.ArchivoUtil guardarRegistroLog
-INFORMACIÓN: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-08-13
-ago 13, 2023 3:56:45 P. M. co.edu.uniquindio.programacion3.almacen_uq.persistencia.ArchivoUtil guardarRegistroLog
-INFORMACIÓN: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-08-13
+ago 17, 2023 12:26:24 A. M. co.edu.uniquindio.programacion3.almacen_uq.persistencia.ArchivoUtil guardarRegistroLog
+INFORMACIÓN: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-08-17
+ago 17, 2023 12:26:26 A. M. co.edu.uniquindio.programacion3.almacen_uq.persistencia.ArchivoUtil guardarRegistroLog
+INFORMACIÓN: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-08-17
+ago 17, 2023 12:26:27 A. M. co.edu.uniquindio.programacion3.almacen_uq.persistencia.ArchivoUtil guardarRegistroLog
+INFORMACIÓN: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-08-17
+ago 17, 2023 12:26:31 A. M. co.edu.uniquindio.programacion3.almacen_uq.persistencia.ArchivoUtil guardarRegistroLog
+INFORMACIÓN: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-08-17

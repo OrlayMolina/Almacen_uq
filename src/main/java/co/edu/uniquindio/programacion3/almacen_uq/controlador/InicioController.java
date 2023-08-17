@@ -21,6 +21,9 @@ public class InicioController {
     private Button btnClientes;
 
     @FXML
+    private Button btnClientesJuridicos;
+
+    @FXML
     private Button btnProductos;
 
     @FXML
@@ -33,6 +36,12 @@ public class InicioController {
     void menuClientes(ActionEvent event) throws IOException {
         cerrarVentana(btnClientes);
         app.cargarVentanaClientes();
+    }
+
+    @FXML
+    void menuClienteJuridico(ActionEvent event) {
+        cerrarVentana(btnClientesJuridicos);
+        app.cargarVentanaClientesJuridicos();
     }
 
     @FXML

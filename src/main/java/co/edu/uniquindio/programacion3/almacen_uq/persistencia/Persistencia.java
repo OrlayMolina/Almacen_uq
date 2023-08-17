@@ -1,6 +1,7 @@
 package co.edu.uniquindio.programacion3.almacen_uq.persistencia;
 
 import co.edu.uniquindio.programacion3.almacen_uq.modelo.Cliente;
+import co.edu.uniquindio.programacion3.almacen_uq.modelo.ClienteJuridico;
 import co.edu.uniquindio.programacion3.almacen_uq.modelo.ClienteNatural;
 
 import java.io.IOException;
@@ -17,8 +18,17 @@ public class Persistencia {
 
     public static final String rutaLog = "C:\\Users\\Orlay.molina\\programacion3\\almacen\\src\\main\\java\\co\\edu\\uniquindio\\programacion3\\almacen_uq\\archivos\\ClienteLog.txt";
 
+    public static final String rutaArchivosClienteJuridico ="C:\\Users\\Orlay.molina\\programacion3\\almacen\\src\\main\\java\\co\\edu\\uniquindio\\programacion3\\almacen_uq\\archivos\\ClienteJuridico.txt";
+
+    public static final String rutaLogClienteJuridico = "C:\\Users\\Orlay.molina\\programacion3\\almacen\\src\\main\\java\\co\\edu\\uniquindio\\programacion3\\almacen_uq\\archivos\\ClienteJuridicoLog.txt";
+
+
     public void guardarArchivoLog(String mensajeLog, int nivel, String accion){
         archivoUtil.guardarRegistroLog(mensajeLog, nivel, accion, rutaLog);
+    }
+
+    public void guardarArchivoLogJuridico(String mensajeLog, int nivel, String accion){
+        archivoUtil.guardarRegistroLog(mensajeLog, nivel, accion, rutaLogClienteJuridico);
     }
 
     public void guardarCliente(ArrayList<ClienteNatural> listaClientesNaturales) throws IOException {
@@ -33,6 +43,20 @@ public class Persistencia {
                     append(n.getEmail()).append("\n");
 
             archivoUtil.guardarArchivo(rutaArchivos, contenido.toString(),true);
+        }
+    }
+
+    public void guardarClienteJuridico(ArrayList<ClienteJuridico> listaClientesNaturales) throws IOException {
+        StringBuilder contenido = new StringBuilder();
+        for(ClienteJuridico n : listaClientesNaturales){
+            contenido.append(n.getNombres()).append("--").
+                    append(n.getApellidos()).append("--").
+                    append(n.getIdentificacion()).append("--").
+                    append(n.getDireccion()).append("--").
+                    append(n.getTelefono()).append("--").
+                    append(n.getNit()).append("\n");
+
+            archivoUtil.guardarArchivo(rutaArchivosClienteJuridico, contenido.toString(),true);
         }
     }
 
@@ -55,6 +79,29 @@ public class Persistencia {
             clienteNatural.setEmail(linea.split("--")[6]);
 
             clientes.add(clienteNatural);
+        }
+
+        return clientes;
+    }
+
+    public ArrayList<ClienteJuridico> cargarClienteJuridico() throws IOException{
+        ArrayList<ClienteJuridico> clientes = new ArrayList<>();
+        ArrayList<String> contenido = archivoUtil.leerArchivo(rutaArchivosClienteJuridico);
+
+        String linea; // OJO
+
+        for(String c : contenido){
+            linea = c;
+            ClienteJuridico clienteJuridico = new ClienteJuridico();
+
+            clienteJuridico.setNombres(linea.split("--")[0]);
+            clienteJuridico.setApellidos(linea.split("--")[1]);
+            clienteJuridico.setIdentificacion(linea.split("--")[2]);
+            clienteJuridico.setDireccion(linea.split("--")[3]);
+            clienteJuridico.setTelefono(linea.split("--")[4]);
+            clienteJuridico.setNit(linea.split("--")[5]);
+
+            clientes.add(clienteJuridico);
         }
 
         return clientes;
