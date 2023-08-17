@@ -3,7 +3,6 @@ package co.edu.uniquindio.programacion3.almacen_uq.controlador;
 import co.edu.uniquindio.programacion3.almacen_uq.factory.Factory;
 import co.edu.uniquindio.programacion3.almacen_uq.main.App;
 import co.edu.uniquindio.programacion3.almacen_uq.modelo.Cliente;
-import co.edu.uniquindio.programacion3.almacen_uq.modelo.ClienteJuridico;
 import co.edu.uniquindio.programacion3.almacen_uq.modelo.ClienteNatural;
 import co.edu.uniquindio.programacion3.almacen_uq.persistencia.Persistencia;
 import co.edu.uniquindio.programacion3.almacen_uq.subcontrolador.ClienteSubController;
@@ -44,12 +43,6 @@ public class ClientesController implements Initializable {
 
     @FXML
     private Button btnLimpiar;
-
-    @FXML
-    private Label lbNit;
-
-    @FXML
-    private ComboBox<String> cmbTipoCliente;
 
     @FXML
     private Button btnSalir;
@@ -177,28 +170,7 @@ public class ClientesController implements Initializable {
         return listaClientesNaturales;
     }
 
-    private void inicializarClientesView() {
-
-        cmbTipoCliente.getItems().addAll( "Cliente Natural", "Cliente Jurídico");
-
-        cmbTipoCliente.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            if ("Cliente Natural".equals(newValue)) {
-
-                txtNit.setVisible(false);
-                lbNit.setVisible(false);
-                txtNit.setText(null);
-                ClienteNatural clienteNatural = new ClienteNatural();
-
-            } else if ("Cliente Jurídico".equals(newValue)) {
-
-                txtNit.setVisible(true);
-                lbNit.setVisible(true);
-                txtNit.setText(null);
-                ClienteJuridico clienteJuridico = new ClienteJuridico();
-
-            }
-
-        });
+    private void inicializarProcesamientosView() {
 
         colNombres.setCellValueFactory(new PropertyValueFactory<>("nombres"));
         colApellidos.setCellValueFactory(new PropertyValueFactory<>("apellidos"));
@@ -263,17 +235,12 @@ public class ClientesController implements Initializable {
         Factory factory = Factory.getInstance();
         subController = new ClienteSubController(factory);
         new ClientesController();
-        inicializarClientesView();
+        inicializarProcesamientosView();
     }
 
     public void cerrarVentana(Button btn) {
         Stage stage = (Stage) btn.getScene().getWindow();
         stage.close();
-    }
-
-    @FXML
-    void opcionTipoCliente(ActionEvent event) {
-
     }
 
     @Override
