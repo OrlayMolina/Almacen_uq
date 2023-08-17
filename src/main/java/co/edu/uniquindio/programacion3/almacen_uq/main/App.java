@@ -118,6 +118,28 @@ public class App extends Application {
         }
     }
 
+    public void cargarVentanaProductosEnvasados() {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("envasados-view.fxml"));
+            Parent root = fxmlLoader.load();
+            Scene scene = new Scene(root);
+            Stage newStage = new Stage();
+            newStage.centerOnScreen();
+            Image iconImage = new Image("file:///C:/Users/Orlay.molina/programacion3/almacen/src/main/resources/co/edu/uniquindio/programacion3/almacen_uq/main/img/logo.PNG");
+            newStage.getIcons().add(iconImage);
+            newStage.setTitle("Almacen UQ | Menú Productos Envasados");
+            newStage.setResizable(false);
+            newStage.setScene(scene);
+            newStage.show();
+            persistencia.guardarArchivoLog(mensajeInformativo.INFORMACION_CARGAR_VENTANA, 1, "Cargar Ventana Login");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            persistencia.guardarArchivoLog(mensajeExcepcion.ERROR_CARGAR_VENTANA, 3,
+                    "Cargar Ventana Login" + e.getMessage());
+        }
+    }
+
     public static void main(String[] args) {
         launch();
     }
