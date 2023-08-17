@@ -8,3 +8,5 @@ ago 17, 2023 12:26:27 A. M. co.edu.uniquindio.programacion3.almacen_uq.persiste
 INFORMACIÓN: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-08-17
 ago 17, 2023 12:26:31 A. M. co.edu.uniquindio.programacion3.almacen_uq.persistencia.ArchivoUtil guardarRegistroLog
 INFORMACIÓN: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-08-17
+ago 17, 2023 7:29:02 A. M. co.edu.uniquindio.programacion3.almacen_uq.persistencia.ArchivoUtil guardarRegistroLog
+INFORMACIÓN: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-08-17
