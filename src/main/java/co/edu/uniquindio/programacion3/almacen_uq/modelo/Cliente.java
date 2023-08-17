@@ -6,6 +6,7 @@ public class Cliente extends Persona{
     private String direccion;
     private String telefono;
 
+    // COntructor vacío
     public Cliente(){
 
     }
