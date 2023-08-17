@@ -101,7 +101,7 @@
         </columns>
       </TableView>
 
-       <Button fx:id="btnSalir" layoutX="717.0" layoutY="461.0" mnemonicParsing="false" onAction="#salirClientes" text="ATRÁS" />
+       <Button fx:id="btnSalir" layoutX="702.0" layoutY="454.0" mnemonicParsing="false" onAction="#salirClientes" text="ATRÁS" />
    </children>
    <stylesheets>
       <URL value="@TableView.css" />
