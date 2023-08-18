@@ -34,8 +34,8 @@ public class InicioController {
 
     @FXML
     void menuClientes(ActionEvent event) throws IOException {
-        cerrarVentana(btnClientes);
         app.cargarVentanaClientes();
+        cerrarVentana(btnClientes);
     }
 
     @FXML
