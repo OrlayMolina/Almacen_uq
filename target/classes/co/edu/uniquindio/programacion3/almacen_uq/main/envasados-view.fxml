@@ -83,9 +83,9 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="266.0" layoutY="49.0" text="GESTIÓN DE PRODUCTOS ENVASADOS">
+      <Label layoutX="225.0" layoutY="32.0" text="GESTIÓN DE PRODUCTOS ENVASADOS">
          <font>
-            <Font size="18.0" />
+            <Font size="24.0" />
          </font>
       </Label>
       <Label layoutX="59.0" layoutY="237.0" text="Existencias:">

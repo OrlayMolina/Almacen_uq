@@ -14,7 +14,7 @@ public class Persistencia {
 
     // OJO, tener el cuenta cambiar la ruta donde se almacenan los archivos.
 
-    public static final String rutaArchivos ="C:\\Users\\Orlay.molina\\programacion3\\almacen\\src\\main\\java\\co\\edu\\uniquindio\\programacion3\\almacen_uq\\archivos\\Cliente.txt";
+    public static final String rutaArchivos = "C:\\Users\\Orlay.molina\\programacion3\\almacen\\src\\main\\java\\co\\edu\\uniquindio\\programacion3\\almacen_uq\\archivos\\archivosCliente.txt";
 
     public static final String rutaLog = "C:\\Users\\Orlay.molina\\programacion3\\almacen\\src\\main\\java\\co\\edu\\uniquindio\\programacion3\\almacen_uq\\archivos\\ClienteLog.txt";
 
@@ -46,9 +46,9 @@ public class Persistencia {
         }
     }
 
-    public void guardarClienteJuridico(ArrayList<ClienteJuridico> listaClientesNaturales) throws IOException {
+    public void guardarClienteJuridico(ArrayList<ClienteJuridico> listaClientesJuridico) throws IOException {
         StringBuilder contenido = new StringBuilder();
-        for(ClienteJuridico n : listaClientesNaturales){
+        for(ClienteJuridico n : listaClientesJuridico){
             contenido.append(n.getNombres()).append("--").
                     append(n.getApellidos()).append("--").
                     append(n.getIdentificacion()).append("--").

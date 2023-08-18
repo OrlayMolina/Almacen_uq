@@ -20,7 +20,7 @@
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ebebeb" height="46.0" layoutX="36.0" layoutY="234.0" stroke="#cdc7c7" strokeType="INSIDE" width="733.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ebebeb" height="123.0" layoutX="36.0" layoutY="105.0" stroke="#bcb6b6" strokeType="INSIDE" width="733.0" />
-      <Label layoutX="281.0" layoutY="40.0" text="GESTIÓN DE CLIENTES">
+      <Label layoutX="223.0" layoutY="42.0" text="GESTIÓN DE CLIENTES JURÍDICOS">
          <font>
             <Font size="24.0" />
          </font>

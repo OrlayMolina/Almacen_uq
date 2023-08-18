@@ -37,7 +37,7 @@
             </Button>
             <Button fx:id="btnClientes" mnemonicParsing="false" onAction="#menuClientes" GridPane.columnIndex="2">
                <graphic>
-                  <ImageView fitHeight="103.0" fitWidth="87.0">
+                  <ImageView fitHeight="94.0" fitWidth="101.0">
                      <image>
                         <Image url="@img/clientes.png" />
                      </image>
@@ -84,7 +84,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Button fx:id="btnSalir" layoutX="719.0" layoutY="449.0" mnemonicParsing="false" onAction="#salirAplicacion" text="SALIR" />
+      <Button fx:id="btnSalir" layoutX="669.0" layoutY="446.0" mnemonicParsing="false" onAction="#salirAplicacion" text="SALIR" />
       <Label layoutX="400.0" layoutY="395.0" text="Cliente Juridico">
          <font>
             <Font size="18.0" />
