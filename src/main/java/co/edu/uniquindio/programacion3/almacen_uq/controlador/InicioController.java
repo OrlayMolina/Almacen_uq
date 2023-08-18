@@ -52,7 +52,8 @@ public class InicioController {
 
     @FXML
     void menuVentas(ActionEvent event) {
-
+        cerrarVentana(btnVentas);
+        app.cargarVentanaVentas();
     }
 
     @FXML
