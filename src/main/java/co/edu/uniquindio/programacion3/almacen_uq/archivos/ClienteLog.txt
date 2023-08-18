@@ -100,3 +100,9 @@ ago 18, 2023 11:47:38 A. M. co.edu.uniquindio.programacion3.almacen_uq.persiste
 INFORMACIÓN: Cargar Ventana refrigerados-view,La ventana se ha cargado exitosamente,2023-08-18
 ago 18, 2023 11:47:43 A. M. co.edu.uniquindio.programacion3.almacen_uq.persistencia.ArchivoUtil guardarRegistroLog
 INFORMACIÓN: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-08-18
+ago 18, 2023 11:58:48 A. M. co.edu.uniquindio.programacion3.almacen_uq.persistencia.ArchivoUtil guardarRegistroLog
+INFORMACIÓN: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-08-18
+ago 18, 2023 11:58:52 A. M. co.edu.uniquindio.programacion3.almacen_uq.persistencia.ArchivoUtil guardarRegistroLog
+INFORMACIÓN: Cargar Ventana refrigerados-view,La ventana se ha cargado exitosamente,2023-08-18
+ago 18, 2023 11:59:03 A. M. co.edu.uniquindio.programacion3.almacen_uq.persistencia.ArchivoUtil guardarRegistroLog
+INFORMACIÓN: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-08-18
