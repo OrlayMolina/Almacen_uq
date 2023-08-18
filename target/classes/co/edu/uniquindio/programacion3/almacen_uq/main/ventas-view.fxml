@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.programacion3.almacen_uq.controlador.VentasController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ebebeb" height="62.0" layoutX="28.0" layoutY="234.0" stroke="#b9b0b0" strokeType="INSIDE" width="751.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ebebeb" height="126.0" layoutX="28.0" layoutY="98.0" stroke="#b5adad" strokeType="INSIDE" width="751.0" />
+      <GridPane layoutX="38.0" layoutY="105.0" prefHeight="87.0" prefWidth="725.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="130.0" minWidth="10.0" prefWidth="140.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="70.0" minWidth="10.0" prefWidth="62.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="130.0" minWidth="10.0" prefWidth="122.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="70.0" minWidth="10.0" prefWidth="43.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="130.0" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="70.0" minWidth="10.0" prefWidth="30.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="130.0" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="28.0" minHeight="10.0" prefHeight="28.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="27.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Código:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label text="Fecha Venta:" GridPane.columnIndex="2">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField promptText="Código ..." GridPane.rowIndex="1" />
+            <DatePicker promptText="Fecha Venta" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <ComboBox prefWidth="150.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+            <Label text="Cliente:" GridPane.columnIndex="4">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label text="Total:" GridPane.columnIndex="6">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField GridPane.columnIndex="6" GridPane.rowIndex="1" />
+         </children>
+      </GridPane>
+      <GridPane layoutX="203.0" layoutY="250.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="90.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="20.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="90.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="18.0" minWidth="6.0" prefWidth="18.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="104.0" minWidth="10.0" prefWidth="90.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="20.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="90.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Button fx:id="btnCrear" mnemonicParsing="false" onAction="#crearCliente" prefHeight="32.0" prefWidth="82.0" text="Crear" />
+            <Button fx:id="btnActualizar" mnemonicParsing="false" onAction="#actualizarCliente" text="Actualizar" GridPane.columnIndex="2" />
+            <Button fx:id="btnEliminar" mnemonicParsing="false" onAction="#eliminarCliente" prefHeight="32.0" prefWidth="80.0" text="Eliminar" GridPane.columnIndex="4" />
+            <Button fx:id="btnLimpiar" mnemonicParsing="false" onAction="#limpiarCampo" prefHeight="32.0" prefWidth="80.0" text="Limpiar" GridPane.columnIndex="6" />
+         </children>
+      </GridPane>
+      <ImageView fitHeight="87.0" fitWidth="114.0" layoutX="28.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/logo.PNG" />
+         </image>
+      </ImageView>
+      <Label layoutX="297.0" layoutY="34.0" text="GESTIÓN  DE VENTAS">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
