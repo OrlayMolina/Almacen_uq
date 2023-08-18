@@ -46,9 +46,9 @@ public class Persistencia {
         }
     }
 
-    public void guardarClienteJuridico(ArrayList<ClienteJuridico> listaClientesNaturales) throws IOException {
+    public void guardarClienteJuridico(ArrayList<ClienteJuridico> listaClientesJuridico) throws IOException {
         StringBuilder contenido = new StringBuilder();
-        for(ClienteJuridico n : listaClientesNaturales){
+        for(ClienteJuridico n : listaClientesJuridico){
             contenido.append(n.getNombres()).append("--").
                     append(n.getApellidos()).append("--").
                     append(n.getIdentificacion()).append("--").

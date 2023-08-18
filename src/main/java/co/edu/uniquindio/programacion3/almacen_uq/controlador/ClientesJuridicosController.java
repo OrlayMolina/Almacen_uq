@@ -29,7 +29,7 @@ public class ClientesJuridicosController implements Initializable {
     private final ObservableList<ClienteJuridico> listaClientesJuridicos = FXCollections.observableArrayList();
 
     private ClienteJuridico clienteJuridico;
-    private ClienteJuridicoSubController subController;
+    private ClienteJuridicoSubController juridicoSubController;
     private Persistencia persistencia = new Persistencia();
 
 
@@ -139,7 +139,7 @@ public class ClientesJuridicosController implements Initializable {
         clienteTemporal.setTelefono(telefono);
         clienteTemporal.setNit(nit);
 
-        cliente = subController.crearClienteJuridico(clienteTemporal);
+        cliente = juridicoSubController.crearClienteJuridico(clienteTemporal);
 
         if(cliente != null){
             listaClientesJuridicos.add(cliente);
@@ -164,11 +164,11 @@ public class ClientesJuridicosController implements Initializable {
     }
 
     public ObservableList<ClienteJuridico> getClientesJuridicos() {
-        listaClientesJuridicos.addAll(subController.obtenerClientesJuridicos());
+        listaClientesJuridicos.addAll(juridicoSubController.obtenerClientesJuridicos());
         return listaClientesJuridicos;
     }
 
-    private void inicializarProcesamientosView() {
+    private void inicializarJuridicosView() {
 
         colNombres.setCellValueFactory(new PropertyValueFactory<>("nombres"));
         colApellidos.setCellValueFactory(new PropertyValueFactory<>("apellidos"));
@@ -227,11 +227,11 @@ public class ClientesJuridicosController implements Initializable {
         aler.showAndWait();
     }
 
-    public void datosIniciales(){
+    public void datosInicialesJuridico(){
         Factory factory = Factory.getInstance();
-        subController = new ClienteJuridicoSubController(factory);
-        new ClientesController();
-        inicializarProcesamientosView();
+        juridicoSubController = new ClienteJuridicoSubController(factory);
+        new ClientesJuridicosController();
+        inicializarJuridicosView();
     }
 
     public void cerrarVentana(Button btn) {
@@ -241,7 +241,7 @@ public class ClientesJuridicosController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        datosIniciales();
+        datosInicialesJuridico();
     }
 
 }
