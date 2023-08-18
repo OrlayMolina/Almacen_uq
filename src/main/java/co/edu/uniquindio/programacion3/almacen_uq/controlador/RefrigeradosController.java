@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -59,6 +60,21 @@ public class RefrigeradosController {
 
     @FXML
     private TableView<ProductoRefrigerado> tableProdRefrigerado;
+
+    @FXML
+    private TextField txtCodigo;
+
+    @FXML
+    private TextField txtCodigoAprobacion;
+
+    @FXML
+    private TextField txtNombre;
+
+    @FXML
+    private TextField txtTemperaturaRefrigeracion;
+
+    @FXML
+    private TextField txtValorUnitario;
 
     @FXML
     void actualizarRefrigerado(ActionEvent event) {
