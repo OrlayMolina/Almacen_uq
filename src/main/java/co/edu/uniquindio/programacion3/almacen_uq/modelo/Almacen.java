@@ -7,6 +7,8 @@ public class Almacen {
     private ArrayList<ClienteNatural> listaClientesNaturales = new ArrayList<>();
     private ArrayList<ClienteJuridico> listaClientesJuridicos = new ArrayList<>();
 
+    //lista de productos refrigerados
+
     public Almacen() {
 
     }

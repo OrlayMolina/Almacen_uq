@@ -35,7 +35,7 @@ public class InicioProductosController {
 
     @FXML
     void menuRefrigerados(ActionEvent event) {
-        cerrarVentana(btnEnvasados);
+        cerrarVentana(btnRefrigerados);
         app.cargarVentanaProductosRefrigerados();
 
     }
