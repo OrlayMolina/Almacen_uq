@@ -1,11 +1,15 @@
 package co.edu.uniquindio.programacion3.almacen_uq.controlador;
 
+import co.edu.uniquindio.programacion3.almacen_uq.main.App;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 public class RefrigeradosController {
+
+    App app = new App();
 
     @FXML
     private Button btnActualizar;
@@ -39,7 +43,13 @@ public class RefrigeradosController {
 
     @FXML
     void menuInicioProductos(ActionEvent event) {
+        cerrarVentana(btnAtras);
+        app.cargarVentanaProductosInicio();
 
+    }
+    public void cerrarVentana(Button btn) {
+        Stage stage = (Stage) btn.getScene().getWindow();
+        stage.close();
     }
 
 }
