@@ -2,15 +2,24 @@ package co.edu.uniquindio.programacion3.almacen_uq.controlador;
 
 import co.edu.uniquindio.programacion3.almacen_uq.enumm.Pais;
 import co.edu.uniquindio.programacion3.almacen_uq.main.App;
+import co.edu.uniquindio.programacion3.almacen_uq.modelo.ClienteNatural;
 import co.edu.uniquindio.programacion3.almacen_uq.modelo.ProductoEnvasado;
+import co.edu.uniquindio.programacion3.almacen_uq.subcontrolador.EnvasadoSubController;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
+import java.time.LocalDate;
+
 public class EnvasadosController {
 
+
     App app = new App();
+    EnvasadoSubController envasadoSubController  = new EnvasadoSubController();
+    private final ObservableList<ProductoEnvasado> listaProductosEnvasados = FXCollections.observableArrayList();
 
     @FXML
     private Button btnActualizar;
@@ -38,6 +47,9 @@ public class EnvasadosController {
 
     @FXML
     private TextField txtCodigo;
+
+    @FXML
+    private TextField txtExistencias;
 
     @FXML
     private TextField txtNombreProducto;
@@ -77,12 +89,35 @@ public class EnvasadosController {
 
     public void guardarNuevoEnvasado(){
         ProductoEnvasado envasado;
-        ProductoEnvasado envasadoTemporal;
+        ProductoEnvasado envasadoTemporal = new ProductoEnvasado();
 
         String codigo = txtCodigo.getText();
         String nombreProducto = txtNombreProducto.getText();
         String descripcion = txaDescripcion.getText();
-        int valorUnitario = Integer.parseInt(txtValorUnitario.getText());
+        Double valorUnitario = Double.valueOf(txtValorUnitario.getText());
+        int existencias = Integer.parseInt(txtExistencias.getText());
+        LocalDate fechaEvasado = dataFechaEnvase.getValue();
+        String pesoEnvase = txtPesoEnvase.getText();
+        Pais pais = cmbPais.getSelectionModel().getSelectedItem();
+
+        envasadoTemporal.setCodigo(codigo);
+        envasadoTemporal.setNombreProducto(nombreProducto);
+        envasadoTemporal.setDescripcion(descripcion);
+        envasadoTemporal.setValorUnitario(valorUnitario);
+        envasadoTemporal.setExistencias(existencias);
+        envasadoTemporal.setFechaEnvasado(fechaEvasado);
+        envasadoTemporal.setPesoEnvase(pesoEnvase);
+        envasadoTemporal.setPais(pais);
+
+        envasado = envasadoSubController.crearProductoEnvasado(envasadoTemporal);
+
+        if(envasado != null){
+            listaProductosEnvasados .add(envasado);
+            //tableClientes.refresh();
+            // mensaje de confirmacion
+            //persistencia.guardarArchivoLog("Se guardado un cliente correctamente", 1, "La acción se ejecuto desde el método guardarClienteNatural de ClientesController.");
+
+        }
 
     }
 
