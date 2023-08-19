@@ -84,7 +84,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Button fx:id="btnSalir" layoutX="669.0" layoutY="446.0" mnemonicParsing="false" onAction="#salirAplicacion" text="SALIR" />
+      <Button fx:id="btnSalir" layoutX="669.0" layoutY="446.0" mnemonicParsing="false" onAction="#salirAplicacion" text="Salir" />
       <Label layoutX="400.0" layoutY="395.0" text="Cliente Juridico">
          <font>
             <Font size="18.0" />
