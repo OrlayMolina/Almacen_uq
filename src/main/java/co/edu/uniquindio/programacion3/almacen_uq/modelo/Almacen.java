@@ -6,7 +6,9 @@ public class Almacen {
 
     private ArrayList<ClienteNatural> listaClientesNaturales = new ArrayList<>();
     private ArrayList<ClienteJuridico> listaClientesJuridicos = new ArrayList<>();
-    private ArrayList<Venta> listaVentas = new ArrayList<>();
+
+    //lista de productos refrigerados
+    private ArrayList<ProductoRefrigerado> listaProductosRefrigerados = new ArrayList<>();
 
     public Almacen() {
 
@@ -55,7 +57,26 @@ public class Almacen {
         return cliente;
     }
 
+    public ProductoRefrigerado crearProductoRefrigerado(ProductoRefrigerado productoRefrigeradoTemporal){
+        ProductoRefrigerado producto = null; // OJO
+        boolean bandera = false;
 
+        if(bandera){
+            //Exception
+        } else {
+            producto = new ProductoRefrigerado();
+            producto.setCodigo(productoRefrigeradoTemporal.getCodigo());
+            producto.setNombreProducto(productoRefrigeradoTemporal.getNombreProducto());
+            producto.setValorUnitario(productoRefrigeradoTemporal.getValorUnitario());
+            producto.setCodigoAprobacion(productoRefrigeradoTemporal.getCodigoAprobacion());
+            producto.setTemRefrigeracion(productoRefrigeradoTemporal.getTemRefrigeracion());
+
+
+            getListaProductosRefrigerados().add(producto);
+        }
+
+        return producto;
+    }
 
     public ArrayList<ClienteNatural> getListaClientesNaturales() {
         return listaClientesNaturales;
@@ -65,8 +86,8 @@ public class Almacen {
         return listaClientesJuridicos;
     }
 
-    public ArrayList<Venta> getListaVenta() {
-        return listaVentas;
+    public ArrayList<ProductoRefrigerado> getListaProductosRefrigerados() {
+        return listaProductosRefrigerados;
     }
 
 }
