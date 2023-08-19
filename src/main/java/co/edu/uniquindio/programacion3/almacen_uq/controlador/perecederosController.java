@@ -1,5 +1,12 @@
 package co.edu.uniquindio.programacion3.almacen_uq.controlador;
 
+import co.edu.uniquindio.programacion3.almacen_uq.main.App;
+import co.edu.uniquindio.programacion3.almacen_uq.modelo.ProductoEnvasado;
+import co.edu.uniquindio.programacion3.almacen_uq.modelo.ProductoPerecedero;
+import co.edu.uniquindio.programacion3.almacen_uq.modelo.ProductoRefrigerado;
+import co.edu.uniquindio.programacion3.almacen_uq.persistencia.Persistencia;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
@@ -8,26 +15,38 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.event.ActionEvent;
+import javafx.stage.Stage;
 
-public class clientesController {
+import java.time.LocalDate;
+
+public class perecederosController {
+
+    App app = new App();
+
+    private final ObservableList<ProductoEnvasado> listaProductosRefrigerado = FXCollections.observableArrayList();
+
+    private ProductoRefrigerado productoRefrigerado;
+    private ProductoRefrigerado subController;
+    private Persistencia persistencia = new Persistencia();
 
     @FXML
-    private TableColumn<?, ?> colExistencias;
+    private TableColumn<ProductoPerecedero, Integer> colExistencias;
 
     @FXML
-    private TableColumn<?, ?> colCodigo;
+    private TableColumn<ProductoPerecedero, String> colCodigo;
 
     @FXML
-    private TableColumn<?, ?> colFechaVencimiento;
+    private TableColumn<ProductoPerecedero, LocalDate> colFechaVencimiento;
 
     @FXML
     private Button btnLimpiarPerecedero;
 
     @FXML
-    private TableView<?> tablePerecederos;
+    private TableView<ProductoRefrigerado> tablePerecederos;
 
     @FXML
-    private TableColumn<?, ?> colNombre;
+    private TableColumn<ProductoPerecedero, String> colNombre;
 
     @FXML
     private TextField txtCodigo;
@@ -65,15 +84,6 @@ public class clientesController {
     @FXML
     private Button btnActualizarPerecedero;
 
-    @FXML
-    void ebebeb(ActionEvent event) {
-
-    }
-
-    @FXML
-    void ebebeb(ActionEvent event) {
-
-    }
 
     @FXML
     void crearPerecedero(ActionEvent event) {
@@ -100,4 +110,14 @@ public class clientesController {
 
     }
 
+    @FXML
+    void menuInicioProductos(ActionEvent event) {
+        cerrarVentana(btnSalirPrincipal);
+        app.cargarVentanaProductosInicio();
+
+    }
+    public void cerrarVentana(Button btn) {
+        Stage stage = (Stage) btn.getScene().getWindow();
+        stage.close();
+    }
 }
