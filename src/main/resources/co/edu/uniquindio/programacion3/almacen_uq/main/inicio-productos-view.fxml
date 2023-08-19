@@ -73,6 +73,9 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Button fx:id="btnSalir" layoutX="681.0" layoutY="446.0" mnemonicParsing="false" onAction="#clickSalir" text="Atrás" />
+      <Button fx:id="btnSalir" layoutX="673.0" layoutY="441.0" mnemonicParsing="false" onAction="#clickSalir" prefHeight="30.0" prefWidth="52.0" text="Atrás">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
    </children>
 </AnchorPane>

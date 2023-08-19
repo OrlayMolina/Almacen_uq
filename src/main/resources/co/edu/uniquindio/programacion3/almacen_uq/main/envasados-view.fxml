@@ -93,7 +93,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <TextField layoutX="177.0" layoutY="230.0" prefHeight="25.0" prefWidth="48.0" />
+      <TextField fx:id="txtExistencias" layoutX="177.0" layoutY="230.0" prefHeight="25.0" prefWidth="48.0" promptText="Disp ..." />
       <ImageView fitHeight="90.0" fitWidth="132.0" layoutX="15.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img/logo.PNG" />
