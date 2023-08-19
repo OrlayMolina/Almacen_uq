@@ -6,6 +6,7 @@ public class Almacen {
 
     private ArrayList<ClienteNatural> listaClientesNaturales = new ArrayList<>();
     private ArrayList<ClienteJuridico> listaClientesJuridicos = new ArrayList<>();
+    private ArrayList<Venta> listaVentas = new ArrayList<>();
 
     public Almacen() {
 
@@ -54,12 +55,18 @@ public class Almacen {
         return cliente;
     }
 
+
+
     public ArrayList<ClienteNatural> getListaClientesNaturales() {
         return listaClientesNaturales;
     }
 
     public ArrayList<ClienteJuridico> getListaClientesJuridicos() {
         return listaClientesJuridicos;
+    }
+
+    public ArrayList<Venta> getListaVenta() {
+        return listaVentas;
     }
 
 }
