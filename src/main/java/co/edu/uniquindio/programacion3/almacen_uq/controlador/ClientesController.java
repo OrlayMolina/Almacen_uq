@@ -147,7 +147,7 @@ public class ClientesController implements Initializable {
             listaClientesNaturales.add(cliente);
             tableClientes.refresh();
             // mensaje de confirmacion
-            persistencia.guardarArchivoLog("Se guardado un cliente correctamente", 1, "La acción se ejecuto desde el método guardarClienteNatural de ClientesController.");
+            //persistencia.guardarArchivoLog("Se guardado un cliente correctamente", 1, "La acción se ejecuto desde el método guardarClienteNatural de ClientesController.");
 
         }
 
