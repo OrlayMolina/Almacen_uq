@@ -14,13 +14,14 @@ public class Persistencia {
 
     // OJO, tener el cuenta cambiar la ruta donde se almacenan los archivos.
 
-    public static final String rutaArchivos = "C:\\Users\\Orlay.molina\\programacion3\\almacen\\src\\main\\java\\co\\edu\\uniquindio\\programacion3\\almacen_uq\\archivos\\archivosCliente.txt";
 
-    public static final String rutaLog = "C:\\Users\\Orlay.molina\\programacion3\\almacen\\src\\main\\java\\co\\edu\\uniquindio\\programacion3\\almacen_uq\\archivos\\ClienteLog.txt";
+    public static final String rutaArchivos = "C:\\Users\\lenovo\\Desktop\\Proyecto Inicial git\\Almacen_uq\\src\\main\\java\\co\\edu\\uniquindio\\programacion3\\almacen_uq\\archivos\\Cliente.txt";
 
-    public static final String rutaArchivosClienteJuridico ="C:\\Users\\Orlay.molina\\programacion3\\almacen\\src\\main\\java\\co\\edu\\uniquindio\\programacion3\\almacen_uq\\archivos\\ClienteJuridico.txt";
+    public static final String rutaLog = "C:\\Users\\lenovo\\Desktop\\Proyecto Inicial git\\Almacen_uq\\src\\main\\java\\co\\edu\\uniquindio\\programacion3\\almacen_uq\\archivos\\ClienteLog.txt";
 
-    public static final String rutaLogClienteJuridico = "C:\\Users\\Orlay.molina\\programacion3\\almacen\\src\\main\\java\\co\\edu\\uniquindio\\programacion3\\almacen_uq\\archivos\\ClienteJuridicoLog.txt";
+    public static final String rutaArchivosClienteJuridico ="C:\\Users\\lenovo\\Desktop\\Proyecto Inicial git\\Almacen_uq\\src\\main\\java\\co\\edu\\uniquindio\\programacion3\\almacen_uq\\archivos\\ClienteJuridico.txt";
+
+    public static final String rutaLogClienteJuridico = "C:\\Users\\lenovo\\Desktop\\Proyecto Inicial git\\Almacen_uq\\src\\main\\java\\co\\edu\\uniquindio\\programacion3\\almacen_uq\\archivos\\ClienteJuridicoLog.txt";
 
 
     public void guardarArchivoLog(String mensajeLog, int nivel, String accion){

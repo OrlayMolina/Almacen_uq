@@ -1,9 +1,11 @@
 package co.edu.uniquindio.programacion3.almacen_uq.controlador;
 
+import co.edu.uniquindio.programacion3.almacen_uq.enumm.Pais;
 import co.edu.uniquindio.programacion3.almacen_uq.main.App;
+import co.edu.uniquindio.programacion3.almacen_uq.modelo.ProductoEnvasado;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 public class EnvasadosController {
@@ -12,6 +14,9 @@ public class EnvasadosController {
 
     @FXML
     private Button btnActualizar;
+
+    @FXML
+    private Button btnAtras;
 
     @FXML
     private Button btnCrear;
@@ -23,7 +28,26 @@ public class EnvasadosController {
     private Button btnLimpiar;
 
     @FXML
-    private Button btnAtras;
+    private ComboBox<Pais> cmbPais;
+
+    @FXML
+    private DatePicker dataFechaEnvase;
+
+    @FXML
+    private TextArea txaDescripcion;
+
+    @FXML
+    private TextField txtCodigo;
+
+    @FXML
+    private TextField txtNombreProducto;
+
+    @FXML
+    private TextField txtPesoEnvase;
+
+    @FXML
+    private TextField txtValorUnitario;
+
 
     @FXML
     void menuInicioProductos(ActionEvent event) {
@@ -48,6 +72,17 @@ public class EnvasadosController {
 
     @FXML
     void limpiarCampo(ActionEvent event) {
+
+    }
+
+    public void guardarNuevoEnvasado(){
+        ProductoEnvasado envasado;
+        ProductoEnvasado envasadoTemporal;
+
+        String codigo = txtCodigo.getText();
+        String nombreProducto = txtNombreProducto.getText();
+        String descripcion = txaDescripcion.getText();
+        int valorUnitario = Integer.parseInt(txtValorUnitario.getText());
 
     }
 
