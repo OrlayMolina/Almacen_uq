@@ -6,6 +6,7 @@ public class Almacen {
 
     private ArrayList<ClienteNatural> listaClientesNaturales = new ArrayList<>();
     private ArrayList<ClienteJuridico> listaClientesJuridicos = new ArrayList<>();
+    private ArrayList<ProductoEnvasado> listaproductosEnvasados = new ArrayList<>();
 
     //lista de productos refrigerados
     private ArrayList<ProductoRefrigerado> listaProductosRefrigerados = new ArrayList<>();
@@ -78,6 +79,29 @@ public class Almacen {
         return producto;
     }
 
+    public ProductoEnvasado crearProductoEnvasado(ProductoEnvasado envasadoTemporal){
+        ProductoEnvasado envasado = null; // OJO
+        boolean bandera = false;
+
+        if(bandera){
+            //Exception
+        } else {
+            envasado = new ProductoEnvasado();
+            envasado.setCodigo(envasadoTemporal.getCodigo());
+            envasado.setNombreProducto(envasadoTemporal.getNombreProducto());
+            envasado.setDescripcion(envasadoTemporal.getDescripcion());
+            envasado.setValorUnitario(envasadoTemporal.getValorUnitario());
+            envasado.setExistencias(envasadoTemporal.getExistencias());
+            envasado.setFechaEnvasado(envasadoTemporal.getFechaEnvasado());
+            envasado.setPesoEnvase(envasadoTemporal.getPesoEnvase());
+            envasado.setPais(envasadoTemporal.getPais());
+
+            getListaProductosEnvasados().add(envasado);
+        }
+
+        return envasado;
+    }
+
     public ArrayList<ClienteNatural> getListaClientesNaturales() {
         return listaClientesNaturales;
     }
@@ -88,6 +112,10 @@ public class Almacen {
 
     public ArrayList<ProductoRefrigerado> getListaProductosRefrigerados() {
         return listaProductosRefrigerados;
+    }
+
+    public ArrayList<ProductoEnvasado> getListaProductosEnvasados() {
+        return listaproductosEnvasados;
     }
 
 }

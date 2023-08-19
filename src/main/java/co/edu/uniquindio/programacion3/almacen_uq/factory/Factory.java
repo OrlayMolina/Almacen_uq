@@ -4,6 +4,7 @@ import co.edu.uniquindio.programacion3.almacen_uq.controlador.ClientesController
 import co.edu.uniquindio.programacion3.almacen_uq.modelo.Almacen;
 import co.edu.uniquindio.programacion3.almacen_uq.modelo.ClienteJuridico;
 import co.edu.uniquindio.programacion3.almacen_uq.modelo.ClienteNatural;
+import co.edu.uniquindio.programacion3.almacen_uq.modelo.ProductoEnvasado;
 import co.edu.uniquindio.programacion3.almacen_uq.persistencia.Persistencia;
 import co.edu.uniquindio.programacion3.almacen_uq.subcontrolador.ClienteJuridicoSubController;
 
@@ -27,6 +28,7 @@ public class Factory {
     public Factory(){
         cargarDatos();
         cargarDatosJuridico();
+        cargarDatosEnvasados();
     }
 
 
@@ -51,6 +53,19 @@ public class Factory {
             ArrayList<ClienteJuridico> cliente;
             cliente = persistencia.cargarClienteJuridico();
             getAlmacen().getListaClientesJuridicos().addAll(cliente);
+        }catch(Exception e){
+            e.printStackTrace(); // crear mensaje de error
+        }
+    }
+
+    public void cargarDatosEnvasados(){
+
+        this.almacen = new Almacen();
+
+        try{
+            ArrayList<ProductoEnvasado> envasado;
+            envasado = persistencia.cargarEnvasados();
+            getAlmacen().getListaProductosEnvasados().addAll(envasado);
         }catch(Exception e){
             e.printStackTrace(); // crear mensaje de error
         }
@@ -82,6 +97,19 @@ public class Factory {
         return cliente;
     }
 
+    public ProductoEnvasado crearProductoEnvasado(ProductoEnvasado envasadoTemporal){
+        ProductoEnvasado envasado = null; // OJO
+        try{
+            envasado = getAlmacen().crearProductoEnvasado(envasadoTemporal);
+            persistencia.guardarProductosEnvasados(getListaProductosEnvasados());
+
+        }catch(Exception e){
+            e.printStackTrace(); //Crear exception
+        }
+
+        return envasado;
+    }
+
     public Almacen getAlmacen(){
         return almacen;
     }
@@ -92,5 +120,9 @@ public class Factory {
 
     public ArrayList<ClienteJuridico> getListaClientesJuridicos() {
         return getAlmacen().getListaClientesJuridicos();
+    }
+
+    public ArrayList<ProductoEnvasado> getListaProductosEnvasados() {
+        return getAlmacen().getListaProductosEnvasados() ;
     }
 }
