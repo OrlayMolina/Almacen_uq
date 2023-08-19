@@ -2,19 +2,19 @@ package co.edu.uniquindio.programacion3.almacen_uq.modelo;
 
 public class ProductoRefrigerado extends Producto{
 
-    private String codigoHabilitacion;
+    private String codigoAprobacion;
     private String temRefrigeracion;
 
     public ProductoRefrigerado(){
 
     }
 
-    public String getCodigoHabilitacion() {
-        return codigoHabilitacion;
+    public String getCodigoAprobacion() {
+        return codigoAprobacion;
     }
 
-    public void setCodigoHabilitacion(String codigoHabilitacion) {
-        this.codigoHabilitacion = codigoHabilitacion;
+    public void setCodigoAprobacion(String codigoHabilitacion) {
+        this.codigoAprobacion = codigoHabilitacion;
     }
 
     public String getTemRefrigeracion() {
