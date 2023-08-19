@@ -30,9 +30,10 @@ public class InicioProductosController {
 
     @FXML
     void menuPerecederos(ActionEvent event) {
+        cerrarVentana(btnPerecederos);
+        app.cargarVentanaPerecederos();
 
     }
-
     @FXML
     void menuRefrigerados(ActionEvent event) {
         cerrarVentana(btnRefrigerados);

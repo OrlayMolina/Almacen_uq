@@ -18,8 +18,8 @@
 
 <AnchorPane fx:id="btnCrear" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.programacion3.almacen_uq.controlador.RefrigeradosController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ebebeb" height="49.0" layoutX="15.0" layoutY="226.0" stroke="BLACK" strokeType="INSIDE" width="769.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ebebeb" height="137.0" layoutX="15.0" layoutY="79.0" stroke="BLACK" strokeType="INSIDE" width="769.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ebebeb" height="49.0" layoutX="15.0" layoutY="226.0" stroke="#8a8585" strokeType="INSIDE" width="769.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ebebeb" height="130.0" layoutX="15.0" layoutY="86.0" stroke="#868080" strokeType="INSIDE" width="769.0" />
       <GridPane layoutX="28.0" layoutY="88.0" prefHeight="117.0" prefWidth="448.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="119.0" minWidth="10.0" prefWidth="118.0" />
@@ -74,7 +74,7 @@
             </Label>
          </children>
       </GridPane>
-      <Label layoutX="176.0" layoutY="32.0" text="GESTION DE PRODUCTOS REFRIGERADOS">
+      <Label layoutX="176.0" layoutY="19.0" text="GESTION DE PRODUCTOS REFRIGERADOS">
          <font>
             <Font size="24.0" />
          </font>
