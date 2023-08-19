@@ -6,43 +6,47 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-public class InicioProductosController {
+public class VentasController {
 
     App app = new App();
 
     @FXML
-    private Button btnEnvasados;
+    private Button btnActualizar;
 
     @FXML
-    private Button btnPerecederos;
+    private Button btnCrear;
 
     @FXML
-    private Button btnRefrigerados;
+    private Button btnEliminar;
+
+    @FXML
+    private Button btnLimpiar;
 
     @FXML
     private Button btnSalir;
 
     @FXML
-    void menuEnvasados(ActionEvent event) {
-        cerrarVentana(btnEnvasados);
-        app.cargarVentanaProductosEnvasados();
-    }
-
-    @FXML
-    void menuPerecederos(ActionEvent event) {
-        cerrarVentana(btnPerecederos);
-        app.cargarVentanaPerecederos();
-
-    }
-    @FXML
-    void menuRefrigerados(ActionEvent event) {
-        cerrarVentana(btnRefrigerados);
-        app.cargarVentanaProductosRefrigerados();
+    void actualizarCliente(ActionEvent event) {
 
     }
 
     @FXML
-    void clickSalir(ActionEvent event) {
+    void crearCliente(ActionEvent event) {
+
+    }
+
+    @FXML
+    void eliminarCliente(ActionEvent event) {
+
+    }
+
+    @FXML
+    void limpiarCampo(ActionEvent event) {
+
+    }
+
+    @FXML
+    void menuInicio(ActionEvent event) {
         cerrarVentana(btnSalir);
         app.cargarVentanaInicio();
     }
