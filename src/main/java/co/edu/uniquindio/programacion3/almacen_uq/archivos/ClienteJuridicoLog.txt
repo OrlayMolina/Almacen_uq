@@ -178,3 +178,13 @@ ago 17, 2023 2:15:04 P. M. co.edu.uniquindio.programacion3.almacen_uq.persisten
 INFORMACIÓN: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-08-17
 ago 17, 2023 2:15:06 P. M. co.edu.uniquindio.programacion3.almacen_uq.persistencia.ArchivoUtil guardarRegistroLog
 INFORMACIÓN: Cargar Ventana Login,La ventana se ha cargado exitosamente,2023-08-17
+ago 17, 2023 5:47:30 P. M. co.edu.uniquindio.programacion3.almacen_uq.persistencia.ArchivoUtil guardarRegistroLog
+INFORMACIÓN: La acción se ejecuto desde el método guardarClienteNatural de ClientesController.,Se guardado un cliente correctamente,2023-08-17
+ago 17, 2023 8:13:52 P. M. co.edu.uniquindio.programacion3.almacen_uq.persistencia.ArchivoUtil guardarRegistroLog
+INFORMACIÓN: La acción se ejecuto desde el método guardarClienteNatural de ClientesController.,Se guardado un cliente correctamente,2023-08-17
+ago 17, 2023 8:16:41 P. M. co.edu.uniquindio.programacion3.almacen_uq.persistencia.ArchivoUtil guardarRegistroLog
+INFORMACIÓN: La acción se ejecuto desde el método guardarClienteNatural de ClientesController.,Se guardado un cliente correctamente,2023-08-17
+ago 17, 2023 8:17:17 P. M. co.edu.uniquindio.programacion3.almacen_uq.persistencia.ArchivoUtil guardarRegistroLog
+INFORMACIÓN: La acción se ejecuto desde el método guardarClienteNatural de ClientesController.,Se guardado un cliente correctamente,2023-08-17
+ago 17, 2023 8:17:20 P. M. co.edu.uniquindio.programacion3.almacen_uq.persistencia.ArchivoUtil guardarRegistroLog
+INFORMACIÓN: La acción se ejecuto desde el método guardarClienteNatural de ClientesController.,Se guardado un cliente correctamente,2023-08-17
