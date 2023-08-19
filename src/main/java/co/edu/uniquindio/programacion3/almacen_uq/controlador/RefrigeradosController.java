@@ -5,6 +5,7 @@ import co.edu.uniquindio.programacion3.almacen_uq.main.App;
 import co.edu.uniquindio.programacion3.almacen_uq.modelo.ProductoRefrigerado;
 import co.edu.uniquindio.programacion3.almacen_uq.persistencia.Persistencia;
 
+import co.edu.uniquindio.programacion3.almacen_uq.subcontrolador.RefrigeradosSubController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -16,10 +17,10 @@ import javafx.stage.Stage;
 public class RefrigeradosController {
     App app = new App();
 
-    private final ObservableList<ProductoRefrigerado> listaProductosRefrigerado = FXCollections.observableArrayList();
+    private final ObservableList<ProductoRefrigerado> listaProductosRefrigerados = FXCollections.observableArrayList();
 
     private ProductoRefrigerado productoRefrigerado;
-    private ProductoRefrigerado subController;
+    private RefrigeradosSubController refrigeradosSubController;
     private Persistencia persistencia = new Persistencia();
 
     @FXML
@@ -112,10 +113,10 @@ public class RefrigeradosController {
         refrigeradoTemporal.setExistencias(existencias);
         refrigeradoTemporal.setDescripcion(descripcion);
 
-        refrigerado = subController.crearProductoRefrigerado(refrigeradoTemporal);
+        refrigerado = RefrigeradosSubController.crearProductoRefrigerado(refrigeradoTemporal);
 
         if (refrigerado != null){
-            listaProductosRefrigerado.add(refrigerado);
+            listaProductosRefrigerados.add(refrigerado);
             tableProdRefrigerado.refresh();
             // mensaje de confirmacion
             //persistencia.guardarArchivoLog("Se guardado un cliente correctamente", 1, "La acción se ejecuto desde el método guardarClienteNatural de ClientesController.");
@@ -129,6 +130,20 @@ public class RefrigeradosController {
     @FXML
     void limpiarCampo(ActionEvent event) {
 
+        txtCodigo.setText(null);
+        txtNombre.setText(null);
+        txtValorUnitario.setText(null);
+        txtCodigoAprobacion.setText(null);
+        txtTemperaturaRefrigeracion.setText(null);
+        txtExistencias.setText(null);
+        txtDescripcion.setText(null);
+
+
+    }
+    public ObservableList<ProductoRefrigerado> getProductosRegrigerados(){
+
+        listaProductosRefrigerados.addAll(RefrigeradosSubController.obtenerProductosRefrigerados());
+        return  listaProductosRefrigerados;
     }
 
 
