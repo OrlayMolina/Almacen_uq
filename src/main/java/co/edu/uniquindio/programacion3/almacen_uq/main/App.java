@@ -43,12 +43,12 @@ public class App extends Application {
             newStage.setResizable(false);
             newStage.setScene(scene);
             newStage.show();
-            persistencia.guardarArchivoLog(mensajeInformativo.INFORMACION_CARGAR_VENTANA, 1, "Cargar Ventana Login");
+            //persistencia.guardarArchivoLog(mensajeInformativo.INFORMACION_CARGAR_VENTANA, 1, "Cargar Ventana Login");
 
         } catch (Exception e) {
             e.printStackTrace();
-            persistencia.guardarArchivoLog(mensajeExcepcion.ERROR_CARGAR_VENTANA, 3,
-                    "Cargar Ventana Login" + e.getMessage());
+            /*persistencia.guardarArchivoLog(mensajeExcepcion.ERROR_CARGAR_VENTANA, 3,
+                    "Cargar Ventana Login" + e.getMessage());*/
         }
     }
 
@@ -65,12 +65,12 @@ public class App extends Application {
             newStage.setResizable(false);
             newStage.setScene(scene);
             newStage.show();
-            persistencia.guardarArchivoLog(mensajeInformativo.INFORMACION_CARGAR_VENTANA, 1, "Cargar Ventana Login");
+            //persistencia.guardarArchivoLog(mensajeInformativo.INFORMACION_CARGAR_VENTANA, 1, "Cargar Ventana Login");
 
         } catch (Exception e) {
             e.printStackTrace();
-            persistencia.guardarArchivoLog(mensajeExcepcion.ERROR_CARGAR_VENTANA, 3,
-                    "Cargar Ventana Login" + e.getMessage());
+            /*persistencia.guardarArchivoLog(mensajeExcepcion.ERROR_CARGAR_VENTANA, 3,
+                    "Cargar Ventana Login" + e.getMessage());*/
         }
     }
 
@@ -87,12 +87,12 @@ public class App extends Application {
             newStage.setResizable(false);
             newStage.setScene(scene);
             newStage.show();
-            persistencia.guardarArchivoLog(mensajeInformativo.INFORMACION_CARGAR_VENTANA, 1, "Cargar Ventana Login");
+            //persistencia.guardarArchivoLog(mensajeInformativo.INFORMACION_CARGAR_VENTANA, 1, "Cargar Ventana Login");
 
         } catch (Exception e) {
             e.printStackTrace();
-            persistencia.guardarArchivoLog(mensajeExcepcion.ERROR_CARGAR_VENTANA, 3,
-                    "Cargar Ventana Login" + e.getMessage());
+            /*persistencia.guardarArchivoLog(mensajeExcepcion.ERROR_CARGAR_VENTANA, 3,
+                    "Cargar Ventana Login" + e.getMessage());*/
         }
     }
 
@@ -109,12 +109,12 @@ public class App extends Application {
             newStage.setResizable(false);
             newStage.setScene(scene);
             newStage.show();
-            persistencia.guardarArchivoLog(mensajeInformativo.INFORMACION_CARGAR_VENTANA, 1, "Cargar Ventana Login");
+            //persistencia.guardarArchivoLog(mensajeInformativo.INFORMACION_CARGAR_VENTANA, 1, "Cargar Ventana Login");
 
         } catch (Exception e) {
             e.printStackTrace();
-            persistencia.guardarArchivoLog(mensajeExcepcion.ERROR_CARGAR_VENTANA, 3,
-                    "Cargar Ventana Login" + e.getMessage());
+            /*persistencia.guardarArchivoLog(mensajeExcepcion.ERROR_CARGAR_VENTANA, 3,
+                    "Cargar Ventana Login" + e.getMessage());*/
         }
     }
 
@@ -131,12 +131,12 @@ public class App extends Application {
             newStage.setResizable(false);
             newStage.setScene(scene);
             newStage.show();
-            persistencia.guardarArchivoLog(mensajeInformativo.INFORMACION_CARGAR_VENTANA, 1, "Cargar Ventana Login");
+            //persistencia.guardarArchivoLog(mensajeInformativo.INFORMACION_CARGAR_VENTANA, 1, "Cargar Ventana Login");
 
         } catch (Exception e) {
             e.printStackTrace();
-            persistencia.guardarArchivoLog(mensajeExcepcion.ERROR_CARGAR_VENTANA, 3,
-                    "Cargar Ventana Login" + e.getMessage());
+            /*persistencia.guardarArchivoLog(mensajeExcepcion.ERROR_CARGAR_VENTANA, 3,
+                    "Cargar Ventana Login" + e.getMessage());*/
         }
     }
     //metodo para la carga de la ventana de productos refrigerados modificado por ramirodeveloper
@@ -153,12 +153,12 @@ public class App extends Application {
             newStage.setResizable(false);
             newStage.setScene(scene);
             newStage.show();
-            persistencia.guardarArchivoLog(mensajeInformativo.INFORMACION_CARGAR_VENTANA, 1, "Cargar Ventana refrigerados-view");
+            //persistencia.guardarArchivoLog(mensajeInformativo.INFORMACION_CARGAR_VENTANA, 1, "Cargar Ventana refrigerados-view");
 
         } catch (Exception e) {
             e.printStackTrace();
-            persistencia.guardarArchivoLog(mensajeExcepcion.ERROR_CARGAR_VENTANA, 3,
-                    "Cargar Ventana Login" + e.getMessage());
+            /*persistencia.guardarArchivoLog(mensajeExcepcion.ERROR_CARGAR_VENTANA, 3,
+                    "Cargar Ventana Login" + e.getMessage());*/
         }
     }
 
@@ -175,12 +175,12 @@ public class App extends Application {
             newStage.setResizable(false);
             newStage.setScene(scene);
             newStage.show();
-            persistencia.guardarArchivoLog(mensajeInformativo.INFORMACION_CARGAR_VENTANA, 1, "Cargar Ventana Login");
+            //persistencia.guardarArchivoLog(mensajeInformativo.INFORMACION_CARGAR_VENTANA, 1, "Cargar Ventana Login");
 
         } catch (Exception e) {
             e.printStackTrace();
-            persistencia.guardarArchivoLog(mensajeExcepcion.ERROR_CARGAR_VENTANA, 3,
-                    "Cargar Ventana Login" + e.getMessage());
+            /*persistencia.guardarArchivoLog(mensajeExcepcion.ERROR_CARGAR_VENTANA, 3,
+                    "Cargar Ventana Login" + e.getMessage());*/
         }
     }
 
@@ -197,12 +197,12 @@ public class App extends Application {
             newStage.setResizable(false);
             newStage.setScene(scene);
             newStage.show();
-            persistencia.guardarArchivoLog(mensajeInformativo.INFORMACION_CARGAR_VENTANA, 1, "Cargar Ventana Login");
+            //persistencia.guardarArchivoLog(mensajeInformativo.INFORMACION_CARGAR_VENTANA, 1, "Cargar Ventana Login");
 
         } catch (Exception e) {
             e.printStackTrace();
-            persistencia.guardarArchivoLog(mensajeExcepcion.ERROR_CARGAR_VENTANA, 3,
-                    "Cargar Ventana Login" + e.getMessage());
+            /*persistencia.guardarArchivoLog(mensajeExcepcion.ERROR_CARGAR_VENTANA, 3,
+                    "Cargar Ventana Login" + e.getMessage());*/
         }
     }
 

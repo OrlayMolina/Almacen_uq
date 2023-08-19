@@ -145,7 +145,7 @@ public class ClientesJuridicosController implements Initializable {
             listaClientesJuridicos.add(cliente);
             tableClientes.refresh();
             // mensaje de confirmacion
-            persistencia.guardarArchivoLogJuridico("Se guardado un cliente correctamente", 1, "La acción se ejecuto desde el método guardarClienteNatural de ClientesController.");
+            //persistencia.guardarArchivoLogJuridico("Se guardado un cliente correctamente", 1, "La acción se ejecuto desde el método guardarClienteNatural de ClientesController.");
 
         }
 

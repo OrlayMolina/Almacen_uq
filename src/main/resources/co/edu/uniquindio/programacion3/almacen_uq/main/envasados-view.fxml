@@ -130,7 +130,7 @@
             <TableColumn prefWidth="197.0" text="Descripción" />
         </columns>
       </TableView>
-      <Button fx:id="btnAtras" layoutX="722.0" layoutY="458.0" mnemonicParsing="false" onAction="#menuInicioProductos" text="ATRÁS" />
+      <Button fx:id="btnAtras" layoutX="732.0" layoutY="458.0" mnemonicParsing="false" onAction="#menuInicioProductos" text="Atrás" />
    </children>
    <stylesheets>
       <URL value="@MenuBar.css" />
