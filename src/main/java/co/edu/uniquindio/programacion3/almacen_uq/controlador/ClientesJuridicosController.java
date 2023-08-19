@@ -105,8 +105,8 @@ public class ClientesJuridicosController implements Initializable {
     }
 
     @FXML
-    void crearCliente(ActionEvent event) {
-        guardarNuevoCliente();
+    void crearCliente(ActionEvent event) {guardarNuevoCliente();
+
     }
 
     @FXML

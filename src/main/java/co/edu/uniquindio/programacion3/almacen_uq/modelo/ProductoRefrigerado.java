@@ -24,4 +24,8 @@ public class ProductoRefrigerado extends Producto{
     public void setTemRefrigeracion(String temRefrigeracion) {
         this.temRefrigeracion = temRefrigeracion;
     }
+
+    public ProductoRefrigerado crearProductoRefrigerado(ProductoRefrigerado productoRefrigeradoTemporal) {
+        return productoRefrigeradoTemporal;
+    }
 }
