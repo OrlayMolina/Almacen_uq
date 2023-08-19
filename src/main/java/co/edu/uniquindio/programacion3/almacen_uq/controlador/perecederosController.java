@@ -18,6 +18,7 @@ import javafx.scene.layout.GridPane;
 import javafx.event.ActionEvent;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.time.LocalDate;
 
 public class perecederosController {
@@ -106,7 +107,9 @@ public class perecederosController {
     }
 
     @FXML
-    void btnSalirPrincipal(ActionEvent event) {
+    void btnSalirPrincipal(ActionEvent event)  throws IOException {
+        cerrarVentana(btnSalirPrincipal);
+        app.cargarVentanaProductosInicio();
 
     }
 
@@ -114,7 +117,6 @@ public class perecederosController {
     void menuInicioProductos(ActionEvent event) {
         cerrarVentana(btnSalirPrincipal);
         app.cargarVentanaProductosInicio();
-
     }
     public void cerrarVentana(Button btn) {
         Stage stage = (Stage) btn.getScene().getWindow();
