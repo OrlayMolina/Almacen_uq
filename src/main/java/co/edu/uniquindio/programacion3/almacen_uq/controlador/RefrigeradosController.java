@@ -9,10 +9,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -68,6 +65,12 @@ public class RefrigeradosController {
     private TextField txtCodigoAprobacion;
 
     @FXML
+    private TextArea txtDescripcion;
+
+    @FXML
+    private TextField txtExistencias;
+
+    @FXML
     private TextField txtNombre;
 
     @FXML
@@ -86,6 +89,43 @@ public class RefrigeradosController {
 
     }
 
+
+
+    public void guardarNuevoProductoRefrigerado(){
+
+        ProductoRefrigerado refrigerado;
+        ProductoRefrigerado refrigeradoTemporal = new ProductoRefrigerado();
+
+        String codigo = txtCodigo.getText();
+        String nombre = txtNombre.getText();
+        double valorUnitario = Double.parseDouble(txtValorUnitario.getText());
+        String codigoHabilitacion = txtCodigoAprobacion.getText();
+        String temperaturaRefrigeracion = txtTemperaturaRefrigeracion.getText();
+        int existencias = Integer.parseInt(txtExistencias.getText());
+        String descripcion = txtDescripcion.getText();
+
+        refrigeradoTemporal.setCodigo(codigo);
+        refrigeradoTemporal.setNombreProducto(nombre);
+        refrigeradoTemporal.setValorUnitario(valorUnitario);
+        refrigeradoTemporal.setCodigoAprobacion(codigoHabilitacion);
+        refrigeradoTemporal.setTemRefrigeracion(temperaturaRefrigeracion);
+        refrigeradoTemporal.setExistencias(existencias);
+        refrigeradoTemporal.setDescripcion(descripcion);
+
+        refrigerado = subController.crearProductoRefrigerado(refrigeradoTemporal);
+
+        if (refrigerado != null){
+            listaProductosRefrigerado.add(refrigerado);
+            tableProdRefrigerado.refresh();
+            // mensaje de confirmacion
+            //persistencia.guardarArchivoLog("Se guardado un cliente correctamente", 1, "La acción se ejecuto desde el método guardarClienteNatural de ClientesController.");
+
+        }
+
+
+
+
+    }
     @FXML
     void limpiarCampo(ActionEvent event) {
 

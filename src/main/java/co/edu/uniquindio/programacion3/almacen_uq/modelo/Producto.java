@@ -51,4 +51,6 @@ public class Producto {
     public void setExistencias(int existencias) {
         this.existencias = existencias;
     }
+
+
 }
