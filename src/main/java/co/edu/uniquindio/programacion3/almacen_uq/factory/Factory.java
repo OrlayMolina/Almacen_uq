@@ -1,10 +1,7 @@
 package co.edu.uniquindio.programacion3.almacen_uq.factory;
 
 import co.edu.uniquindio.programacion3.almacen_uq.controlador.ClientesController;
-import co.edu.uniquindio.programacion3.almacen_uq.modelo.Almacen;
-import co.edu.uniquindio.programacion3.almacen_uq.modelo.ClienteJuridico;
-import co.edu.uniquindio.programacion3.almacen_uq.modelo.ClienteNatural;
-import co.edu.uniquindio.programacion3.almacen_uq.modelo.ProductoEnvasado;
+import co.edu.uniquindio.programacion3.almacen_uq.modelo.*;
 import co.edu.uniquindio.programacion3.almacen_uq.persistencia.Persistencia;
 import co.edu.uniquindio.programacion3.almacen_uq.subcontrolador.ClienteJuridicoSubController;
 
@@ -16,6 +13,7 @@ public class Factory {
     private Almacen almacen = new Almacen();
     private Persistencia persistencia = new Persistencia();
     private ClientesController controller = new ClientesController();
+
 
     public static class SingletonHolder {
         private final static Factory eINSTANCE = new Factory();
@@ -110,6 +108,19 @@ public class Factory {
         return envasado;
     }
 
+    public ProductoRefrigerado crearProductoRefrigerado(ProductoRefrigerado refrigeradoTemporal){
+        ProductoRefrigerado refrigerado = null; // OJO
+        try{
+            refrigerado = getAlmacen().crearProductoRefrigerado(refrigeradoTemporal);
+            persistencia.guardarProductosRefrigerados(getListaProductosRefrigerados());
+
+        }catch(Exception e){
+            e.printStackTrace(); //Crear exception
+        }
+
+        return refrigerado;
+    }
+
     public Almacen getAlmacen(){
         return almacen;
     }
@@ -124,5 +135,8 @@ public class Factory {
 
     public ArrayList<ProductoEnvasado> getListaProductosEnvasados() {
         return getAlmacen().getListaProductosEnvasados() ;
+    }
+    public ArrayList<ProductoRefrigerado> getListaProductosRefrigerados() {
+        return getAlmacen().getListaProductosRefrigerados();
     }
 }

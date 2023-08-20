@@ -1,10 +1,7 @@
 package co.edu.uniquindio.programacion3.almacen_uq.persistencia;
 
 import co.edu.uniquindio.programacion3.almacen_uq.enumm.Pais;
-import co.edu.uniquindio.programacion3.almacen_uq.modelo.Cliente;
-import co.edu.uniquindio.programacion3.almacen_uq.modelo.ClienteJuridico;
-import co.edu.uniquindio.programacion3.almacen_uq.modelo.ClienteNatural;
-import co.edu.uniquindio.programacion3.almacen_uq.modelo.ProductoEnvasado;
+import co.edu.uniquindio.programacion3.almacen_uq.modelo.*;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -29,6 +26,8 @@ public class Persistencia {
 
     public static final String rutaLogEnvasados = "C:\\Users\\Orlay.molina\\programacion3\\almacen\\src\\main\\java\\co\\edu\\uniquindio\\programacion3\\almacen_uq\\archivos\\EnvasadosLog.txt";
 
+    public static final String rutaLogRefrigerados = "C:\\Users\\Orlay.molina\\programacion3\\almacen\\src\\main\\java\\co\\edu\\uniquindio\\programacion3\\almacen_uq\\archivos\\EnvasadosLog.txt";
+    public static final String rutaRefrigerados = "C:\\Users\\Orlay.molina\\programacion3\\almacen\\src\\main\\java\\co\\edu\\uniquindio\\programacion3\\almacen_uq\\archivos\\EnvasadosLog.txt";
     public void guardarArchivoLog(String mensajeLog, int nivel, String accion){
         archivoUtil.guardarRegistroLog(mensajeLog, nivel, accion, rutaLog);
     }
@@ -83,6 +82,22 @@ public class Persistencia {
                     append(e.getPais()).append("\n");
 
             archivoUtil.guardarArchivo(rutaEnvasados, contenido.toString(),true);
+        }
+    }
+
+    public void guardarProductosRefrigerados(ArrayList<ProductoRefrigerado> listaProductosRefrigerados) throws IOException {
+        StringBuilder contenido = new StringBuilder();
+        for(ProductoRefrigerado e : listaProductosRefrigerados){
+            contenido.append(e.getCodigo()).append("--").
+                    append(e.getNombreProducto()).append("--").
+                    append(e.getDescripcion()).append("--").
+                    append(e.getValorUnitario()).append("--").
+                    append(e.getExistencias()).append("--").
+                    append(e.getCodigoAprobacion()).append("--").
+                    append(e.getTemRefrigeracion()).append("\n");
+
+
+            archivoUtil.guardarArchivo(rutaLogRefrigerados, contenido.toString(),true);
         }
     }
 

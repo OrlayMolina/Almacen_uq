@@ -11,9 +11,17 @@ public class RefrigeradosSubController {
     private Factory factory;
     private Almacen almacen;
 
-    /*public ArrayList<ProductoRefrigerado> obtenerCliente(){
+    public ArrayList<ProductoRefrigerado> obtenerProductosRefrigerados(){
         return factory.getListaProductosRefrigerados();
     }
-    */
+    public RefrigeradosSubController (Factory factory){
+        this.factory = factory;
+        almacen = factory.getAlmacen();
+    }
+
+
+
+
+
 
 }
