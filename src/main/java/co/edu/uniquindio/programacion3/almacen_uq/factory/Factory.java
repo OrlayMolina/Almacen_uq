@@ -81,17 +81,16 @@ public class Factory {
         }
     }
 
-    public ClienteNatural crearClienteNatural(ClienteNatural natural){
+    public void crearClienteNatural(ClienteNatural natural){
         ClienteNatural cliente = null; // OJO
         try{
-            cliente = getAlmacen().crearClienteNatural(natural);
-            persistencia.guardarCliente(getListaClientesNaturales());
+            //cliente = getAlmacen().crearClienteNatural(natural);
+            persistencia.guardarCliente(getListaClientesNaturales(), natural, 0);
 
         }catch(Exception e){
             e.printStackTrace(); //Crear exception
         }
 
-        return cliente;
     }
 
     public ClienteJuridico crearClienteJuridico(ClienteJuridico clienteTemporal){
@@ -144,12 +143,12 @@ public class Factory {
         return detalle;
     }
 
-    public boolean eliminarCliente(ClienteNatural clienteNatural) {
+    public boolean eliminarCliente(ClienteNatural natural) {
         boolean bandera = false;
 
         try{
-            bandera = getAlmacen().eliminarCliente(clienteNatural);
-            persistencia.guardarCliente(getListaClientesNaturales());
+            //bandera = getAlmacen().eliminarCliente(clienteNatural);
+            persistencia.guardarCliente(getListaClientesNaturales(), natural, 1);
             //persistencia.guardarArchivoLogEnvasados("Se ha eliminado el Cliente correctamente",1,"Dispositivo se ha eliminado con éxito");
         }catch(IOException e){
             System.out.println("Ha ocurrido un error de archivo.");
@@ -220,8 +219,8 @@ public class Factory {
         boolean bandera = false;
 
         try{
-            bandera = getAlmacen().actualizarCliente(natural);
-            persistencia.guardarCliente(getListaClientesNaturales());
+            //bandera = getAlmacen().actualizarCliente(natural);
+            persistencia.guardarCliente(getListaClientesNaturales(), natural, 2);
             //persistencia.guardarArchivoLog("Se ha actualizado un cliente",1,"Cliente se ha actualizado con éxito");
         }catch(IOException e){
             System.out.println("Ha ocurrido un error de archivo.");

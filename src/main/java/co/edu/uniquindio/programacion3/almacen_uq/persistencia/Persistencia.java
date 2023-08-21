@@ -54,8 +54,17 @@ public class Persistencia {
         archivoUtil.guardarRegistroLog(mensajeLog, nivel, accion, rutaLogVentaDetalle);
     }
 
-    public void guardarCliente(ArrayList<ClienteNatural> listaClientesNaturales) throws IOException {
+    public void guardarCliente(ArrayList<ClienteNatural> listaClientesNaturales, ClienteNatural natural, int accion) throws IOException {
         StringBuilder contenido = new StringBuilder();
+
+        if(accion == 0) {
+            listaClientesNaturales.add(natural);
+        }else if (accion == 1) {
+            listaClientesNaturales.removeIf(p -> p.getIdentificacion().equals(natural.getIdentificacion()));
+        }else {
+            actualizarClientesNaturales(listaClientesNaturales, natural);
+        }
+
         for (ClienteNatural n : listaClientesNaturales) {
             contenido.append(n.getNombres()).append("--").
                     append(n.getApellidos()).append("--").
@@ -64,9 +73,8 @@ public class Persistencia {
                     append(n.getTelefono()).append("--").
                     append(n.getFechaNacimiento()).append("--").
                     append(n.getEmail()).append("\n");
-
-            archivoUtil.guardarArchivo(rutaArchivos, contenido.toString(), false);
         }
+        archivoUtil.guardarArchivo(rutaArchivos, contenido.toString(), false);
     }
 
     public void guardarVentaDetalle(ArrayList<VentaDetalle> listaVentaDetalle) throws IOException {
@@ -132,7 +140,7 @@ public class Persistencia {
      * @param listaProductosEnvasados
      * @param productoEnvasado producto a modificar
      */
-    private void actualizarProductoEnvasado (ArrayList<ProductoEnvasado> listaProductosEnvasados, ProductoEnvasado productoEnvasado){
+    private void actualizarProductoEnvasado(ArrayList<ProductoEnvasado> listaProductosEnvasados, ProductoEnvasado productoEnvasado){
         for (ProductoEnvasado e : listaProductosEnvasados) {
             if(e.getCodigo().equals(productoEnvasado.getCodigo())){
                 e.setFechaEnvasado(productoEnvasado.getFechaEnvasado());
@@ -142,6 +150,24 @@ public class Persistencia {
                 e.setDescripcion(productoEnvasado.getDescripcion());
                 e.setPais(productoEnvasado.getPais());
                 e.setValorUnitario(productoEnvasado.getValorUnitario());
+            }
+        }
+    }
+
+    /**
+     * Método para actualizar al cliente natural
+     * @param listaClientesNaturales
+     * @param natural cliente natural a modificar
+     */
+    private void actualizarClientesNaturales(ArrayList<ClienteNatural> listaClientesNaturales, ClienteNatural natural){
+        for (ClienteNatural e : listaClientesNaturales) {
+            if(e.getNombres().equals(natural.getNombres())){
+                e.setApellidos(natural.getApellidos());
+                e.setIdentificacion(natural.getIdentificacion());
+                e.setDireccion(natural.getDireccion());
+                e.setTelefono(natural.getTelefono());
+                e.setFechaNacimiento(natural.getFechaNacimiento());
+                e.setEmail(natural.getEmail());
             }
         }
     }

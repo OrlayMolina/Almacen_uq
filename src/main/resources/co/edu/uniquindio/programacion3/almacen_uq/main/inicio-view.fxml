@@ -12,7 +12,7 @@
 
 <AnchorPane prefHeight="500.0" prefWidth="800.0" styleClass="background" stylesheets="@tema.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.programacion3.almacen_uq.controlador.InicioController">
    <children>
-      <GridPane layoutX="122.0" layoutY="287.0" prefHeight="68.0" prefWidth="529.0">
+      <GridPane layoutX="136.0" layoutY="287.0" prefHeight="68.0" prefWidth="529.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="25.0" />
@@ -64,28 +64,31 @@
             </Button>
          </children>
       </GridPane>
-      <ImageView fitHeight="227.0" fitWidth="338.0" layoutX="260.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="227.0" fitWidth="338.0" layoutX="250.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img/logo.PNG" />
          </image>
       </ImageView>
-      <Label layoutX="132.0" layoutY="395.0" text="Productos">
+      <Label layoutX="154.0" layoutY="395.0" text="Productos">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="250.0" layoutY="395.0" text="Cliente Natural">
+      <Label layoutX="271.0" layoutY="395.0" text="Cliente Natural">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="575.0" layoutY="395.0" text="Ventas">
+      <Label layoutX="588.0" layoutY="395.0" text="Ventas">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Button fx:id="btnSalir" layoutX="669.0" layoutY="441.0" mnemonicParsing="false" onAction="#salirAplicacion" styleClass="info" text="Salir" />
-      <Label layoutX="400.0" layoutY="395.0" text="Cliente Juridico">
+      <Button fx:id="btnSalir" layoutX="693.0" layoutY="431.0" mnemonicParsing="false" onAction="#salirAplicacion" prefHeight="38.0" prefWidth="54.0" styleClass="info" text="Salir">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
+      <Label layoutX="411.0" layoutY="395.0" text="Cliente Juridico">
          <font>
             <Font size="18.0" />
          </font>

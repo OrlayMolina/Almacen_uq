@@ -156,7 +156,6 @@ public class EnvasadosController implements Initializable {
         listaProductosEnvasados.add(envasado);
         tableEnvasados.refresh();
 
-
     }
 
     public void eliminarEnvasados() {

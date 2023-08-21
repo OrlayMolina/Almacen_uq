@@ -150,9 +150,9 @@
                   <Image url="@img/logo.PNG" />
                </image>
             </ImageView>
-            <Label layoutX="364.0" layoutY="28.0" prefHeight="35.0" prefWidth="101.0" text="VENTAS">
+            <Label layoutX="364.0" layoutY="26.0" prefHeight="35.0" prefWidth="101.0" text="VENTAS">
                <font>
-                  <Font name="System Bold" size="26.0" />
+                  <Font size="26.0" />
                </font>
             </Label>
             <Button fx:id="btnAtras" layoutX="741.0" layoutY="29.0" mnemonicParsing="false" onAction="#menuInicio" styleClass="info" text="Atrás" />
