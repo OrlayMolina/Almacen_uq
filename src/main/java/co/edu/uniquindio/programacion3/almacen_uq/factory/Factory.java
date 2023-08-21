@@ -360,7 +360,5 @@ public class Factory {
     public ArrayList<VentaDetalle> getListaVentaDetalles() {
         return getAlmacen().getListaVentaDetalles();
     }
-    public ArrayList<ProductoRefrigerado> getListaProductosRefrigerados() {
-        return getAlmacen().getListaProductosRefrigerados();
-    }
+
 }
