@@ -105,6 +105,12 @@ public class ClientesController implements Initializable {
     private TextField txtTelefono;
 
     @FXML
+    void salirClientes(ActionEvent event) throws IOException {
+        cerrarVentana(btnSalir);
+        app.cargarVentanaInicio();
+    }
+
+    @FXML
     void actualizarCliente(ActionEvent event) {
 
     }
@@ -121,14 +127,18 @@ public class ClientesController implements Initializable {
 
 
     @FXML
-    void salirClientes(ActionEvent event) throws IOException {
-        cerrarVentana(btnSalir);
-        app.cargarVentanaInicio();
+    void limpiarCampo(ActionEvent event) {
+        txtNombres.setText(null);
+        txtApellidos.setText(null);
+        txtIdentificacion.setText(null);
+        txtDireccion.setText(null);
+        txtTelefono.setText(null);
+        dateFechaNacimiento.setValue(null);
+        txtEmail.setText(null);
     }
 
     public void guardarNuevoCliente(){
-        ClienteNatural cliente;
-        ClienteNatural clienteTemporal = new ClienteNatural();
+        ClienteNatural cliente = new ClienteNatural();;
 
         String nombres = txtNombres.getText();
         String apellidos = txtApellidos.getText();
@@ -138,23 +148,20 @@ public class ClientesController implements Initializable {
         LocalDate fechaNacimiento = dateFechaNacimiento.getValue();
         String email = txtEmail.getText();
 
-        clienteTemporal.setNombres(nombres);
-        clienteTemporal.setApellidos(apellidos);
-        clienteTemporal.setIdentificacion(identificacion);
-        clienteTemporal.setDireccion(direccion);
-        clienteTemporal.setTelefono(telefono);
-        clienteTemporal.setFechaNacimiento(fechaNacimiento);
-        clienteTemporal.setEmail(email);
+        cliente.setNombres(nombres);
+        cliente.setApellidos(apellidos);
+        cliente.setIdentificacion(identificacion);
+        cliente.setDireccion(direccion);
+        cliente.setTelefono(telefono);
+        cliente.setFechaNacimiento(fechaNacimiento);
+        cliente.setEmail(email);
 
-        cliente = subController.crearCliente(clienteTemporal);
+        subController.crearCliente(cliente);
 
-        if(cliente != null){
-            listaClientesNaturales.add(cliente);
-            tableClientes.refresh();
-            // mensaje de confirmacion
-            //persistencia.guardarArchivoLog("Se guardado un ClienteNaturalcorrectamente", 1, "La acción se ejecuto desde el método guardarClienteNaturalde ClientesController.");
-
-        }
+        listaClientesNaturales.add(cliente);
+        tableClientes.refresh();
+        // mensaje de confirmacion
+        //persistencia.guardarArchivoLog("Se guardado un ClienteNaturalcorrectamente", 1, "La acción se ejecuto desde el método guardarClienteNaturalde ClientesController.");
 
     }
 
@@ -210,18 +217,6 @@ public class ClientesController implements Initializable {
                     "El ClienteNaturalno se pudo actualizar.", Alert.AlertType.WARNING);
         }
 
-    }
-
-
-    @FXML
-    void limpiarCampo(ActionEvent event) {
-        txtNombres.setText(null);
-        txtApellidos.setText(null);
-        txtIdentificacion.setText(null);
-        txtDireccion.setText(null);
-        txtTelefono.setText(null);
-        dateFechaNacimiento.setValue(null);
-        txtEmail.setText(null);
     }
 
 

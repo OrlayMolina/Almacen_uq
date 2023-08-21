@@ -26,8 +26,8 @@ public class ClienteSubController {
         almacen = factory.getAlmacen();
     }
 
-    public ClienteNatural crearCliente(ClienteNatural natural) {
-        return factory.crearClienteNatural(natural);
+    public void crearCliente(ClienteNatural natural) {
+        factory.crearClienteNatural(natural);
     }
 
     public boolean eliminarCliente(ClienteNatural natural) {

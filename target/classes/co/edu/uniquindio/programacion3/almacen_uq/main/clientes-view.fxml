@@ -2,14 +2,11 @@
 
 <?import java.net.URL?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -19,10 +16,10 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="548.0" prefWidth="800.0" styleClass="background" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.programacion3.almacen_uq.controlador.ClientesController">
+<AnchorPane prefHeight="500.0" prefWidth="800.0" styleClass="background" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.programacion3.almacen_uq.controlador.ClientesController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ebebeb" height="46.0" layoutX="36.0" layoutY="278.0" stroke="#cdc7c7" strokeType="INSIDE" width="739.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ebebeb" height="163.0" layoutX="36.0" layoutY="105.0" stroke="#bcb6b6" strokeType="INSIDE" width="739.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ebebeb" height="46.0" layoutX="36.0" layoutY="240.0" stroke="#cdc7c7" strokeType="INSIDE" width="739.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ebebeb" height="126.0" layoutX="36.0" layoutY="105.0" stroke="#bcb6b6" strokeType="INSIDE" width="739.0" />
       <Label layoutX="281.0" layoutY="40.0" text="GESTIÓN DE CLIENTES">
          <font>
             <Font size="24.0" />
@@ -33,7 +30,7 @@
             <Image url="@img/logo.PNG" />
          </image>
       </ImageView>
-      <GridPane layoutX="42.0" layoutY="149.0" prefHeight="115.0" prefWidth="726.0">
+      <GridPane layoutX="41.0" layoutY="115.0" prefHeight="115.0" prefWidth="726.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="120.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
@@ -66,17 +63,10 @@
             <TextField fx:id="txtEmail" prefHeight="40.0" prefWidth="120.0" promptText="Email ..." GridPane.columnIndex="6" GridPane.rowIndex="1" />
             <Label text="Dirección:" GridPane.columnIndex="4" GridPane.rowIndex="3" />
             <TextField fx:id="txtDireccion" prefHeight="34.0" prefWidth="120.0" promptText="Dirección ..." GridPane.columnIndex="4" GridPane.rowIndex="4" />
-            <ComboBox fx:id="cmbTipoIdentificacion" prefWidth="150.0" promptText="ID" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-            <Label text="Nit:" GridPane.columnIndex="6" GridPane.rowIndex="3">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <TextField fx:id="txtNit" promptText="Nit ..." GridPane.columnIndex="6" GridPane.rowIndex="4" />
 
          </children>
       </GridPane>
-       <GridPane layoutX="196.0" layoutY="286.0">
+       <GridPane layoutX="192.0" layoutY="248.0">
            <columnConstraints>
                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="90.0" />
                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="20.0" />
@@ -93,10 +83,10 @@
                <Button fx:id="btnCrear" mnemonicParsing="false" onAction="#crearCliente" prefHeight="32.0" prefWidth="82.0" styleClass="success" text="Crear" />
                <Button fx:id="btnActualizar" mnemonicParsing="false" onAction="#actualizarCliente" styleClass="warning" text="Actualizar" GridPane.columnIndex="2" />
                <Button fx:id="btnEliminar" mnemonicParsing="false" onAction="#eliminarCliente" prefHeight="32.0" prefWidth="80.0" styleClass="danger" text="Eliminar" GridPane.columnIndex="4" />
-               <Button fx:id="btnLimpiar" mnemonicParsing="false" onAction="#limpiarCampo" prefHeight="32.0" prefWidth="80.0" text="Limpiar" GridPane.columnIndex="6" />
+               <Button fx:id="btnLimpiar" mnemonicParsing="false" onAction="#limpiarCampo" prefHeight="32.0" prefWidth="80.0" styleClass="primary" text="Limpiar" GridPane.columnIndex="6" />
            </children>
        </GridPane>
-      <TableView fx:id="tableClientes" layoutX="37.0" layoutY="334.0" prefHeight="196.0" prefWidth="733.0">
+      <TableView fx:id="tableClientes" layoutX="36.0" layoutY="292.0" prefHeight="154.0" prefWidth="739.0">
         <columns>
           <TableColumn fx:id="colNombres" prefWidth="115.0" text="Nombres" />
           <TableColumn fx:id="colApellidos" prefWidth="103.0" text="Apellidos" />
@@ -105,17 +95,11 @@
             <TableColumn fx:id="colDireccion" prefWidth="102.0" text="Dirección" />
             <TableColumn fx:id="colTelefono" prefWidth="75.0" text="Teléfono" />
             <TableColumn fx:id="colFechaNacimiento" prefWidth="119.0" text="Fecha Nacimiento" />
-            <TableColumn fx:id="colEmail" prefWidth="86.0" text="Email" />
+            <TableColumn fx:id="colEmail" prefWidth="92.0" text="Email" />
         </columns>
       </TableView>
 
-       <Button fx:id="btnSalir" layoutX="712.0" layoutY="42.0" mnemonicParsing="false" onAction="#salirClientes" styleClass="info" text="Atrás" />
-      <RadioButton fx:id="rbNatural" layoutX="44.0" layoutY="117.0" mnemonicParsing="false" selected="true" text="Natural">
-         <toggleGroup>
-            <ToggleGroup fx:id="tipoCliente" />
-         </toggleGroup>
-      </RadioButton>
-      <RadioButton fx:id="rbJuridico" layoutX="121.0" layoutY="117.0" mnemonicParsing="false" text="Juridico" toggleGroup="$tipoCliente" />
+       <Button fx:id="btnSalir" layoutX="723.0" layoutY="454.0" mnemonicParsing="false" onAction="#salirClientes" styleClass="info" text="Atrás" />
    </children>
    <stylesheets>
       <URL value="@TableView.css" />

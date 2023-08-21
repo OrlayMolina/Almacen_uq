@@ -232,7 +232,7 @@ public class VentasController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         txtCodVenta.setText(UUID.randomUUID().toString());
         datosInicialesVentas();
-        btnActualizarVenta.setVisible(false);
-        btnEliminarVenta.setVisible(false);
+        //btnActualizarVenta.setVisible(false);
+        //btnEliminarVenta.setVisible(false);
     }
 }

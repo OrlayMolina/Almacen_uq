@@ -53,7 +53,7 @@ public class Almacen {
             cliente.setFechaNacimiento(cliente.getFechaNacimiento());
             cliente.setEmail(cliente.getEmail());
 
-            getListaClientesNaturales().add(cliente);
+            //getListaClientesNaturales().add(cliente);
         }
 
         return cliente;
@@ -146,7 +146,7 @@ public class Almacen {
         return detalle;
     }
 
-    public boolean eliminarCliente(ClienteNatural ClienteNatural) {
+    /*public boolean eliminarCliente(ClienteNatural ClienteNatural) {
         boolean bandera = false;
 
         if(ClienteNatural != null) {
@@ -156,9 +156,9 @@ public class Almacen {
             System.out.println("Cliente no existe");
         }
         return bandera;
-    }
+    }*/
 
-    public boolean eliminarEnvasado(ProductoEnvasado envasado) {
+    /*public boolean eliminarEnvasado(ProductoEnvasado envasado) {
         boolean bandera = false;
 
         if(envasado != null) {
@@ -168,7 +168,7 @@ public class Almacen {
             System.out.println("Procesamiento no existe");
         }
         return bandera;
-    }
+    }*/
 
     public boolean eliminarRefrigerado(ProductoRefrigerado refrigerado) {
         boolean bandera = false;
