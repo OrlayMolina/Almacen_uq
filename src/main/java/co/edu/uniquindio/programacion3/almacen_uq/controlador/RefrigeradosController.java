@@ -95,6 +95,13 @@ public class RefrigeradosController implements Initializable {
     private TextField txtValorUnitario;
 
     @FXML
+    void menuInicioProductos(ActionEvent event) {
+        cerrarVentana(btnAtras);
+        app.cargarVentanaProductosInicio();
+
+    }
+
+    @FXML
     void crearRefrigerado(ActionEvent event) {
         guardarNuevoRefrigerado();
     }
@@ -122,34 +129,36 @@ public class RefrigeradosController implements Initializable {
 
 
     public void guardarNuevoRefrigerado(){
+        ProductoRefrigerado refrigerado = new ProductoRefrigerado();;
 
-        ProductoRefrigerado refrigerado;
-        ProductoRefrigerado refrigeradoTemporal = new ProductoRefrigerado();
+        try {
+            String codigo = txtCodigo.getText();
+            String nombre = txtNombre.getText();
+            double valorUnitario = Double.parseDouble(txtValorUnitario.getText());
+            String codigoHabilitacion = txtCodigoAprobacion.getText();
+            String temperaturaRefrigeracion = txtTemperaturaRefrigeracion.getText();
+            int existencias = Integer.parseInt(txtExistencias.getText());
+            String descripcion = txtDescripcion.getText();
 
-        String codigo = txtCodigo.getText();
-        String nombre = txtNombre.getText();
-        double valorUnitario = Double.parseDouble(txtValorUnitario.getText());
-        String codigoHabilitacion = txtCodigoAprobacion.getText();
-        String temperaturaRefrigeracion = txtTemperaturaRefrigeracion.getText();
-        int existencias = Integer.parseInt(txtExistencias.getText());
-        String descripcion = txtDescripcion.getText();
+            refrigerado.setCodigo(codigo);
+            refrigerado.setNombreProducto(nombre);
+            refrigerado.setValorUnitario(valorUnitario);
+            refrigerado.setCodigoAprobacion(codigoHabilitacion);
+            refrigerado.setTemRefrigeracion(temperaturaRefrigeracion);
+            refrigerado.setExistencias(existencias);
+            refrigerado.setDescripcion(descripcion);
 
-        refrigeradoTemporal.setCodigo(codigo);
-        refrigeradoTemporal.setNombreProducto(nombre);
-        refrigeradoTemporal.setValorUnitario(valorUnitario);
-        refrigeradoTemporal.setCodigoAprobacion(codigoHabilitacion);
-        refrigeradoTemporal.setTemRefrigeracion(temperaturaRefrigeracion);
-        refrigeradoTemporal.setExistencias(existencias);
-        refrigeradoTemporal.setDescripcion(descripcion);
+            refrigeradoSubController.crearRefrigerado(refrigerado);
 
-        refrigerado = refrigeradoSubController.crearRefrigerado(refrigeradoTemporal);
-
-        if (refrigerado != null){
             listaProductosRefrigerado.add(refrigerado);
             tableProdRefrigerado.refresh();
-            // mensaje de confirmacion
             //persistencia.guardarArchivoLog("Se guardado un cliente correctamente", 1, "La acción se ejecuto desde el método guardarClienteNatural de ClientesController.");
+            mostrarMensaje("CREACIÓN", "Creación de Producto Refrigerado",
+                    "El Producto Refrigerado se ha creado correctamente", Alert.AlertType.INFORMATION);
 
+        }catch (Exception e){
+            mostrarMensaje("CREACIÓN","Creación de Producto Refrigerado.",
+                    "El Producto Refrigerado no se pudo actualizar.", Alert.AlertType.WARNING);
         }
 
     }
@@ -157,7 +166,7 @@ public class RefrigeradosController implements Initializable {
     public void eliminarRefrigerados() {
         boolean bandera = false, mensaje;
         if (productoRefrigerado != null) {
-            mensaje = mostrarMensajeConfirmacion("¿Está seguro que desea eliminar el procesamiento?.");
+            mensaje = mostrarMensajeConfirmacion("¿Está seguro que desea eliminar el producto?.");
             if (mensaje) {
                 bandera = refrigeradoSubController.eliminarRefrigerado(productoRefrigerado);
                 if (bandera) {
@@ -194,20 +203,18 @@ public class RefrigeradosController implements Initializable {
         refrigerado.setCodigoAprobacion(codigoHabilitacion);
         refrigerado.setTemRefrigeracion(temperatura);
 
+        bandera = refrigeradoSubController.actualizarRefrigerado(refrigerado);
 
-        if(refrigerado != null){
-            bandera = refrigeradoSubController.actualizarRefrigerado(refrigerado);
+        if(bandera){
 
-            if(bandera){
-
-                mostrarMensaje("ACTUALIZACIÓN","Actualización de Producto.",
-                        "El Producto se actualizó correctamente.", Alert.AlertType.INFORMATION);
-                tableProdRefrigerado.refresh();
-            }else {
-                mostrarMensaje("ACTUALIZACIÓN","Actualización de Producto.",
-                        "El Producto no se pudo actualizar.", Alert.AlertType.WARNING);
-            }
+            mostrarMensaje("ACTUALIZACIÓN","Actualización de Producto.",
+                    "El Producto se actualizó correctamente.", Alert.AlertType.INFORMATION);
+            tableProdRefrigerado.refresh();
+        }else {
+            mostrarMensaje("ACTUALIZACIÓN","Actualización de Producto.",
+                    "El Producto no se pudo actualizar.", Alert.AlertType.WARNING);
         }
+
     }
 
     public ObservableList<ProductoRefrigerado> getProductoRefrigerado() {
@@ -280,13 +287,6 @@ public class RefrigeradosController implements Initializable {
         refrigeradoSubController = new RefrigeradosSubController(factory);
         new RefrigeradosController();
         inicializarRefrigeradoView();
-    }
-
-    @FXML
-    void menuInicioProductos(ActionEvent event) {
-        cerrarVentana(btnAtras);
-        app.cargarVentanaProductosInicio();
-
     }
 
     public void cerrarVentana(Button btn) {

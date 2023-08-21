@@ -136,7 +136,7 @@ public class ClientesController implements Initializable {
     }
 
     public void guardarNuevoCliente(){
-        ClienteNatural cliente = new ClienteNatural();;
+        ClienteNatural cliente = new ClienteNatural();
 
         try {
             String nombres = txtNombres.getText();
@@ -164,7 +164,7 @@ public class ClientesController implements Initializable {
                     "El Cliente Natural se ha creado correctamente", Alert.AlertType.INFORMATION);
         }catch (Exception e){
             mostrarMensaje("CREACIÓN","Creación de Cliente Natural.",
-                    "El ClienteNaturalno se pudo actualizar.", Alert.AlertType.WARNING);
+                    "El ClientebNatural no se pudo actualizar.", Alert.AlertType.WARNING);
         }
 
     }

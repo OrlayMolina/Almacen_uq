@@ -12,6 +12,7 @@ public class Almacen {
     private ArrayList<ProductoEnvasado> listaproductosEnvasados = new ArrayList<>();
     private ArrayList<VentaDetalle> listaVentaDetalle = new ArrayList<>();
     //lista de productos refrigerados
+    private ArrayList<ProductoPerecedero> listaProductoPerecedero = new ArrayList<>();
     private ArrayList<ProductoRefrigerado> listaProductosRefrigerados = new ArrayList<>();
     private Persistencia persistencia;
 
@@ -37,7 +38,7 @@ public class Almacen {
         return false;
     }
 
-    public ClienteNatural crearClienteNatural(Cliente natural){
+    /*public ClienteNatural crearClienteNatural(Cliente natural){
         ClienteNatural cliente = null; // OJO
         boolean bandera = false;
 
@@ -57,7 +58,7 @@ public class Almacen {
         }
 
         return cliente;
-    }
+    }*/
 
     /*public ClienteJuridico crearClienteJuridico(ClienteJuridico clienteTemporal){
         ClienteJuridico juridico = null; // OJO
@@ -209,7 +210,7 @@ public class Almacen {
         return bandera;
     }*/
 
-    public boolean actualizarRefrigerado(ProductoRefrigerado refrigerado) {
+    /*public boolean actualizarRefrigerado(ProductoRefrigerado refrigerado) {
         ProductoRefrigerado actualizado = new ProductoRefrigerado();
         boolean bandera = false;
 
@@ -235,7 +236,7 @@ public class Almacen {
             System.out.println("Producto no existe");
         }
         return bandera;
-    }
+    }*/
 
     public ArrayList<ClienteNatural> getListaClientesNaturales() {
         return persistencia.cargarCliente();
@@ -246,11 +247,15 @@ public class Almacen {
     }
 
     public ArrayList<ProductoRefrigerado> getListaProductosRefrigerados() {
-        return listaProductosRefrigerados;
+        return persistencia.cargarRefrigerados();
     }
 
     public ArrayList<ProductoEnvasado> getListaProductosEnvasados() {
         return persistencia.cargarEnvasados();
+    }
+
+    public ArrayList<ProductoPerecedero> getListaProductosPerecederos() {
+        return persistencia.cargarPerecederos();
     }
 
     public ArrayList<VentaDetalle> getListaVentaDetalles() {
