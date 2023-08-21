@@ -11,17 +11,29 @@ public class RefrigeradosSubController {
     private Factory factory;
     private Almacen almacen;
 
-    public ArrayList<ProductoRefrigerado> obtenerProductosRefrigerados(){
+    public ArrayList<ProductoRefrigerado> obtenerRefrigerados(){
         return factory.getListaProductosRefrigerados();
     }
-    public RefrigeradosSubController (Factory factory){
+
+    public RefrigeradosSubController(){
+
+    }
+
+    public RefrigeradosSubController(Factory factory) {
         this.factory = factory;
         almacen = factory.getAlmacen();
     }
 
+    public void crearRefrigerado(ProductoRefrigerado refrigeradoTemporal) {
+        factory.crearRefrigerado(refrigeradoTemporal);
+    }
 
+    public boolean eliminarRefrigerado(ProductoRefrigerado refrigerado) {
+        return factory.eliminarRefrigerado(refrigerado);
+    }
 
-
-
+    public boolean actualizarRefrigerado(ProductoRefrigerado refrigerado) {
+        return factory.actualizarRefrigerado(refrigerado);
+    }
 
 }

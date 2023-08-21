@@ -21,6 +21,24 @@ public class Venta {
 
     }
 
+    /**
+     *
+     * @param codigo
+     * @param fecha
+     * @param cliente
+     * @param total
+     * @param iva
+     * @param listaVentaDetalles
+     */
+    public Venta( String codigo, LocalDate fecha, Cliente cliente, double total, double iva, ArrayList<VentaDetalle> listaVentaDetalles) {
+        this.listaVentaDetalles = listaVentaDetalles;
+        this.codigo = codigo;
+        this.fecha = fecha;
+        this.cliente = cliente;
+        this.total = total;
+        this.iva = iva;
+    }
+
     public ArrayList<VentaDetalle> getListaVentaDetalles() {
         return listaVentaDetalles;
     }

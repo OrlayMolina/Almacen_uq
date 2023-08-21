@@ -4,7 +4,6 @@ import co.edu.uniquindio.programacion3.almacen_uq.factory.Factory;
 import co.edu.uniquindio.programacion3.almacen_uq.main.App;
 import co.edu.uniquindio.programacion3.almacen_uq.modelo.Cliente;
 import co.edu.uniquindio.programacion3.almacen_uq.modelo.ClienteNatural;
-import co.edu.uniquindio.programacion3.almacen_uq.persistencia.Persistencia;
 import co.edu.uniquindio.programacion3.almacen_uq.subcontrolador.ClienteSubController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -27,10 +26,8 @@ public class ClientesController implements Initializable {
 
     private final ObservableList<ClienteNatural> listaClientesNaturales = FXCollections.observableArrayList();
 
-    private ClienteNatural clienteNatural;
+    private ClienteNatural cliente;
     private ClienteSubController subController;
-    private Persistencia persistencia = new Persistencia();
-
 
     @FXML
     private Button btnActualizar;
@@ -46,6 +43,15 @@ public class ClientesController implements Initializable {
 
     @FXML
     private Button btnSalir;
+
+    @FXML
+    private TextField txtNit;
+
+    @FXML
+    private RadioButton rbJuridico;
+
+    @FXML
+    private RadioButton rbNatural;
 
     @FXML
     private TableView<ClienteNatural> tableClientes;
@@ -89,8 +95,6 @@ public class ClientesController implements Initializable {
     @FXML
     private TextField txtIdentificacion;
 
-    @FXML
-    private TextField txtNit;
 
     @FXML
     private TextField txtNombres;
@@ -99,8 +103,14 @@ public class ClientesController implements Initializable {
     private TextField txtTelefono;
 
     @FXML
-    void actualizarCliente(ActionEvent event) {
+    void salirClientes(ActionEvent event) throws IOException {
+        cerrarVentana(btnSalir);
+        app.cargarVentanaInicio();
+    }
 
+    @FXML
+    void actualizarCliente(ActionEvent event) {
+        actualizarCliente();
     }
 
     @FXML
@@ -110,47 +120,7 @@ public class ClientesController implements Initializable {
 
     @FXML
     void eliminarCliente(ActionEvent event) {
-
-    }
-
-
-    @FXML
-    void salirClientes(ActionEvent event) throws IOException {
-        cerrarVentana(btnSalir);
-        app.cargarVentanaInicio();
-    }
-
-    public void guardarNuevoCliente(){
-        ClienteNatural cliente;
-        ClienteNatural clienteTemporal = new ClienteNatural();
-
-        String nombres = txtNombres.getText();
-        String apellidos = txtApellidos.getText();
-        String identificacion = txtIdentificacion.getText();
-        String direccion = txtDireccion.getText();
-        String telefono = txtTelefono.getText();
-        LocalDate fechaNacimiento = dateFechaNacimiento.getValue();
-        String email = txtEmail.getText();
-        String nit = txtNit.getText();
-
-        clienteTemporal.setNombres(nombres);
-        clienteTemporal.setApellidos(apellidos);
-        clienteTemporal.setIdentificacion(identificacion);
-        clienteTemporal.setDireccion(direccion);
-        clienteTemporal.setTelefono(telefono);
-        clienteTemporal.setFechaNacimiento(fechaNacimiento);
-        clienteTemporal.setEmail(email);
-
-        cliente = subController.crearCliente(clienteTemporal);
-
-        if(cliente != null){
-            listaClientesNaturales.add(cliente);
-            tableClientes.refresh();
-            // mensaje de confirmacion
-            //persistencia.guardarArchivoLog("Se guardado un cliente correctamente", 1, "La acción se ejecuto desde el método guardarClienteNatural de ClientesController.");
-
-        }
-
+        eliminarCliente();
     }
 
 
@@ -164,6 +134,94 @@ public class ClientesController implements Initializable {
         dateFechaNacimiento.setValue(null);
         txtEmail.setText(null);
     }
+
+    public void guardarNuevoCliente(){
+        ClienteNatural cliente = new ClienteNatural();
+
+        try {
+            String nombres = txtNombres.getText();
+            String apellidos = txtApellidos.getText();
+            String identificacion = txtIdentificacion.getText();
+            String direccion = txtDireccion.getText();
+            String telefono = txtTelefono.getText();
+            LocalDate fechaNacimiento = dateFechaNacimiento.getValue();
+            String email = txtEmail.getText();
+
+            cliente.setNombres(nombres);
+            cliente.setApellidos(apellidos);
+            cliente.setIdentificacion(identificacion);
+            cliente.setDireccion(direccion);
+            cliente.setTelefono(telefono);
+            cliente.setFechaNacimiento(fechaNacimiento);
+            cliente.setEmail(email);
+
+            subController.crearCliente(cliente);
+
+            listaClientesNaturales.add(cliente);
+            tableClientes.refresh();
+            //persistencia.guardarArchivoLog("Se guardado un Cliente Juridico correctamente", 1, "La acción se ejecuto desde el método guardarClienteNatural de ClientesJuridicosController.");
+            mostrarMensaje("CREACIÓN", "Creación de Cliente Natural",
+                    "El Cliente Natural se ha creado correctamente", Alert.AlertType.INFORMATION);
+        }catch (Exception e){
+            mostrarMensaje("CREACIÓN","Creación de Cliente Natural.",
+                    "El ClientebNatural no se pudo actualizar.", Alert.AlertType.WARNING);
+        }
+
+    }
+
+    public void eliminarCliente() {
+        boolean bandera = false, mensaje;
+        if (cliente != null) {
+            mensaje = mostrarMensajeConfirmacion("¿Está seguro que desea eliminar el cliente?.");
+            if (mensaje) {
+                bandera = subController.eliminarCliente(cliente);
+                if (bandera) {
+                    listaClientesNaturales.remove(cliente);
+                    cliente = null;
+                    tableClientes.getSelectionModel().clearSelection();
+                    mostrarMensaje("ELIMINACIÓN", "Eliminación de Cliente Natural",
+                            "El Cliente Natural se ha eliminado correctamente", Alert.AlertType.INFORMATION);
+                } else {
+                    mostrarMensaje("ELIMINACIÓN", "Eliminación de Cliente Natural.",
+                            "El Cliente Natural no se pudo eliminar.", Alert.AlertType.WARNING);
+                }
+            }
+        }
+    }
+
+    public void actualizarCliente(){
+        ClienteNatural natural = new ClienteNatural();
+        boolean bandera = false;
+
+        String nombres = txtNombres.getText();
+        String apellidos = txtApellidos.getText();
+        String identificacion = txtIdentificacion.getText();
+        String direccion = txtDireccion.getText();
+        String telefono = txtTelefono.getText();
+        LocalDate fechaNacimiento = dateFechaNacimiento.getValue();
+        String email = txtEmail.getText();
+
+        natural.setNombres(nombres);
+        natural.setApellidos(apellidos);
+        natural.setIdentificacion(identificacion);
+        natural.setDireccion(direccion);
+        natural.setTelefono(telefono);
+        natural.setFechaNacimiento(fechaNacimiento);
+        natural.setEmail(email);
+
+        bandera = subController.actualizarCliente(natural);
+
+        if(bandera){
+            tableClientes.refresh();
+            mostrarMensaje("ACTUALIZACIÓN","Actualización de Cliente Juridico.",
+                    "El Cliente Juridico se actualizó correctamente.", Alert.AlertType.INFORMATION);
+        }else {
+            mostrarMensaje("ACTUALIZACIÓN","Actualización de Cliente Juridico.",
+                    "El Cliente Juridico no se pudo actualizar.", Alert.AlertType.WARNING);
+        }
+
+    }
+
 
     public ObservableList<ClienteNatural> getClientesNaturales() {
         listaClientesNaturales.addAll(subController.obtenerClientes());
@@ -185,9 +243,9 @@ public class ClientesController implements Initializable {
 
         tableClientes.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
 
-            clienteNatural = (ClienteNatural) newSelection;
+            cliente = (ClienteNatural) newSelection;
 
-            mostrarInformacionSerie(clienteNatural);
+            mostrarInformacionSerie(cliente);
 
         });
 

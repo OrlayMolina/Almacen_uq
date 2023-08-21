@@ -66,7 +66,7 @@
             <TextField fx:id="txtValorUnitario" promptText="Valor Unitario ..." GridPane.columnIndex="4" GridPane.rowIndex="1" />
             <TextField fx:id="txtCodigoAprobacion" promptText="Cod Aprobación..." GridPane.rowIndex="4" />
             <TextField fx:id="txtTemperaturaRefrigeracion" promptText="Temp. Refrigeracion..." GridPane.columnIndex="2" GridPane.rowIndex="4" />
-            <TextField fx:id="txtExistencias" prefHeight="25.0" prefWidth="55.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+            <TextField fx:id="txtExistencias" prefHeight="25.0" prefWidth="55.0" promptText="Existencias ..." GridPane.columnIndex="4" GridPane.rowIndex="4" />
             <Label text="Existencias:" GridPane.columnIndex="4" GridPane.rowIndex="3">
                <font>
                   <Font size="14.0" />
@@ -79,7 +79,7 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <TextArea fx:id="txtDescripcion" layoutX="522.0" layoutY="106.0" prefHeight="100.0" prefWidth="251.0" />
+      <TextArea fx:id="txtDescripcion" layoutX="522.0" layoutY="106.0" prefHeight="100.0" prefWidth="251.0" promptText="Descripcion ..." />
       <Label layoutX="522.0" layoutY="88.0" text="Descripción:">
          <font>
             <Font size="14.0" />
@@ -99,23 +99,24 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="105.0" text="Crear" />
-            <Button fx:id="btnActualizar" mnemonicParsing="false" onAction="#actualizarRefrigerado" prefHeight="45.0" prefWidth="96.0" text="Actualizar" GridPane.columnIndex="2" />
-            <Button fx:id="btnEliminar" mnemonicParsing="false" onAction="#eliminarRefrigerado" prefHeight="48.0" prefWidth="104.0" text="Eliminar" GridPane.columnIndex="4" />
-            <Button fx:id="btnLimpiar" mnemonicParsing="false" onAction="#limpiarCampo" prefHeight="51.0" prefWidth="103.0" text="Limpiar" GridPane.columnIndex="6" />
+            <Button mnemonicParsing="false" onAction="#crearRefrigerado" prefHeight="48.0" prefWidth="105.0" styleClass="success" text="Crear" />
+            <Button fx:id="btnActualizar" mnemonicParsing="false" onAction="#actualizarRefrigerado" prefHeight="45.0" prefWidth="96.0" styleClass="warning" text="Actualizar" GridPane.columnIndex="2" />
+            <Button fx:id="btnEliminar" mnemonicParsing="false" onAction="#eliminarRefrigerado" prefHeight="48.0" prefWidth="104.0" styleClass="danger" text="Eliminar" GridPane.columnIndex="4" />
+            <Button fx:id="btnLimpiar" mnemonicParsing="false" onAction="#limpiarCampo" prefHeight="51.0" prefWidth="103.0" styleClass="primary" text="Limpiar" GridPane.columnIndex="6" />
          </children>
       </GridPane>
       <TableView fx:id="tableProdRefrigerado" layoutX="16.0" layoutY="282.0" prefHeight="177.0" prefWidth="769.0">
         <columns>
           <TableColumn fx:id="colCodigo" prefWidth="75.0" text="Código" />
-          <TableColumn fx:id="colNombre" prefWidth="151.0" text="Nombre" />
-            <TableColumn fx:id="colValorUnitario" prefWidth="137.0" text="Valor Unitario" />
-            <TableColumn fx:id="colCodigoAprobacion" prefWidth="108.0" text="Cod. Aprobación" />
+          <TableColumn fx:id="colNombre" prefWidth="143.0" text="Nombre" />
+            <TableColumn fx:id="colValorUnitario" prefWidth="98.0" text="Valor Unitario" />
+            <TableColumn fx:id="colCodigoAprobacion" prefWidth="111.0" text="Cod. Aprobación" />
             <TableColumn fx:id="colTemperaturaRefrigeracion" prefWidth="121.0" text="Temp. Refrigeración" />
-            <TableColumn fx:id="colDescripcion" prefWidth="176.0" text="Descripción" />
+            <TableColumn fx:id="colDescripcion" prefWidth="126.0" text="Descripción" />
+            <TableColumn fx:id="colExistencias" prefWidth="95.0" text="Existencias" />
         </columns>
       </TableView>
-      <Button fx:id="btnAtras" layoutX="734.0" layoutY="459.0" mnemonicParsing="false" onAction="#menuInicioProductos" text="Atrás" />
+      <Button fx:id="btnAtras" layoutX="734.0" layoutY="459.0" mnemonicParsing="false" onAction="#menuInicioProductos" styleClass="info" text="Atrás" />
       <ImageView fitHeight="73.0" fitWidth="124.0" layoutX="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img/logo.PNG" />

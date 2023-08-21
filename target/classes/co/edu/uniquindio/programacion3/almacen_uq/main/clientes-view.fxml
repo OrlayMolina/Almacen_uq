@@ -18,8 +18,8 @@
 
 <AnchorPane prefHeight="500.0" prefWidth="800.0" styleClass="background" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.programacion3.almacen_uq.controlador.ClientesController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ebebeb" height="46.0" layoutX="36.0" layoutY="234.0" stroke="#cdc7c7" strokeType="INSIDE" width="733.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ebebeb" height="123.0" layoutX="36.0" layoutY="105.0" stroke="#bcb6b6" strokeType="INSIDE" width="733.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ebebeb" height="46.0" layoutX="36.0" layoutY="240.0" stroke="#cdc7c7" strokeType="INSIDE" width="739.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ebebeb" height="126.0" layoutX="36.0" layoutY="105.0" stroke="#bcb6b6" strokeType="INSIDE" width="739.0" />
       <Label layoutX="281.0" layoutY="40.0" text="GESTIÓN DE CLIENTES">
          <font>
             <Font size="24.0" />
@@ -30,7 +30,7 @@
             <Image url="@img/logo.PNG" />
          </image>
       </ImageView>
-      <GridPane layoutX="38.0" layoutY="111.0" prefHeight="115.0" prefWidth="726.0">
+      <GridPane layoutX="41.0" layoutY="115.0" prefHeight="115.0" prefWidth="726.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="120.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
@@ -58,17 +58,15 @@
             <Label text="Teléfono:" GridPane.rowIndex="3" />
             <Label prefHeight="17.0" prefWidth="138.0" text="Fecha de Naciemiento" GridPane.columnIndex="2" GridPane.rowIndex="3" />
             <Label text="Email:" GridPane.columnIndex="6" />
-            <Label text="Nit:" GridPane.columnIndex="6" GridPane.rowIndex="3" />
             <TextField fx:id="txtTelefono" prefHeight="37.0" prefWidth="120.0" promptText="Teléfono ..." GridPane.rowIndex="4" />
              <DatePicker fx:id="dateFechaNacimiento" promptText="Fecha Nacimiento" GridPane.columnIndex="2" GridPane.rowIndex="4" />
             <TextField fx:id="txtEmail" prefHeight="40.0" prefWidth="120.0" promptText="Email ..." GridPane.columnIndex="6" GridPane.rowIndex="1" />
-            <TextField fx:id="txtNit" prefHeight="43.0" prefWidth="120.0" promptText="Nit ..." GridPane.columnIndex="6" GridPane.rowIndex="4" />
             <Label text="Dirección:" GridPane.columnIndex="4" GridPane.rowIndex="3" />
             <TextField fx:id="txtDireccion" prefHeight="34.0" prefWidth="120.0" promptText="Dirección ..." GridPane.columnIndex="4" GridPane.rowIndex="4" />
 
          </children>
       </GridPane>
-       <GridPane layoutX="194.0" layoutY="242.0">
+       <GridPane layoutX="192.0" layoutY="248.0">
            <columnConstraints>
                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="90.0" />
                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="20.0" />
@@ -82,26 +80,25 @@
                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
            </rowConstraints>
            <children>
-               <Button fx:id="btnCrear" mnemonicParsing="false" onAction="#crearCliente" prefHeight="32.0" prefWidth="82.0" text="Crear" />
-               <Button fx:id="btnActualizar" mnemonicParsing="false" onAction="#actualizarCliente" text="Actualizar" GridPane.columnIndex="2" />
-               <Button fx:id="btnEliminar" mnemonicParsing="false" onAction="#eliminarCliente" prefHeight="32.0" prefWidth="80.0" text="Eliminar" GridPane.columnIndex="4" />
-               <Button fx:id="btnLimpiar" mnemonicParsing="false" onAction="#limpiarCampo" prefHeight="32.0" prefWidth="80.0" text="Limpiar" GridPane.columnIndex="6" />
+               <Button fx:id="btnCrear" mnemonicParsing="false" onAction="#crearCliente" prefHeight="32.0" prefWidth="82.0" styleClass="success" text="Crear" />
+               <Button fx:id="btnActualizar" mnemonicParsing="false" onAction="#actualizarCliente" styleClass="warning" text="Actualizar" GridPane.columnIndex="2" />
+               <Button fx:id="btnEliminar" mnemonicParsing="false" onAction="#eliminarCliente" prefHeight="32.0" prefWidth="80.0" styleClass="danger" text="Eliminar" GridPane.columnIndex="4" />
+               <Button fx:id="btnLimpiar" mnemonicParsing="false" onAction="#limpiarCampo" prefHeight="32.0" prefWidth="80.0" styleClass="primary" text="Limpiar" GridPane.columnIndex="6" />
            </children>
        </GridPane>
-      <TableView fx:id="tableClientes" layoutX="34.0" layoutY="294.0" prefHeight="155.0" prefWidth="733.0">
+      <TableView fx:id="tableClientes" layoutX="36.0" layoutY="292.0" prefHeight="154.0" prefWidth="739.0">
         <columns>
-          <TableColumn fx:id="colNombres" prefWidth="104.0" text="Nombres" />
-          <TableColumn fx:id="colApellidos" prefWidth="106.0" text="Apellidos" />
-            <TableColumn fx:id="colIdentificacion" prefWidth="63.0" text="Id" />
-            <TableColumn fx:id="colDireccion" prefWidth="87.0" text="Dirección" />
-            <TableColumn fx:id="colTelefono" prefWidth="84.0" text="Teléfono" />
-            <TableColumn fx:id="colFechaNacimiento" prefWidth="112.0" text="Fecha Nacimiento" />
-            <TableColumn fx:id="colEmail" prefWidth="97.0" text="Email" />
-            <TableColumn fx:id="colNit" prefWidth="81.0" text="Nit" />
+          <TableColumn fx:id="colNombres" prefWidth="115.0" text="Nombres" />
+          <TableColumn fx:id="colApellidos" prefWidth="108.0" text="Apellidos" />
+            <TableColumn fx:id="colIdentificacion" prefWidth="84.0" text="Id" />
+            <TableColumn fx:id="colDireccion" prefWidth="124.0" text="Dirección" />
+            <TableColumn fx:id="colTelefono" prefWidth="81.0" text="Teléfono" />
+            <TableColumn fx:id="colFechaNacimiento" prefWidth="107.0" text="Fecha Nacimiento" />
+            <TableColumn fx:id="colEmail" prefWidth="119.0" text="Email" />
         </columns>
       </TableView>
 
-       <Button fx:id="btnSalir" layoutX="717.0" layoutY="449.0" mnemonicParsing="false" onAction="#salirClientes" text="Atrás" />
+       <Button fx:id="btnSalir" layoutX="723.0" layoutY="454.0" mnemonicParsing="false" onAction="#salirClientes" styleClass="info" text="Atrás" />
    </children>
    <stylesheets>
       <URL value="@TableView.css" />
