@@ -37,7 +37,7 @@ public class Producto {
     }
 
     public double getValorUnitario() {
-        return valorUnitario;
+        return  valorUnitario;
     }
 
     public void setValorUnitario(double valorUnitario) {

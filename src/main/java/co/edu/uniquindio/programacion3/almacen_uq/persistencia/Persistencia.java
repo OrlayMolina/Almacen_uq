@@ -14,29 +14,29 @@ public class Persistencia {
     // OJO, tener el cuenta cambiar la ruta donde se almacenan los archivos.
 
 
-    public static final String rutaArchivos = "C:\\Users\\Orlay.molina\\programacion3\\almacen\\src\\main\\java\\co\\edu\\uniquindio\\programacion3\\almacen_uq\\archivos\\Cliente.txt";
+    public static final String rutaArchivos = "C:\\Users\\lenovo\\Desktop\\Proyecto Inicial git\\Almacen_uq\\src\\main\\java\\co\\edu\\uniquindio\\programacion3\\almacen_uq\\archivos\\Cliente.txt";
 
-    public static final String rutaLog = "C:\\Users\\Orlay.molina\\programacion3\\almacen\\src\\main\\java\\co\\edu\\uniquindio\\programacion3\\almacen_uq\\archivos\\ClienteLog.txt";
+    public static final String rutaLog = "C:\\Users\\lenovo\\Desktop\\Proyecto Inicial git\\Almacen_uq\\src\\main\\java\\co\\edu\\uniquindio\\programacion3\\almacen_uq\\archivos\\ClienteLog.txt";
 
-    public static final String rutaJuridico = "C:\\Users\\Orlay.molina\\programacion3\\almacen\\src\\main\\java\\co\\edu\\uniquindio\\programacion3\\almacen_uq\\archivos\\ClienteJuridico.txt";
+    public static final String rutaJuridico = "C:\\Users\\lenovo\\Desktop\\Proyecto Inicial git\\Almacen_uq\\src\\main\\java\\co\\edu\\uniquindio\\programacion3\\almacen_uq\\archivos\\ClienteJuridico.txt";
 
-    public static final String rutaLogClienteJuridico = "C:\\Users\\Orlay.molina\\programacion3\\almacen\\src\\main\\java\\co\\edu\\uniquindio\\programacion3\\almacen_uq\\archivos\\ClienteJuridicoLog.txt";
+    public static final String rutaLogClienteJuridico = "C:\\Users\\lenovo\\Desktop\\Proyecto Inicial git\\Almacen_uq\\src\\main\\java\\co\\edu\\uniquindio\\programacion3\\almacen_uq\\archivos\\ClienteJuridicoLog.txt";
 
-    public static final String rutaEnvasados = "C:\\Users\\Orlay.molina\\programacion3\\almacen\\src\\main\\java\\co\\edu\\uniquindio\\programacion3\\almacen_uq\\archivos\\Envasados.txt";
+    public static final String rutaEnvasados = "C:\\Users\\lenovo\\Desktop\\Proyecto Inicial git\\Almacen_uq\\src\\main\\java\\co\\edu\\uniquindio\\programacion3\\almacen_uq\\archivos\\Envasados.txt";
 
-    public static final String rutaLogEnvasados = "C:\\Users\\Orlay.molina\\programacion3\\almacen\\src\\main\\java\\co\\edu\\uniquindio\\programacion3\\almacen_uq\\archivos\\EnvasadosLog.txt";
+    public static final String rutaLogEnvasados = "C:\\Users\\lenovo\\Desktop\\Proyecto Inicial git\\Almacen_uq\\src\\main\\java\\co\\edu\\uniquindio\\programacion3\\almacen_uq\\archivos\\EnvasadosLog.txt";
 
-    public static final String rutaPerecederos = "C:\\Users\\Orlay.molina\\programacion3\\almacen\\src\\main\\java\\co\\edu\\uniquindio\\programacion3\\almacen_uq\\archivos\\Perecederos.txt";
+    public static final String rutaPerecederos = "C:\\Users\\lenovo\\Desktop\\Proyecto Inicial git\\Almacen_uq\\src\\main\\java\\co\\edu\\uniquindio\\programacion3\\almacen_uq\\archivos\\Perecederos.txt";
 
-    public static final String rutaLogPerecederos = "C:\\Users\\Orlay.molina\\programacion3\\almacen\\src\\main\\java\\co\\edu\\uniquindio\\programacion3\\almacen_uq\\archivos\\PerecederosLog.txt";
+    public static final String rutaLogPerecederos = "C:\\Users\\lenovo\\Desktop\\Proyecto Inicial git\\Almacen_uq\\src\\main\\java\\co\\edu\\uniquindio\\programacion3\\almacen_uq\\archivos\\PerecederosLog.txt";
 
-    public static final String rutaRefrigerados = "C:\\Users\\Orlay.molina\\programacion3\\almacen\\src\\main\\java\\co\\edu\\uniquindio\\programacion3\\almacen_uq\\archivos\\Refrigerados.txt";
+    public static final String rutaRefrigerados = "C:\\Users\\lenovo\\Desktop\\Proyecto Inicial git\\Almacen_uq\\src\\main\\java\\co\\edu\\uniquindio\\programacion3\\almacen_uq\\archivos\\Refrigerados.txt";
 
-    public static final String rutaLogRefrigerados = "C:\\Users\\Orlay.molina\\programacion3\\almacen\\src\\ main\\java\\co\\edu\\uniquindio\\programacion3\\almacen_uq\\archivos\\RefrigeradosLog.txt";
+    public static final String rutaLogRefrigerados = "C:\\Users\\lenovo\\Desktop\\Proyecto Inicial git\\Almacen_uq\\src\\main\\java\\co\\edu\\uniquindio\\programacion3\\almacen_uq\\archivos\\RefrigeradosLog.txt";
 
-    public static final String rutaVentaDetalle = "C:\\Users\\Orlay.molina\\programacion3\\almacen\\src\\main\\java\\co\\edu\\uniquindio\\programacion3\\almacen_uq\\archivos\\VentaDetalle.txt";
+    public static final String rutaVentaDetalle = "C:\\Users\\lenovo\\Desktop\\Proyecto Inicial git\\Almacen_uq\\src\\main\\java\\co\\edu\\uniquindio\\programacion3\\almacen_uq\\archivos\\VentaDetalle.txt";
 
-    public static final String rutaLogVentaDetalle = "C:\\Users\\Orlay.molina\\programacion3\\almacen\\src\\ main\\java\\co\\edu\\uniquindio\\programacion3\\almacen_uq\\archivos\\VentaDetalleLog.txt";
+    public static final String rutaLogVentaDetalle = "C:\\Users\\lenovo\\Desktop\\Proyecto Inicial git\\Almacen_uq\\src\\main\\java\\co\\edu\\uniquindio\\programacion3\\almacen_uq\\archivos\\VentaDetalleLog.txt";
 
     public void guardarArchivoLog(String mensajeLog, int nivel, String accion) {
         archivoUtil.guardarRegistroLog(mensajeLog, nivel, accion, rutaLog);
