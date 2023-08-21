@@ -112,7 +112,7 @@ public class ClientesController implements Initializable {
 
     @FXML
     void actualizarCliente(ActionEvent event) {
-
+        actualizarCliente();
     }
 
     @FXML
@@ -140,26 +140,33 @@ public class ClientesController implements Initializable {
     public void guardarNuevoCliente(){
         ClienteNatural cliente = new ClienteNatural();;
 
-        String nombres = txtNombres.getText();
-        String apellidos = txtApellidos.getText();
-        String identificacion = txtIdentificacion.getText();
-        String direccion = txtDireccion.getText();
-        String telefono = txtTelefono.getText();
-        LocalDate fechaNacimiento = dateFechaNacimiento.getValue();
-        String email = txtEmail.getText();
+        try {
+            String nombres = txtNombres.getText();
+            String apellidos = txtApellidos.getText();
+            String identificacion = txtIdentificacion.getText();
+            String direccion = txtDireccion.getText();
+            String telefono = txtTelefono.getText();
+            LocalDate fechaNacimiento = dateFechaNacimiento.getValue();
+            String email = txtEmail.getText();
 
-        cliente.setNombres(nombres);
-        cliente.setApellidos(apellidos);
-        cliente.setIdentificacion(identificacion);
-        cliente.setDireccion(direccion);
-        cliente.setTelefono(telefono);
-        cliente.setFechaNacimiento(fechaNacimiento);
-        cliente.setEmail(email);
+            cliente.setNombres(nombres);
+            cliente.setApellidos(apellidos);
+            cliente.setIdentificacion(identificacion);
+            cliente.setDireccion(direccion);
+            cliente.setTelefono(telefono);
+            cliente.setFechaNacimiento(fechaNacimiento);
+            cliente.setEmail(email);
 
-        subController.crearCliente(cliente);
+            subController.crearCliente(cliente);
 
-        listaClientesNaturales.add(cliente);
-        tableClientes.refresh();
+            listaClientesNaturales.add(cliente);
+            tableClientes.refresh();
+            mostrarMensaje("CREACIÓN", "Creación de Cliente Natural",
+                    "El Cliente Natural se ha creado correctamente", Alert.AlertType.INFORMATION);
+        }catch (Exception e){
+            mostrarMensaje("CREACIÓN","Creación de Cliente Natural.",
+                    "El ClienteNaturalno se pudo actualizar.", Alert.AlertType.WARNING);
+        }
         // mensaje de confirmacion
         //persistencia.guardarArchivoLog("Se guardado un ClienteNaturalcorrectamente", 1, "La acción se ejecuto desde el método guardarClienteNaturalde ClientesController.");
 
@@ -208,10 +215,9 @@ public class ClientesController implements Initializable {
         bandera = subController.actualizarCliente(natural);
 
         if(bandera){
-
+            tableClientes.refresh();
             mostrarMensaje("ACTUALIZACIÓN","Actualización de Cliente.",
                     "El ClienteNaturalse actualizó correctamente.", Alert.AlertType.INFORMATION);
-            tableClientes.refresh();
         }else {
             mostrarMensaje("ACTUALIZACIÓN","Actualización de Cliente.",
                     "El ClienteNaturalno se pudo actualizar.", Alert.AlertType.WARNING);

@@ -89,13 +89,12 @@
       <TableView fx:id="tableClientes" layoutX="36.0" layoutY="292.0" prefHeight="154.0" prefWidth="739.0">
         <columns>
           <TableColumn fx:id="colNombres" prefWidth="115.0" text="Nombres" />
-          <TableColumn fx:id="colApellidos" prefWidth="103.0" text="Apellidos" />
-            <TableColumn fx:id="colTipoIdentificacion" prefWidth="66.0" text="Tipo Ident..." />
-            <TableColumn fx:id="colIdentificacion" prefWidth="66.0" text="Id" />
-            <TableColumn fx:id="colDireccion" prefWidth="102.0" text="Dirección" />
-            <TableColumn fx:id="colTelefono" prefWidth="75.0" text="Teléfono" />
-            <TableColumn fx:id="colFechaNacimiento" prefWidth="119.0" text="Fecha Nacimiento" />
-            <TableColumn fx:id="colEmail" prefWidth="92.0" text="Email" />
+          <TableColumn fx:id="colApellidos" prefWidth="108.0" text="Apellidos" />
+            <TableColumn fx:id="colIdentificacion" prefWidth="84.0" text="Id" />
+            <TableColumn fx:id="colDireccion" prefWidth="124.0" text="Dirección" />
+            <TableColumn fx:id="colTelefono" prefWidth="81.0" text="Teléfono" />
+            <TableColumn fx:id="colFechaNacimiento" prefWidth="107.0" text="Fecha Nacimiento" />
+            <TableColumn fx:id="colEmail" prefWidth="119.0" text="Email" />
         </columns>
       </TableView>
 

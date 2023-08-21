@@ -3,8 +3,10 @@ package co.edu.uniquindio.programacion3.almacen_uq.controlador;
 import co.edu.uniquindio.programacion3.almacen_uq.enumm.Pais;
 import co.edu.uniquindio.programacion3.almacen_uq.factory.Factory;
 import co.edu.uniquindio.programacion3.almacen_uq.main.App;
+import co.edu.uniquindio.programacion3.almacen_uq.modelo.Almacen;
 import co.edu.uniquindio.programacion3.almacen_uq.modelo.ClienteNatural;
 import co.edu.uniquindio.programacion3.almacen_uq.modelo.ProductoEnvasado;
+import co.edu.uniquindio.programacion3.almacen_uq.persistencia.Persistencia;
 import co.edu.uniquindio.programacion3.almacen_uq.subcontrolador.ClienteSubController;
 import co.edu.uniquindio.programacion3.almacen_uq.subcontrolador.EnvasadoSubController;
 import javafx.collections.FXCollections;
@@ -134,27 +136,34 @@ public class EnvasadosController implements Initializable {
     public void guardarNuevoEnvasado(){
         ProductoEnvasado envasado = new ProductoEnvasado();
 
-        String codigo = txtCodigo.getText();
-        String nombreProducto = txtNombreProducto.getText();
-        String descripcion = txaDescripcion.getText();
-        Double valorUnitario = Double.valueOf(txtValorUnitario.getText());
-        int existencias = Integer.parseInt(txtExistencias.getText());
-        LocalDate fechaEvasado = dataFechaEnvase.getValue();
-        String pesoEnvase = txtPesoEnvase.getText();
-        Pais pais = cmbPais.getSelectionModel().getSelectedItem();
+        try {
+            String codigo = txtCodigo.getText();
+            String nombreProducto = txtNombreProducto.getText();
+            String descripcion = txaDescripcion.getText();
+            Double valorUnitario = Double.valueOf(txtValorUnitario.getText());
+            int existencias = Integer.parseInt(txtExistencias.getText());
+            LocalDate fechaEvasado = dataFechaEnvase.getValue();
+            String pesoEnvase = txtPesoEnvase.getText();
+            Pais pais = cmbPais.getSelectionModel().getSelectedItem();
 
-        envasado.setCodigo(codigo);
-        envasado.setNombreProducto(nombreProducto);
-        envasado.setDescripcion(descripcion);
-        envasado.setValorUnitario(valorUnitario);
-        envasado.setExistencias(existencias);
-        envasado.setFechaEnvasado(fechaEvasado);
-        envasado.setPesoEnvase(pesoEnvase);
-        envasado.setPais(pais);
+            envasado.setCodigo(codigo);
+            envasado.setNombreProducto(nombreProducto);
+            envasado.setDescripcion(descripcion);
+            envasado.setValorUnitario(valorUnitario);
+            envasado.setExistencias(existencias);
+            envasado.setFechaEnvasado(fechaEvasado);
+            envasado.setPesoEnvase(pesoEnvase);
+            envasado.setPais(pais);
 
-        envasadoSubController.crearProductoEnvasado(envasado);
-        listaProductosEnvasados.add(envasado);
-        tableEnvasados.refresh();
+            envasadoSubController.crearProductoEnvasado(envasado);
+            listaProductosEnvasados.add(envasado);
+            tableEnvasados.refresh();
+            mostrarMensaje("CREACIÓN", "Creación de Producto Envasado",
+                    "El Producto Envasado se ha creado correctamente", Alert.AlertType.INFORMATION);
+        }catch (Exception e){
+            mostrarMensaje("CREACIÓN","Creación de Producto Envasado.",
+                    "El Producto Envasado no se pudo actualizar.", Alert.AlertType.WARNING);
+        }
 
     }
 
@@ -200,19 +209,19 @@ public class EnvasadosController implements Initializable {
         envasado.setPesoEnvase(pesoEnvase);
         envasado.setPais(pais);
 
-        if(envasado != null){
-            bandera = envasadoSubController.actualizarEnvasado(envasado);
+        bandera = envasadoSubController.actualizarEnvasado(envasado);
 
-            if(bandera){
+        if(bandera){
 
-                mostrarMensaje("ACTUALIZACIÓN","Actualización de Producto.",
-                        "El Producto se actualizó correctamente.", Alert.AlertType.INFORMATION);
-                tableEnvasados.refresh();
-            }else {
-                mostrarMensaje("ACTUALIZACIÓN","Actualización de Producto.",
-                        "El Producto no se pudo actualizar.", Alert.AlertType.WARNING);
-            }
+            tableEnvasados.refresh();
+            mostrarMensaje("ACTUALIZACIÓN","Actualización de Producto.",
+                    "El Producto se actualizó correctamente.", Alert.AlertType.INFORMATION);
+
+        }else {
+            mostrarMensaje("ACTUALIZACIÓN","Actualización de Producto.",
+                    "El Producto no se pudo actualizar.", Alert.AlertType.WARNING);
         }
+
     }
 
 

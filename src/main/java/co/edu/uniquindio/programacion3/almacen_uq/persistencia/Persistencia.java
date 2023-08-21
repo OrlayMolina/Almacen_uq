@@ -104,7 +104,7 @@ public class Persistencia {
     }
 
     /**
-     * @param accion 0 = crear, 1 = elimar
+     * @param accion 0 = crear, 1 = eliminar y 2 = actualizar
      * @param listaProductosEnvasados
      * @param productoEnvasado
      * @throws IOException
@@ -161,7 +161,8 @@ public class Persistencia {
      */
     private void actualizarClientesNaturales(ArrayList<ClienteNatural> listaClientesNaturales, ClienteNatural natural){
         for (ClienteNatural e : listaClientesNaturales) {
-            if(e.getNombres().equals(natural.getNombres())){
+            if(e.getIdentificacion().equals(natural.getIdentificacion())){
+                e.setNombres(natural.getNombres());
                 e.setApellidos(natural.getApellidos());
                 e.setIdentificacion(natural.getIdentificacion());
                 e.setDireccion(natural.getDireccion());
