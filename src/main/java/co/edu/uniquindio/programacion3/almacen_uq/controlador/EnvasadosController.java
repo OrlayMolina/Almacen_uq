@@ -142,7 +142,7 @@ public class EnvasadosController implements Initializable {
             String descripcion = txaDescripcion.getText();
             Double valorUnitario = Double.valueOf(txtValorUnitario.getText());
             int existencias = Integer.parseInt(txtExistencias.getText());
-            LocalDate fechaEvasado = dataFechaEnvase.getValue();
+            LocalDate fechaEnvasado = dataFechaEnvase.getValue();
             String pesoEnvase = txtPesoEnvase.getText();
             Pais pais = cmbPais.getSelectionModel().getSelectedItem();
 
@@ -151,7 +151,7 @@ public class EnvasadosController implements Initializable {
             envasado.setDescripcion(descripcion);
             envasado.setValorUnitario(valorUnitario);
             envasado.setExistencias(existencias);
-            envasado.setFechaEnvasado(fechaEvasado);
+            envasado.setFechaEnvasado(fechaEnvasado);
             envasado.setPesoEnvase(pesoEnvase);
             envasado.setPais(pais);
 
