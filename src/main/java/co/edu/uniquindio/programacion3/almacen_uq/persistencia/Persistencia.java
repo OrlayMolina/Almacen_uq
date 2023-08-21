@@ -89,8 +89,17 @@ public class Persistencia {
         }
     }
 
-    public void guardarClienteJuridico(ArrayList<ClienteJuridico> listaClientesJuridico) throws IOException {
+    public void guardarClienteJuridico(ArrayList<ClienteJuridico> listaClientesJuridico, ClienteJuridico juridico, int accion) throws IOException {
         StringBuilder contenido = new StringBuilder();
+
+        if(accion == 0) {
+            listaClientesJuridico.add(juridico);
+        }else if (accion == 1) {
+            listaClientesJuridico.removeIf(p -> p.getIdentificacion().equals(juridico.getIdentificacion()));
+        }else {
+            actualizarClientesJuridicos(listaClientesJuridico, juridico);
+        }
+
         for (ClienteJuridico j : listaClientesJuridico) {
             contenido.append(j.getNombres()).append("--").
                     append(j.getApellidos()).append("--").
@@ -99,8 +108,9 @@ public class Persistencia {
                     append(j.getTelefono()).append("--").
                     append(j.getNit()).append("\n");
 
-            archivoUtil.guardarArchivo(rutaJuridico, contenido.toString(), false);
+
         }
+        archivoUtil.guardarArchivo(rutaJuridico, contenido.toString(), false);
     }
 
     /**
@@ -173,6 +183,25 @@ public class Persistencia {
         }
     }
 
+    /**
+     * Método para actualizar al cliente juridico
+     * @param listaClientesJuridicos
+     * @param juridico cliente juridico a modificar
+     */
+    private void actualizarClientesJuridicos(ArrayList<ClienteJuridico> listaClientesJuridicos, ClienteJuridico juridico){
+        for (ClienteJuridico e : listaClientesJuridicos) {
+            if(e.getIdentificacion().equals(juridico.getIdentificacion())){
+                e.setNombres(juridico.getNombres());
+                e.setApellidos(juridico.getApellidos());
+                e.setIdentificacion(juridico.getIdentificacion());
+                e.setDireccion(juridico.getDireccion());
+                e.setTelefono(juridico.getTelefono());
+                e.setNit(juridico.getNit());
+
+            }
+        }
+    }
+
     public void guardarProductosRefrigerados(ArrayList<ProductoRefrigerado> listaProductosRefrigerados) throws IOException {
         StringBuilder contenido = new StringBuilder();
         for (ProductoRefrigerado e : listaProductosRefrigerados) {
@@ -217,24 +246,29 @@ public class Persistencia {
         return clientes;
     }
 
-    public ArrayList<ClienteJuridico> cargarClienteJuridico() throws IOException {
+    public ArrayList<ClienteJuridico> cargarClienteJuridico(){
         ArrayList<ClienteJuridico> juridicos = new ArrayList<>();
-        ArrayList<String> contenido = archivoUtil.leerArchivo(rutaJuridico);
+        ArrayList<String> contenido = null;
 
-        String linea; // OJO
+        try {
+            contenido = archivoUtil.leerArchivo(rutaJuridico);
+            String linea; // OJO
 
-        for (String c : contenido) {
-            linea = c;
-            ClienteJuridico clienteJuridico = new ClienteJuridico();
+            for (String c : contenido) {
+                linea = c;
+                ClienteJuridico clienteJuridico = new ClienteJuridico();
 
-            clienteJuridico.setNombres(linea.split("--")[0]);
-            clienteJuridico.setApellidos(linea.split("--")[1]);
-            clienteJuridico.setIdentificacion(linea.split("--")[2]);
-            clienteJuridico.setDireccion(linea.split("--")[3]);
-            clienteJuridico.setTelefono(linea.split("--")[4]);
-            clienteJuridico.setNit(linea.split("--")[5]);
+                clienteJuridico.setNombres(linea.split("--")[0]);
+                clienteJuridico.setApellidos(linea.split("--")[1]);
+                clienteJuridico.setIdentificacion(linea.split("--")[2]);
+                clienteJuridico.setDireccion(linea.split("--")[3]);
+                clienteJuridico.setTelefono(linea.split("--")[4]);
+                clienteJuridico.setNit(linea.split("--")[5]);
 
-            juridicos.add(clienteJuridico);
+                juridicos.add(clienteJuridico);
+            }
+        }catch (IOException e) {
+            e.printStackTrace();
         }
 
         return juridicos;

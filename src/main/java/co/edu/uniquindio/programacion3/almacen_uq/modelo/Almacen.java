@@ -59,7 +59,7 @@ public class Almacen {
         return cliente;
     }
 
-    public ClienteJuridico crearClienteJuridico(ClienteJuridico clienteTemporal){
+    /*public ClienteJuridico crearClienteJuridico(ClienteJuridico clienteTemporal){
         ClienteJuridico juridico = null; // OJO
         boolean bandera = false;
 
@@ -78,7 +78,7 @@ public class Almacen {
         }
 
         return juridico;
-    }
+    }*/
 
     public ProductoRefrigerado crearProductoRefrigerado(ProductoRefrigerado productoRefrigeradoTemporal){
         ProductoRefrigerado producto = null; // OJO
@@ -103,7 +103,7 @@ public class Almacen {
         return producto;
     }
 
-    public ProductoEnvasado crearProductoEnvasado(ProductoEnvasado envasadoTemporal){
+    /*public ProductoEnvasado crearProductoEnvasado(ProductoEnvasado envasadoTemporal){
         ProductoEnvasado envasado = null; // OJO
         boolean bandera = false;
 
@@ -125,7 +125,7 @@ public class Almacen {
         }
 
         return envasado;
-    }
+    }*/
 
     public VentaDetalle crearDetalles(VentaDetalle detalleTemporal){
         VentaDetalle detalle = null; // OJO
@@ -182,7 +182,7 @@ public class Almacen {
         return bandera;
     }
 
-    public boolean actualizarCliente(ClienteNatural natural) {
+    /*public boolean actualizarCliente(ClienteNatural natural) {
         ClienteNatural actualizado = new ClienteNatural();
         boolean bandera = false;
 
@@ -207,7 +207,7 @@ public class Almacen {
             System.out.println("Producto no existe");
         }
         return bandera;
-    }
+    }*/
 
     public boolean actualizarRefrigerado(ProductoRefrigerado refrigerado) {
         ProductoRefrigerado actualizado = new ProductoRefrigerado();
@@ -242,7 +242,7 @@ public class Almacen {
     }
 
     public ArrayList<ClienteJuridico> getListaClientesJuridicos() {
-        return listaClientesJuridicos;
+        return persistencia.cargarClienteJuridico();
     }
 
     public ArrayList<ProductoRefrigerado> getListaProductosRefrigerados() {
