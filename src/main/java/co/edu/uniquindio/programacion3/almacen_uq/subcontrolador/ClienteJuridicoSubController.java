@@ -21,7 +21,15 @@ public class ClienteJuridicoSubController {
         almacen = factory.getAlmacen();
     }
 
-    public ClienteJuridico crearClienteJuridico(ClienteJuridico clienteTemporal) {
-        return factory.crearClienteJuridico(clienteTemporal);
+    public void crearClienteJuridico(ClienteJuridico clienteTemporal) {
+        factory.crearClienteJuridico(clienteTemporal);
+    }
+
+    public boolean eliminarJuridico(ClienteJuridico juridico) {
+        return factory.eliminarJuridico(juridico);
+    }
+
+    public boolean actualizarJuridico(ClienteJuridico juridico) {
+        return factory.actualizarJuridico(juridico);
     }
 }

@@ -170,7 +170,7 @@ public class EnvasadosController implements Initializable {
     public void eliminarEnvasados() {
         boolean bandera = false, mensaje;
         if (envasado != null) {
-            mensaje = mostrarMensajeConfirmacion("¿Está seguro que desea eliminar el procesamiento?.");
+            mensaje = mostrarMensajeConfirmacion("¿Está seguro que desea eliminar el producto?.");
             if (mensaje) {
                 bandera = envasadoSubController.eliminarEnvasado(envasado);
                 if (bandera) {

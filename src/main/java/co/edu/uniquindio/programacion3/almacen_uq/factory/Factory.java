@@ -93,17 +93,16 @@ public class Factory {
 
     }
 
-    public ClienteJuridico crearClienteJuridico(ClienteJuridico clienteTemporal){
-        ClienteJuridico juridico = null; // OJO
+    public void crearClienteJuridico(ClienteJuridico juridico){
+        ClienteJuridico clienteJuridico = null; // OJO
         try{
-            juridico = getAlmacen().crearClienteJuridico(clienteTemporal);
-            persistencia.guardarClienteJuridico(getListaClientesJuridicos());
+            //clienteJuridico = getAlmacen().crearClienteJuridico(clienteTemporal);
+            persistencia.guardarClienteJuridico(getListaClientesJuridicos(), juridico, 0);
 
         }catch(Exception e){
             e.printStackTrace(); //Crear exception
         }
 
-        return juridico;
     }
 
     public void crearProductoEnvasado(ProductoEnvasado envasadoTemporal){
@@ -188,6 +187,21 @@ public class Factory {
         return bandera;
     }
 
+    public boolean eliminarJuridico(ClienteJuridico juridico) {
+        boolean bandera = false;
+
+        try{
+            //bandera = getAlmacen().eliminarJuridico(clienteJuridico);
+            persistencia.guardarClienteJuridico(getListaClientesJuridicos(), juridico, 1);
+            return true;
+            //persistencia.guardarArchivoLogEnvasados("Se ha eliminado el Cliente correctamente",1,"Dispositivo se ha eliminado con éxito");
+        }catch(IOException e){
+            System.out.println("Ha ocurrido un error de archivo.");
+        }
+
+        return bandera;
+    }
+
     public boolean actualizarEnvasado(ProductoEnvasado envasado) {
         boolean bandera = false;
 
@@ -223,6 +237,21 @@ public class Factory {
         try{
             //bandera = getAlmacen().actualizarCliente(natural);
             persistencia.guardarCliente(getListaClientesNaturales(), natural, 2);
+            return true;
+            //persistencia.guardarArchivoLog("Se ha actualizado un cliente",1,"Cliente se ha actualizado con éxito");
+        }catch(IOException e){
+            System.out.println("Ha ocurrido un error de archivo.");
+        }
+
+        return bandera;
+    }
+
+    public boolean actualizarJuridico(ClienteJuridico juridico) {
+        boolean bandera = false;
+
+        try{
+            //bandera = getAlmacen().actualizarCliente(natural);
+            persistencia.guardarClienteJuridico(getListaClientesJuridicos(), juridico, 2);
             return true;
             //persistencia.guardarArchivoLog("Se ha actualizado un cliente",1,"Cliente se ha actualizado con éxito");
         }catch(IOException e){

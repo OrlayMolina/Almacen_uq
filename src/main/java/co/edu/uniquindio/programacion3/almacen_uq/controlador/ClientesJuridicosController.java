@@ -30,7 +30,6 @@ public class ClientesJuridicosController implements Initializable {
 
     private ClienteJuridico clienteJuridico;
     private ClienteJuridicoSubController juridicoSubController;
-    private Persistencia persistencia = new Persistencia();
 
 
     @FXML
@@ -94,58 +93,26 @@ public class ClientesJuridicosController implements Initializable {
     private TextField txtTelefono;
 
     @FXML
-    void actualizarCliente(ActionEvent event) {
-
-    }
-
-    @FXML
-    void crearCliente(ActionEvent event) {
-        guardarNuevoCliente();
-
-    }
-
-    @FXML
-    void eliminarCliente(ActionEvent event) {
-
-    }
-
-
-    @FXML
     void salirClientes(ActionEvent event) throws IOException {
         cerrarVentana(btnSalir);
         app.cargarVentanaInicio();
     }
 
-    public void guardarNuevoCliente(){
-        ClienteJuridico juridico;
-        ClienteJuridico clienteTemporal = new ClienteJuridico();
+    @FXML
+    void actualizarCliente(ActionEvent event) {
+        actualizarJuridico();
+    }
 
-        String nombres = txtNombres.getText();
-        String apellidos = txtApellidos.getText();
-        String identificacion = txtIdentificacion.getText();
-        String direccion = txtDireccion.getText();
-        String telefono = txtTelefono.getText();
-        String nit = txtNit.getText();
-
-        clienteTemporal.setNombres(nombres);
-        clienteTemporal.setApellidos(apellidos);
-        clienteTemporal.setIdentificacion(identificacion);
-        clienteTemporal.setDireccion(direccion);
-        clienteTemporal.setTelefono(telefono);
-        clienteTemporal.setNit(nit);
-
-        juridico = juridicoSubController.crearClienteJuridico(clienteTemporal);
-
-        if(juridico != null){
-            listaClientesJuridicos.add(juridico);
-            tableClientesJuridicos.refresh();
-            // mensaje de confirmacion
-            //persistencia.guardarArchivoLogJuridico("Se guardado un cliente correctamente", 1, "La acción se ejecuto desde el método guardarClienteNatural de ClientesController.");
-
-        }
+    @FXML
+    void crearCliente(ActionEvent event) {
+        guardarClienteJuridico();
 
     }
 
+    @FXML
+    void eliminarCliente(ActionEvent event) {
+        eliminarJuridico();
+    }
 
     @FXML
     void limpiarCampo(ActionEvent event) {
@@ -155,6 +122,88 @@ public class ClientesJuridicosController implements Initializable {
         txtDireccion.setText(null);
         txtTelefono.setText(null);
         txtNit.setText(null);
+    }
+
+    public void guardarClienteJuridico(){
+        ClienteJuridico juridico = new ClienteJuridico();
+
+        try {
+            String nombres = txtNombres.getText();
+            String apellidos = txtApellidos.getText();
+            String identificacion = txtIdentificacion.getText();
+            String direccion = txtDireccion.getText();
+            String telefono = txtTelefono.getText();
+            String nit = txtNit.getText();
+
+            juridico.setNombres(nombres);
+            juridico.setApellidos(apellidos);
+            juridico.setIdentificacion(identificacion);
+            juridico.setDireccion(direccion);
+            juridico.setTelefono(telefono);
+            juridico.setNit(nit);
+
+            juridicoSubController.crearClienteJuridico(juridico);
+            listaClientesJuridicos.add(juridico);
+            tableClientesJuridicos.refresh();
+            //persistencia.guardarArchivoLogJuridico("Se guardado un cliente correctamente", 1, "La acción se ejecuto desde el método guardarClienteNatural de ClientesController.");
+            mostrarMensaje("CREACIÓN", "Creación de Cliente Juridico",
+                    "El Cliente Juridico se ha creado correctamente", Alert.AlertType.INFORMATION);
+        }catch (Exception e){
+            mostrarMensaje("CREACIÓN","Creación de Cliente Juridico.",
+                    "El Cliente Juridico no se pudo actualizar.", Alert.AlertType.WARNING);
+        }
+
+    }
+
+    public void eliminarJuridico() {
+        boolean bandera = false, mensaje;
+        if (clienteJuridico != null) {
+            mensaje = mostrarMensajeConfirmacion("¿Está seguro que desea eliminar el cliente?.");
+            if (mensaje) {
+                bandera = juridicoSubController.eliminarJuridico(clienteJuridico);
+                if (bandera) {
+                    listaClientesJuridicos.remove(clienteJuridico);
+                    clienteJuridico = null;
+                    tableClientesJuridicos.getSelectionModel().clearSelection();
+                    mostrarMensaje("ELIMINACIÓN", "Eliminación de Cliente Juridico",
+                            "El Cliente Juridico se ha eliminado correctamente", Alert.AlertType.INFORMATION);
+                } else {
+                    mostrarMensaje("ELIMINACIÓN", "Eliminación de Cliente Juridico.",
+                            "El Cliente Juridico no se pudo eliminar.", Alert.AlertType.WARNING);
+                }
+            }
+        }
+    }
+
+    public void actualizarJuridico(){
+        ClienteJuridico clienteJuridico = new ClienteJuridico();
+        boolean bandera = false;
+
+        String nombres = txtNombres.getText();
+        String apellidos = txtApellidos.getText();
+        String identificacion = txtIdentificacion.getText();
+        String direccion = txtDireccion.getText();
+        String telefono = txtTelefono.getText();
+        String nit = txtNit.getText();
+
+        clienteJuridico.setNombres(nombres);
+        clienteJuridico.setApellidos(apellidos);
+        clienteJuridico.setIdentificacion(identificacion);
+        clienteJuridico.setDireccion(direccion);
+        clienteJuridico.setTelefono(telefono);
+        clienteJuridico.setNit(nit);
+
+        bandera = juridicoSubController.actualizarJuridico(clienteJuridico);
+
+        if(bandera){
+            tableClientesJuridicos.refresh();
+            mostrarMensaje("ACTUALIZACIÓN","Actualización de Cliente Juridico.",
+                    "El Cliente Juridico se actualizó correctamente.", Alert.AlertType.INFORMATION);
+        }else {
+            mostrarMensaje("ACTUALIZACIÓN","Actualización de Cliente Juridico.",
+                    "El Cliente Juridico no se pudo actualizar.", Alert.AlertType.WARNING);
+        }
+
     }
 
     public ObservableList<ClienteJuridico> getClientesJuridicos() {
