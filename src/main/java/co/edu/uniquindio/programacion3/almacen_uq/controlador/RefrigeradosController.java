@@ -113,8 +113,8 @@ public class RefrigeradosController {
         refrigeradoTemporal.setExistencias(existencias);
         refrigeradoTemporal.setDescripcion(descripcion);
 
-        refrigerado = RefrigeradosSubController.crearProductoRefrigerado(refrigeradoTemporal);
-
+        //refrigerado = RefrigeradosSubController.crearProductoRefrigerado(refrigeradoTemporal);
+/*
         if (refrigerado != null){
             listaProductosRefrigerados.add(refrigerado);
             tableProdRefrigerado.refresh();
@@ -122,6 +122,8 @@ public class RefrigeradosController {
             //persistencia.guardarArchivoLog("Se guardado un cliente correctamente", 1, "La acción se ejecuto desde el método guardarClienteNatural de ClientesController.");
 
         }
+
+ */
 
 
 
@@ -140,11 +142,13 @@ public class RefrigeradosController {
 
 
     }
-    public ObservableList<ProductoRefrigerado> getProductosRegrigerados(){
+    /*public ObservableList<ProductoRefrigerado> getProductosRegrigerados(){
 
         listaProductosRefrigerados.addAll(RefrigeradosSubController.obtenerProductosRefrigerados());
         return  listaProductosRefrigerados;
     }
+
+     */
 
 
     @FXML
