@@ -2,6 +2,8 @@ package co.edu.uniquindio.programacion3.almacen_uq.modelo;
 
 public class VentaDetalle {
 
+    private String codigoVenta;
+
     private int cantidad;
 
     private double subtotal;
@@ -10,6 +12,13 @@ public class VentaDetalle {
 
     public VentaDetalle(){
 
+    }
+
+    public VentaDetalle(String codigoVenta, int cantidad, double subtotal, Producto producto) {
+        this.codigoVenta = codigoVenta;
+        this.cantidad = cantidad;
+        this.subtotal = subtotal;
+        this.producto = producto;
     }
 
     public int getCantidad() {
@@ -34,5 +43,13 @@ public class VentaDetalle {
 
     public void setProducto(Producto producto) {
         this.producto = producto;
+    }
+
+    public String getCodigoVenta() {
+        return codigoVenta;
+    }
+
+    public void setCodigoVenta(String codigoVenta) {
+        this.codigoVenta = codigoVenta;
     }
 }

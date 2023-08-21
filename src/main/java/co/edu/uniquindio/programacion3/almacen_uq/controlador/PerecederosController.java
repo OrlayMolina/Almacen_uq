@@ -20,7 +20,7 @@ import javafx.stage.Stage;
 
 import java.time.LocalDate;
 
-public class perecederosController {
+public class PerecederosController {
 
     App app = new App();
 
@@ -107,7 +107,8 @@ public class perecederosController {
 
     @FXML
     void btnSalirPrincipal(ActionEvent event) {
-
+        cerrarVentana(btnSalirPrincipal);
+        app.cargarVentanaProductosInicio();
     }
 
     @FXML

@@ -4,7 +4,6 @@ import co.edu.uniquindio.programacion3.almacen_uq.factory.Factory;
 import co.edu.uniquindio.programacion3.almacen_uq.main.App;
 import co.edu.uniquindio.programacion3.almacen_uq.modelo.Cliente;
 import co.edu.uniquindio.programacion3.almacen_uq.modelo.ClienteNatural;
-import co.edu.uniquindio.programacion3.almacen_uq.persistencia.Persistencia;
 import co.edu.uniquindio.programacion3.almacen_uq.subcontrolador.ClienteSubController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -27,9 +26,9 @@ public class ClientesController implements Initializable {
 
     private final ObservableList<ClienteNatural> listaClientesNaturales = FXCollections.observableArrayList();
 
-    private ClienteNatural clienteNatural;
+    private ClienteNatural cliente;
     private ClienteSubController subController;
-    private Persistencia persistencia = new Persistencia();
+    //  private Persistencia persistencia = new Persistencia();
 
 
     @FXML
@@ -46,6 +45,15 @@ public class ClientesController implements Initializable {
 
     @FXML
     private Button btnSalir;
+
+    @FXML
+    private TextField txtNit;
+
+    @FXML
+    private RadioButton rbJuridico;
+
+    @FXML
+    private RadioButton rbNatural;
 
     @FXML
     private TableView<ClienteNatural> tableClientes;
@@ -89,8 +97,6 @@ public class ClientesController implements Initializable {
     @FXML
     private TextField txtIdentificacion;
 
-    @FXML
-    private TextField txtNit;
 
     @FXML
     private TextField txtNombres;
@@ -110,7 +116,7 @@ public class ClientesController implements Initializable {
 
     @FXML
     void eliminarCliente(ActionEvent event) {
-
+        eliminarCliente();
     }
 
 
@@ -131,7 +137,6 @@ public class ClientesController implements Initializable {
         String telefono = txtTelefono.getText();
         LocalDate fechaNacimiento = dateFechaNacimiento.getValue();
         String email = txtEmail.getText();
-        String nit = txtNit.getText();
 
         clienteTemporal.setNombres(nombres);
         clienteTemporal.setApellidos(apellidos);
@@ -147,8 +152,62 @@ public class ClientesController implements Initializable {
             listaClientesNaturales.add(cliente);
             tableClientes.refresh();
             // mensaje de confirmacion
-            //persistencia.guardarArchivoLog("Se guardado un cliente correctamente", 1, "La acción se ejecuto desde el método guardarClienteNatural de ClientesController.");
+            //persistencia.guardarArchivoLog("Se guardado un ClienteNaturalcorrectamente", 1, "La acción se ejecuto desde el método guardarClienteNaturalde ClientesController.");
 
+        }
+
+    }
+
+    public void eliminarCliente() {
+        boolean bandera = false, mensaje;
+        if (cliente != null) {
+            mensaje = mostrarMensajeConfirmacion("¿Está seguro que desea eliminar el procesamiento?.");
+            if (mensaje) {
+                bandera = subController.eliminarCliente(cliente);
+                if (bandera) {
+                    listaClientesNaturales.remove(cliente);
+                    cliente = null;
+                    tableClientes.getSelectionModel().clearSelection();
+                    mostrarMensaje("ELIMINACIÓN", "Eliminación de ClienteNaturalNatural",
+                            "El ClienteNaturalse ha eliminado correctamente", Alert.AlertType.INFORMATION);
+                } else {
+                    mostrarMensaje("ELIMINACIÓN", "Eliminación de ClienteNaturalNatural.",
+                            "El ClienteNaturalno se pudo eliminar.", Alert.AlertType.WARNING);
+                }
+            }
+        }
+    }
+
+    public void actualizarCliente(){
+        ClienteNatural natural = new ClienteNatural();
+        boolean bandera = false;
+
+        String nombres = txtNombres.getText();
+        String apellidos = txtApellidos.getText();
+        String identificacion = txtIdentificacion.getText();
+        String direccion = txtDireccion.getText();
+        String telefono = txtTelefono.getText();
+        LocalDate fechaNacimiento = dateFechaNacimiento.getValue();
+        String email = txtEmail.getText();
+
+        natural.setNombres(nombres);
+        natural.setApellidos(apellidos);
+        natural.setIdentificacion(identificacion);
+        natural.setDireccion(direccion);
+        natural.setTelefono(telefono);
+        natural.setFechaNacimiento(fechaNacimiento);
+        natural.setEmail(email);
+
+        bandera = subController.actualizarCliente(natural);
+
+        if(bandera){
+
+            mostrarMensaje("ACTUALIZACIÓN","Actualización de Cliente.",
+                    "El ClienteNaturalse actualizó correctamente.", Alert.AlertType.INFORMATION);
+            tableClientes.refresh();
+        }else {
+            mostrarMensaje("ACTUALIZACIÓN","Actualización de Cliente.",
+                    "El ClienteNaturalno se pudo actualizar.", Alert.AlertType.WARNING);
         }
 
     }
@@ -164,6 +223,7 @@ public class ClientesController implements Initializable {
         dateFechaNacimiento.setValue(null);
         txtEmail.setText(null);
     }
+
 
     public ObservableList<ClienteNatural> getClientesNaturales() {
         listaClientesNaturales.addAll(subController.obtenerClientes());
@@ -185,9 +245,9 @@ public class ClientesController implements Initializable {
 
         tableClientes.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
 
-            clienteNatural = (ClienteNatural) newSelection;
+            cliente = (ClienteNatural) newSelection;
 
-            mostrarInformacionSerie(clienteNatural);
+            mostrarInformacionSerie(cliente);
 
         });
 

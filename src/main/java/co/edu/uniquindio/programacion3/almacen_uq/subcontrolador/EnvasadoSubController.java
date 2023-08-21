@@ -25,7 +25,15 @@ public class EnvasadoSubController {
         almacen = factory.getAlmacen();
     }
 
-    public ProductoEnvasado crearProductoEnvasado(ProductoEnvasado envasadoTemporal) {
-        return factory.crearProductoEnvasado(envasadoTemporal);
+    public void crearProductoEnvasado(ProductoEnvasado envasadoTemporal) {
+         factory.crearProductoEnvasado(envasadoTemporal);
+    }
+
+    public boolean eliminarEnvasado(ProductoEnvasado envasado) {
+        return factory.eliminarEnvasado(envasado);
+    }
+
+    public boolean actualizarEnvasado(ProductoEnvasado envasado) {
+        return factory.actualizarEnvasado(envasado);
     }
 }

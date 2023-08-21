@@ -164,7 +164,7 @@ public class App extends Application {
 
     public void cargarVentanaVentas() {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("ventas-view.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("ventas-detalles-view.fxml"));
             Parent root = fxmlLoader.load();
             Scene scene = new Scene(root);
             Stage newStage = new Stage();
