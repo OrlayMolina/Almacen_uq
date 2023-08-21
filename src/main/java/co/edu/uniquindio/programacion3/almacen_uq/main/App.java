@@ -22,7 +22,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("inicio-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
+        Scene scene = new Scene(fxmlLoader.load(), 800, 500);
         Image iconImage = new Image("file:///C:/Users/Orlay.molina/programacion3/almacen/src/main/resources/co/edu/uniquindio/programacion3/almacen_uq/main/img/logo.PNG");
         stage.getIcons().add(iconImage);
         stage.setTitle("Almacen UQ | Inicio");
@@ -164,7 +164,7 @@ public class App extends Application {
 
     public void cargarVentanaVentas() {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("ventas-view.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("ventas-detalles-view.fxml"));
             Parent root = fxmlLoader.load();
             Scene scene = new Scene(root);
             Stage newStage = new Stage();

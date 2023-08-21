@@ -51,4 +51,10 @@ public class Producto {
     public void setExistencias(int existencias) {
         this.existencias = existencias;
     }
+
+
+    @Override
+    public String toString() {
+        return nombreProducto;
+    }
 }

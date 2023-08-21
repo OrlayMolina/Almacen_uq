@@ -12,7 +12,7 @@
 
 <AnchorPane prefHeight="500.0" prefWidth="800.0" styleClass="background" stylesheets="@tema.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.programacion3.almacen_uq.controlador.InicioController">
    <children>
-      <GridPane layoutX="122.0" layoutY="287.0" prefHeight="68.0" prefWidth="529.0">
+      <GridPane layoutX="136.0" layoutY="287.0" prefHeight="68.0" prefWidth="529.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="25.0" />
@@ -26,7 +26,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="btnProductos" mnemonicParsing="false" onAction="#menuProductos">
+            <Button fx:id="btnProductos" mnemonicParsing="false" onAction="#menuProductos" styleClass="primary">
                <graphic>
                   <ImageView fitHeight="103.0" fitWidth="87.0">
                      <image>
@@ -35,27 +35,27 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="btnClientes" mnemonicParsing="false" onAction="#menuClientes" GridPane.columnIndex="2">
+            <Button fx:id="btnClientes" mnemonicParsing="false" onAction="#menuClientes" styleClass="primary" GridPane.columnIndex="2">
                <graphic>
-                  <ImageView fitHeight="94.0" fitWidth="101.0">
+                  <ImageView fitHeight="99.0" fitWidth="109.0">
                      <image>
                         <Image url="@img/clientes.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="btnVentas" mnemonicParsing="false" onAction="#menuVentas" GridPane.columnIndex="6">
+            <Button fx:id="btnVentas" mnemonicParsing="false" onAction="#menuVentas" styleClass="primary" GridPane.columnIndex="6">
                <graphic>
-                  <ImageView fitHeight="103.0" fitWidth="87.0">
+                  <ImageView fitHeight="99.0" fitWidth="99.0">
                      <image>
                         <Image url="@img/ventas.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="btnClientesJuridicos" mnemonicParsing="false" onAction="#menuClienteJuridico" GridPane.columnIndex="4">
+            <Button fx:id="btnClientesJuridicos" mnemonicParsing="false" onAction="#menuClienteJuridico" styleClass="primary" GridPane.columnIndex="4">
                <graphic>
-                  <ImageView fitHeight="95.0" fitWidth="102.0">
+                  <ImageView fitHeight="100.0" fitWidth="108.0">
                      <image>
                         <Image url="@img/empresa.png" />
                      </image>
@@ -64,28 +64,31 @@
             </Button>
          </children>
       </GridPane>
-      <ImageView fitHeight="227.0" fitWidth="338.0" layoutX="260.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="227.0" fitWidth="338.0" layoutX="250.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img/logo.PNG" />
          </image>
       </ImageView>
-      <Label layoutX="132.0" layoutY="395.0" text="Productos">
+      <Label layoutX="154.0" layoutY="395.0" text="Productos">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="250.0" layoutY="395.0" text="Cliente Natural">
+      <Label layoutX="271.0" layoutY="395.0" text="Cliente Natural">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="575.0" layoutY="395.0" text="Ventas">
+      <Label layoutX="588.0" layoutY="395.0" text="Ventas">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Button fx:id="btnSalir" layoutX="669.0" layoutY="446.0" mnemonicParsing="false" onAction="#salirAplicacion" text="SALIR" />
-      <Label layoutX="400.0" layoutY="395.0" text="Cliente Juridico">
+      <Button fx:id="btnSalir" layoutX="693.0" layoutY="431.0" mnemonicParsing="false" onAction="#salirAplicacion" prefHeight="38.0" prefWidth="54.0" styleClass="info" text="Salir">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
+      <Label layoutX="411.0" layoutY="395.0" text="Cliente Juridico">
          <font>
             <Font size="18.0" />
          </font>
