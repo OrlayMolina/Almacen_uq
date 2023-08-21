@@ -24,8 +24,8 @@ public class RefrigeradosSubController {
         almacen = factory.getAlmacen();
     }
 
-    public ProductoRefrigerado crearRefrigerado(ProductoRefrigerado refrigeradoTemporal) {
-        return factory.crearRefrigerado(refrigeradoTemporal);
+    public void crearRefrigerado(ProductoRefrigerado refrigeradoTemporal) {
+        factory.crearRefrigerado(refrigeradoTemporal);
     }
 
     public boolean eliminarRefrigerado(ProductoRefrigerado refrigerado) {

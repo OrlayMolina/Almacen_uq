@@ -26,6 +26,7 @@ public class Factory {
         cargarDatosJuridico();
         cargarDatosEnvasados();
         cargarDatosRefrigerados();
+        cargarDatosPerecederos();
     }
 
 
@@ -63,6 +64,19 @@ public class Factory {
             ArrayList<ProductoEnvasado> envasado;
             envasado = persistencia.cargarEnvasados();
             getAlmacen().getListaProductosEnvasados().addAll(envasado);
+        }catch(Exception e){
+            e.printStackTrace(); // crear mensaje de error
+        }
+    }
+
+    public void cargarDatosPerecederos(){
+
+        this.almacen = new Almacen();
+
+        try{
+            ArrayList<ProductoPerecedero> perecedero;
+            perecedero = persistencia.cargarPerecederos();
+            getAlmacen().getListaProductosPerecederos().addAll(perecedero);
         }catch(Exception e){
             e.printStackTrace(); // crear mensaje de error
         }
@@ -116,17 +130,27 @@ public class Factory {
         }
     }
 
-    public ProductoRefrigerado crearRefrigerado(ProductoRefrigerado refrigeradoTemporal){
-        ProductoRefrigerado refrigerado = null; // OJO
+    public void crearProductoPerecedero(ProductoPerecedero perecedero){
+        ProductoEnvasado perecederoTemporal = null; // OJO
         try{
-            refrigerado = getAlmacen().crearProductoRefrigerado(refrigeradoTemporal);
-            persistencia.guardarProductosRefrigerados(getListaProductosRefrigerados());
+            //perecederoTemporal = getAlmacen().crearProductoEnvasado(envasadoTemporal);
+            persistencia.guardarProductosPerecederos(getListaProductosPerecederos(), perecedero, 0);
+
+        }catch(Exception e) {
+            e.printStackTrace(); //Crear exception
+        }
+    }
+
+    public void crearRefrigerado(ProductoRefrigerado refrigerado){
+        ProductoRefrigerado refrigeradoTemporal = null; // OJO
+        try{
+            //refrigeradoTemporal = getAlmacen().crearProductoRefrigerado(refrigeradoTemporal);
+            persistencia.guardarProductosRefrigerado(getListaProductosRefrigerados(), refrigerado, 0);
 
         }catch(Exception e){
             e.printStackTrace(); //Crear exception
         }
 
-        return refrigerado;
     }
 
     public VentaDetalle crearDetalles(VentaDetalle detalleTemporal){
@@ -173,12 +197,29 @@ public class Factory {
         return bandera;
     }
 
+    public boolean eliminarPerecedero(ProductoPerecedero perecedero) {
+
+        boolean bandera = false;
+
+        try{
+            //bandera = getAlmacen().eliminarEnvasado(envasado);
+            persistencia.guardarProductosPerecederos(getListaProductosPerecederos(), perecedero, 1);
+            return  true;
+            //persistencia.guardarArchivoLogEnvasados("Se ha eliminado el Producto Envasado correctamente",1,"Dispositivo se ha eliminado con éxito");
+        }catch(IOException e){
+            System.out.println("Ha ocurrido un error de archivo.");
+        }
+
+        return bandera;
+    }
+
     public boolean eliminarRefrigerado(ProductoRefrigerado refrigerado) {
         boolean bandera = false;
 
         try{
-            bandera = getAlmacen().eliminarRefrigerado(refrigerado);
-            persistencia.guardarProductosRefrigerados(getListaProductosRefrigerados());
+            //bandera = getAlmacen().eliminarRefrigerado(refrigerado);
+            persistencia.guardarProductosRefrigerado(getListaProductosRefrigerados(), refrigerado, 1);
+            return true;
             //persistencia.guardarArchivoLogEnvasados("Se ha eliminado el Producto Envasado correctamente",1,"Dispositivo se ha eliminado con éxito");
         }catch(IOException e){
             System.out.println("Ha ocurrido un error de archivo.");
@@ -217,12 +258,28 @@ public class Factory {
         return bandera;
     }
 
+    public boolean actualizarPerecedero(ProductoPerecedero perecedero) {
+        boolean bandera = false;
+
+        try{
+
+            persistencia.guardarProductosPerecederos(getListaProductosPerecederos(), perecedero, 2);
+            return true;
+            //persistencia.guardarArchivoLog("Se ha actualizado un producto",1,"Dispositivo se ha actualizado con éxito");
+        }catch(IOException e){
+            System.out.println("Ha ocurrido un error de archivo.");
+        }
+
+        return bandera;
+    }
+
     public boolean actualizarRefrigerado(ProductoRefrigerado refrigerado) {
         boolean bandera = false;
 
         try{
-            bandera = getAlmacen().actualizarRefrigerado(refrigerado);
-            persistencia.guardarProductosRefrigerados(getListaProductosRefrigerados());
+            //bandera = getAlmacen().actualizarRefrigerado(refrigerado);
+            persistencia.guardarProductosRefrigerado(getListaProductosRefrigerados(), refrigerado, 2);
+            return true;
             //persistencia.guardarArchivoLog("Se ha actualizado un producto",1,"Dispositivo se ha actualizado con éxito");
         }catch(IOException e){
             System.out.println("Ha ocurrido un error de archivo.");
@@ -275,11 +332,15 @@ public class Factory {
 
 
     public ArrayList<ProductoEnvasado> getListaProductosEnvasados() {
-        return getAlmacen().getListaProductosEnvasados() ;
+        return getAlmacen().getListaProductosEnvasados();
+    }
+
+    public ArrayList<ProductoPerecedero> getListaProductosPerecederos() {
+        return getAlmacen().getListaProductosPerecederos();
     }
 
     public ArrayList<ProductoRefrigerado> getListaProductosRefrigerados() {
-        return getAlmacen().getListaProductosRefrigerados() ;
+        return getAlmacen().getListaProductosRefrigerados();
     }
 
     public ArrayList<VentaDetalle> getListaVentaDetalles() {

@@ -26,6 +26,10 @@ public class Persistencia {
 
     public static final String rutaLogEnvasados = "C:\\Users\\Orlay.molina\\programacion3\\almacen\\src\\main\\java\\co\\edu\\uniquindio\\programacion3\\almacen_uq\\archivos\\EnvasadosLog.txt";
 
+    public static final String rutaPerecederos = "C:\\Users\\Orlay.molina\\programacion3\\almacen\\src\\main\\java\\co\\edu\\uniquindio\\programacion3\\almacen_uq\\archivos\\Perecederos.txt";
+
+    public static final String rutaLogPerecederos = "C:\\Users\\Orlay.molina\\programacion3\\almacen\\src\\main\\java\\co\\edu\\uniquindio\\programacion3\\almacen_uq\\archivos\\PerecederosLog.txt";
+
     public static final String rutaRefrigerados = "C:\\Users\\Orlay.molina\\programacion3\\almacen\\src\\main\\java\\co\\edu\\uniquindio\\programacion3\\almacen_uq\\archivos\\Refrigerados.txt";
 
     public static final String rutaLogRefrigerados = "C:\\Users\\Orlay.molina\\programacion3\\almacen\\src\\ main\\java\\co\\edu\\uniquindio\\programacion3\\almacen_uq\\archivos\\RefrigeradosLog.txt";
@@ -44,6 +48,10 @@ public class Persistencia {
 
     public void guardarArchivoLogEnvasados(String mensajeLog, int nivel, String accion) {
         archivoUtil.guardarRegistroLog(mensajeLog, nivel, accion, rutaLogEnvasados);
+    }
+
+    public void guardarArchivoLogPerecederos(String mensajeLog, int nivel, String accion) {
+        archivoUtil.guardarRegistroLog(mensajeLog, nivel, accion, rutaLogPerecederos);
     }
 
     public void guardarArchivoLogRefrigerados(String mensajeLog, int nivel, String accion) {
@@ -119,7 +127,6 @@ public class Persistencia {
      * @param productoEnvasado
      * @throws IOException
      */
-
     public void guardarProductosEnvasados(ArrayList<ProductoEnvasado> listaProductosEnvasados, ProductoEnvasado productoEnvasado, int accion) throws IOException {
         StringBuilder contenido = new StringBuilder();
         if(accion == 0) {
@@ -146,6 +153,63 @@ public class Persistencia {
     }
 
     /**
+     * @param accion 0 = crear, 1 = eliminar y 2 = actualizar
+     * @param listaProductosPerecederos
+     * @param perecedero
+     * @throws IOException
+     */
+    public void guardarProductosPerecederos(ArrayList<ProductoPerecedero> listaProductosPerecederos, ProductoPerecedero perecedero, int accion) throws IOException {
+        StringBuilder contenido = new StringBuilder();
+        if(accion == 0) {
+            listaProductosPerecederos.add(perecedero);
+        }else if (accion == 1) {
+            listaProductosPerecederos.removeIf(p -> p.getCodigo().equals(perecedero.getCodigo()));
+        }else {
+            actualizarProductoPerecedero(listaProductosPerecederos, perecedero);
+        }
+
+        for (ProductoPerecedero e : listaProductosPerecederos) {
+            contenido.append(e.getCodigo()).append("--").
+                    append(e.getNombreProducto()).append("--").
+                    append(e.getValorUnitario()).append("--").
+                    append(e.getFechaVencimiento()).append("--").
+                    append(e.getExistencias()).append("--").
+                    append(e.getDescripcion()).append("\n");
+
+        }
+        archivoUtil.guardarArchivo(rutaPerecederos, contenido.toString(), false);
+    }
+
+    /**
+     * @param accion 0 = crear, 1 = eliminar y 2 = actualizar
+     * @param listaProductosRefrigerados
+     * @param refrigerado
+     * @throws IOException
+     */
+    public void guardarProductosRefrigerado(ArrayList<ProductoRefrigerado> listaProductosRefrigerados, ProductoRefrigerado refrigerado, int accion) throws IOException {
+        StringBuilder contenido = new StringBuilder();
+        if(accion == 0) {
+            listaProductosRefrigerados.add(refrigerado);
+        }else if (accion == 1) {
+            listaProductosRefrigerados.removeIf(p -> p.getCodigo().equals(refrigerado.getCodigo()));
+        }else {
+            actualizarProductoRefrigerado(listaProductosRefrigerados, refrigerado);
+        }
+
+        for (ProductoRefrigerado e : listaProductosRefrigerados) {
+            contenido.append(e.getCodigo()).append("--").
+                    append(e.getNombreProducto()).append("--").
+                    append(e.getDescripcion()).append("--").
+                    append(e.getValorUnitario()).append("--").
+                    append(e.getExistencias()).append("--").
+                    append(e.getCodigoAprobacion()).append("--").
+                    append(e.getTemRefrigeracion()).append("\n");
+
+        }
+        archivoUtil.guardarArchivo(rutaRefrigerados, contenido.toString(), false);
+    }
+
+    /**
      * Método para actualizar el producto envasado
      * @param listaProductosEnvasados
      * @param productoEnvasado producto a modificar
@@ -153,6 +217,7 @@ public class Persistencia {
     private void actualizarProductoEnvasado(ArrayList<ProductoEnvasado> listaProductosEnvasados, ProductoEnvasado productoEnvasado){
         for (ProductoEnvasado e : listaProductosEnvasados) {
             if(e.getCodigo().equals(productoEnvasado.getCodigo())){
+                e.setCodigo(productoEnvasado.getCodigo());
                 e.setFechaEnvasado(productoEnvasado.getFechaEnvasado());
                 e.setNombreProducto(productoEnvasado.getNombreProducto());
                 e.setExistencias(productoEnvasado.getExistencias());
@@ -160,6 +225,44 @@ public class Persistencia {
                 e.setDescripcion(productoEnvasado.getDescripcion());
                 e.setPais(productoEnvasado.getPais());
                 e.setValorUnitario(productoEnvasado.getValorUnitario());
+            }
+        }
+    }
+
+    /**
+     * Método para actualizar el producto envasado
+     * @param listaProductoPerecederos
+     * @param perecedero producto a modificar
+     */
+    private void actualizarProductoPerecedero(ArrayList<ProductoPerecedero> listaProductoPerecederos, ProductoPerecedero perecedero){
+        for (ProductoPerecedero e : listaProductoPerecederos) {
+            if(e.getCodigo().equals(perecedero.getCodigo())){
+                e.setCodigo(perecedero.getCodigo());
+                e.setFechaVencimiento(perecedero.getFechaVencimiento());
+                e.setNombreProducto(perecedero.getNombreProducto());
+                e.setExistencias(perecedero.getExistencias());
+                e.setDescripcion(perecedero.getDescripcion());
+                e.setValorUnitario(perecedero.getValorUnitario());
+            }
+        }
+    }
+
+    /**
+     * Método para actualizar el producto envasado
+     * @param listaProductoRefrigerados
+     * @param refrigerado producto a modificar
+     */
+    private void actualizarProductoRefrigerado(ArrayList<ProductoRefrigerado> listaProductoRefrigerados, ProductoRefrigerado refrigerado){
+        for (ProductoRefrigerado e : listaProductoRefrigerados) {
+            if(e.getCodigo().equals(refrigerado.getCodigo())){
+                e.setCodigo(refrigerado.getCodigo()); // OJO
+                e.setNombreProducto(refrigerado.getNombreProducto());
+                e.setDescripcion(refrigerado.getDescripcion());
+                e.setValorUnitario(refrigerado.getValorUnitario());
+                e.setExistencias(refrigerado.getExistencias());
+                e.setCodigoAprobacion(refrigerado.getCodigoAprobacion());
+                e.setTemRefrigeracion(refrigerado.getTemRefrigeracion());
+
             }
         }
     }
@@ -309,6 +412,73 @@ public class Persistencia {
         return envasados;
     }
 
+    /**
+     * @return
+     * @throws IOException
+     */
+    public ArrayList<ProductoPerecedero> cargarPerecederos() {
+
+        ArrayList<ProductoPerecedero> perecedero = new ArrayList<>();
+        ArrayList<String> contenido;
+        try {
+            contenido = archivoUtil.leerArchivo(rutaPerecederos);
+            String linea; // OJO
+
+            for (String c : contenido) {
+                linea = c;
+                ProductoPerecedero productoPerecedero = new ProductoPerecedero();
+
+                productoPerecedero.setCodigo(linea.split("--")[0]);
+                productoPerecedero.setNombreProducto(linea.split("--")[1]);
+                productoPerecedero.setValorUnitario(Double.parseDouble(linea.split("--")[2]));
+                productoPerecedero.setFechaVencimiento(LocalDate.parse(linea.split("--")[3]));
+                productoPerecedero.setExistencias(Integer.parseInt(linea.split("--")[4]));
+                productoPerecedero.setDescripcion(linea.split("--")[5]);
+
+                perecedero.add(productoPerecedero);
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return perecedero;
+    }
+
+    /**
+     * @return
+     * @throws IOException
+     */
+    public ArrayList<ProductoRefrigerado> cargarRefrigerados() {
+
+        ArrayList<ProductoRefrigerado> refrigerados = new ArrayList<>();
+        ArrayList<String> contenido;
+        try {
+            contenido = archivoUtil.leerArchivo(rutaRefrigerados);
+            String linea; // OJO
+
+            for (String c : contenido) {
+                linea = c;
+                ProductoRefrigerado productoRefrigerado = new ProductoRefrigerado();
+
+                productoRefrigerado.setCodigo(linea.split("--")[0]);
+                productoRefrigerado.setNombreProducto(linea.split("--")[1]);
+                productoRefrigerado.setDescripcion(linea.split("--")[2]);
+                productoRefrigerado.setValorUnitario(Double.parseDouble(linea.split("--")[3]));
+                productoRefrigerado.setExistencias(Integer.parseInt(linea.split("--")[4]));
+                productoRefrigerado.setCodigoAprobacion(linea.split("--")[5]);
+                productoRefrigerado.setTemRefrigeracion(linea.split("--")[6]);
+
+                refrigerados.add(productoRefrigerado);
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return refrigerados;
+    }
+
     public ArrayList<VentaDetalle> cargarVentaDetalles() throws IOException {
         ArrayList<VentaDetalle> detalles = new ArrayList<>();
         ArrayList<String> contenido = archivoUtil.leerArchivo(rutaEnvasados);
@@ -331,28 +501,4 @@ public class Persistencia {
         return detalles;
     }
 
-    public ArrayList<ProductoRefrigerado> cargarRefrigerados() throws IOException {
-        ArrayList<ProductoRefrigerado> refrigerado = new ArrayList<>();
-        ArrayList<String> contenido = archivoUtil.leerArchivo(rutaRefrigerados);
-
-        String linea; // OJO
-
-        for (String c : contenido) {
-            linea = c;
-            ProductoRefrigerado productoRefrigerado = new ProductoRefrigerado();
-
-            productoRefrigerado.setCodigo(linea.split("--")[0]);
-            productoRefrigerado.setNombreProducto(linea.split("--")[1]);
-            productoRefrigerado.setValorUnitario(Double.parseDouble(linea.split("--")[2]));
-            productoRefrigerado.setDescripcion(linea.split("--")[3]);
-            productoRefrigerado.setCodigoAprobacion(linea.split("--")[4]);
-            productoRefrigerado.setTemRefrigeracion(linea.split("--")[5]);
-            productoRefrigerado.setExistencias(Integer.parseInt(linea.split("--")[6]));
-
-
-            refrigerado.add(productoRefrigerado);
-        }
-
-        return refrigerado;
-    }
 }
