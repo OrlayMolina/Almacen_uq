@@ -21,7 +21,7 @@
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ebebeb" height="50.0" layoutX="10.0" layoutY="267.0" stroke="#a49f9f" strokeType="INSIDE" width="769.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ebebeb" height="158.0" layoutX="9.0" layoutY="105.0" stroke="#a49f9f" strokeType="INSIDE" width="769.0" />
-      <Label layoutX="190.0" layoutY="38.0" prefHeight="37.0" prefWidth="449.0" text="GESTION DE PRODUCTOS PERECEDEROS">
+      <Label layoutX="190.0" layoutY="26.0" prefHeight="37.0" prefWidth="449.0" text="GESTION DE PRODUCTOS PERECEDEROS">
          <font>
             <Font size="24.0" />
          </font>
@@ -72,7 +72,7 @@
          </rowConstraints>
       </GridPane>
       <TextArea fx:id="txtDEscripcion" layoutX="572.0" layoutY="194.0" prefHeight="64.0" prefWidth="191.0" promptText="Descripción ..." />
-      <GridPane layoutX="190.0" layoutY="277.0" prefHeight="30.0" prefWidth="521.0">
+      <GridPane layoutX="154.0" layoutY="277.0" prefHeight="30.0" prefWidth="521.0">
          <children>
             <Button fx:id="btnCrearPerecedero" mnemonicParsing="false" onAction="#crearPerecedero" prefHeight="32.0" prefWidth="86.0" styleClass="success" text="Crear" />
             <Button fx:id="btnActualizarPerecedero" mnemonicParsing="false" onAction="#actualizarPerecedero" prefHeight="34.0" prefWidth="88.0" styleClass="warning" text="Actualizar" GridPane.columnIndex="2" />

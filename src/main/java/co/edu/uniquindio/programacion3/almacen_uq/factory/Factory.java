@@ -149,6 +149,7 @@ public class Factory {
         try{
             //bandera = getAlmacen().eliminarCliente(clienteNatural);
             persistencia.guardarCliente(getListaClientesNaturales(), natural, 1);
+            return true;
             //persistencia.guardarArchivoLogEnvasados("Se ha eliminado el Cliente correctamente",1,"Dispositivo se ha eliminado con éxito");
         }catch(IOException e){
             System.out.println("Ha ocurrido un error de archivo.");
@@ -193,6 +194,7 @@ public class Factory {
         try{
 
             persistencia.guardarProductosEnvasados(getListaProductosEnvasados(), envasado, 2);
+            return true;
             //persistencia.guardarArchivoLog("Se ha actualizado un producto",1,"Dispositivo se ha actualizado con éxito");
         }catch(IOException e){
             System.out.println("Ha ocurrido un error de archivo.");
@@ -221,6 +223,7 @@ public class Factory {
         try{
             //bandera = getAlmacen().actualizarCliente(natural);
             persistencia.guardarCliente(getListaClientesNaturales(), natural, 2);
+            return true;
             //persistencia.guardarArchivoLog("Se ha actualizado un cliente",1,"Cliente se ha actualizado con éxito");
         }catch(IOException e){
             System.out.println("Ha ocurrido un error de archivo.");

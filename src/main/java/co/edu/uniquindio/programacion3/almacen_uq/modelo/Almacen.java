@@ -209,34 +209,6 @@ public class Almacen {
         return bandera;
     }
 
-    public boolean actualizarEnvasado(ProductoEnvasado envasado) {
-        ProductoEnvasado actualizado = new ProductoEnvasado();
-        boolean bandera = false;
-
-        if(envasado != null) {
-            for(int i = 0; i < getListaProductosEnvasados().size(); i++){
-                if(getListaProductosEnvasados().get(i).getCodigo().equals(envasado.getCodigo())){
-                    actualizado.setCodigo(envasado.getCodigo());
-                    actualizado.setNombreProducto(envasado.getNombreProducto());
-                    actualizado.setDescripcion(envasado.getDescripcion());
-                    actualizado.setValorUnitario(envasado.getValorUnitario());
-                    actualizado.setExistencias(envasado.getExistencias());
-                    actualizado.setFechaEnvasado(envasado.getFechaEnvasado());
-                    actualizado.setPesoEnvase(envasado.getPesoEnvase());
-                    actualizado.setPais(envasado.getPais());
-
-                    getListaProductosEnvasados().set(i, actualizado);
-                    bandera = true;
-                }
-
-
-            }
-        }else {
-            System.out.println("Producto no existe");
-        }
-        return bandera;
-    }
-
     public boolean actualizarRefrigerado(ProductoRefrigerado refrigerado) {
         ProductoRefrigerado actualizado = new ProductoRefrigerado();
         boolean bandera = false;

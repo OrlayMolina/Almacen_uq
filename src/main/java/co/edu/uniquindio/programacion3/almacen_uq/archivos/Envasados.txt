@@ -1,3 +1,3 @@
 122112--Natu Malta--Bebida gaseosa--2500.0--25--2022-09-02--10 ml--COLOMBIA
-122113--Pony Malta--2222--22444.0--22--2023-08-01--22--CHILE
-2112--Mazda2--CX30--555.0--33--2023-08-17--333--COLOMBIA
+122113--Pony Malta--Bebida de malta gaseosa--3000.0--30--2023-08-01--10 ml--COLOMBIA
+122114--Coca Cola--Coca Cola litro--6000.0--30--2022-09-22--1 litro--COLOMBIA
