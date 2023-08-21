@@ -113,10 +113,10 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Button fx:id="btnCrear" mnemonicParsing="false" onAction="#crearCliente" prefHeight="32.0" prefWidth="82.0" text="Crear" />
-            <Button fx:id="btnActualizar" mnemonicParsing="false" onAction="#actualizarCliente" text="Actualizar" GridPane.columnIndex="2" />
-            <Button fx:id="btnEliminar" mnemonicParsing="false" onAction="#eliminarCliente" prefHeight="32.0" prefWidth="80.0" text="Eliminar" GridPane.columnIndex="4" />
-            <Button fx:id="btnLimpiar" mnemonicParsing="false" onAction="#limpiarCampo" prefHeight="32.0" prefWidth="80.0" text="Limpiar" GridPane.columnIndex="6" />
+            <Button fx:id="btnCrear" mnemonicParsing="false" onAction="#crearCliente" prefHeight="32.0" prefWidth="82.0" styleClass="success" text="Crear" />
+            <Button fx:id="btnActualizar" mnemonicParsing="false" onAction="#actualizarCliente" styleClass="warning" text="Actualizar" GridPane.columnIndex="2" />
+            <Button fx:id="btnEliminar" mnemonicParsing="false" onAction="#eliminarCliente" prefHeight="32.0" prefWidth="80.0" styleClass="danger" text="Eliminar" GridPane.columnIndex="4" />
+            <Button fx:id="btnLimpiar" mnemonicParsing="false" onAction="#limpiarCampo" prefHeight="32.0" prefWidth="80.0" styleClass="primary" text="Limpiar" GridPane.columnIndex="6" />
          </children>
       </GridPane>
       <TableView fx:id="tableEnvasados" layoutX="15.0" layoutY="329.0" prefHeight="129.0" prefWidth="769.0">
@@ -131,7 +131,7 @@
             <TableColumn fx:id="colExistencias" prefWidth="67.0" text="Existencias" />
         </columns>
       </TableView>
-      <Button fx:id="btnAtras" layoutX="732.0" layoutY="458.0" mnemonicParsing="false" onAction="#menuInicioProductos" text="Atrás" />
+      <Button fx:id="btnAtras" layoutX="732.0" layoutY="458.0" mnemonicParsing="false" onAction="#menuInicioProductos" styleClass="info" text="Atrás" />
    </children>
    <stylesheets>
       <URL value="@MenuBar.css" />

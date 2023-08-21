@@ -1,12 +1,14 @@
 package co.edu.uniquindio.programacion3.almacen_uq.modelo;
 
+import java.time.LocalDate;
+
 public class Cliente extends Persona{
 
     private String identificacion;
     private String direccion;
     private String telefono;
 
-    // COntructor vacío
+    // COnstructor vacío
     public Cliente(){
 
     }
@@ -34,4 +36,5 @@ public class Cliente extends Persona{
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
+
 }

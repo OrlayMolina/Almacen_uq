@@ -49,7 +49,7 @@ public class ClientesJuridicosController implements Initializable {
     private Button btnSalir;
 
     @FXML
-    private TableView<ClienteJuridico> tableClientes;
+    private TableView<ClienteJuridico> tableClientesJuridicos;
 
     @FXML
     private TableColumn<ClienteJuridico, String> colApellidos;
@@ -82,12 +82,6 @@ public class ClientesJuridicosController implements Initializable {
     private TextField txtDireccion;
 
     @FXML
-    private TextField txtEmail;
-
-    @FXML
-    private DatePicker dateFechaNacimiento;
-
-    @FXML
     private TextField txtIdentificacion;
 
     @FXML
@@ -105,7 +99,8 @@ public class ClientesJuridicosController implements Initializable {
     }
 
     @FXML
-    void crearCliente(ActionEvent event) {guardarNuevoCliente();
+    void crearCliente(ActionEvent event) {
+        guardarNuevoCliente();
 
     }
 
@@ -122,7 +117,7 @@ public class ClientesJuridicosController implements Initializable {
     }
 
     public void guardarNuevoCliente(){
-        ClienteJuridico cliente;
+        ClienteJuridico juridico;
         ClienteJuridico clienteTemporal = new ClienteJuridico();
 
         String nombres = txtNombres.getText();
@@ -139,11 +134,11 @@ public class ClientesJuridicosController implements Initializable {
         clienteTemporal.setTelefono(telefono);
         clienteTemporal.setNit(nit);
 
-        cliente = juridicoSubController.crearClienteJuridico(clienteTemporal);
+        juridico = juridicoSubController.crearClienteJuridico(clienteTemporal);
 
-        if(cliente != null){
-            listaClientesJuridicos.add(cliente);
-            tableClientes.refresh();
+        if(juridico != null){
+            listaClientesJuridicos.add(juridico);
+            tableClientesJuridicos.refresh();
             // mensaje de confirmacion
             //persistencia.guardarArchivoLogJuridico("Se guardado un cliente correctamente", 1, "La acción se ejecuto desde el método guardarClienteNatural de ClientesController.");
 
@@ -159,8 +154,7 @@ public class ClientesJuridicosController implements Initializable {
         txtIdentificacion.setText(null);
         txtDireccion.setText(null);
         txtTelefono.setText(null);
-        dateFechaNacimiento.setValue(null);
-        txtEmail.setText(null);
+        txtNit.setText(null);
     }
 
     public ObservableList<ClienteJuridico> getClientesJuridicos() {
@@ -177,10 +171,10 @@ public class ClientesJuridicosController implements Initializable {
         colTelefono.setCellValueFactory(new PropertyValueFactory<>("telefono"));
         colNit.setCellValueFactory(new PropertyValueFactory<>("nit"));
 
-        tableClientes.getItems().clear();
-        tableClientes.setItems(getClientesJuridicos());
+        tableClientesJuridicos.getItems().clear();
+        tableClientesJuridicos.setItems(getClientesJuridicos());
 
-        tableClientes.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+        tableClientesJuridicos.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
 
             clienteJuridico = (ClienteJuridico) newSelection;
 

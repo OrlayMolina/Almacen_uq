@@ -106,7 +106,7 @@ public class EnvasadosController implements Initializable {
 
     @FXML
     void actualizarCliente(ActionEvent event) {
-
+        actualizarEnvados();
     }
 
     @FXML
@@ -116,7 +116,7 @@ public class EnvasadosController implements Initializable {
 
     @FXML
     void eliminarCliente(ActionEvent event) {
-
+        eliminarEnvasados();
     }
 
     @FXML
@@ -132,8 +132,7 @@ public class EnvasadosController implements Initializable {
     }
 
     public void guardarNuevoEnvasado(){
-        ProductoEnvasado envasado;
-        ProductoEnvasado envasadoTemporal = new ProductoEnvasado();
+        ProductoEnvasado envasado = new ProductoEnvasado();
 
         String codigo = txtCodigo.getText();
         String nombreProducto = txtNombreProducto.getText();
@@ -144,26 +143,79 @@ public class EnvasadosController implements Initializable {
         String pesoEnvase = txtPesoEnvase.getText();
         Pais pais = cmbPais.getSelectionModel().getSelectedItem();
 
-        envasadoTemporal.setCodigo(codigo);
-        envasadoTemporal.setNombreProducto(nombreProducto);
-        envasadoTemporal.setDescripcion(descripcion);
-        envasadoTemporal.setValorUnitario(valorUnitario);
-        envasadoTemporal.setExistencias(existencias);
-        envasadoTemporal.setFechaEnvasado(fechaEvasado);
-        envasadoTemporal.setPesoEnvase(pesoEnvase);
-        envasadoTemporal.setPais(pais);
+        envasado.setCodigo(codigo);
+        envasado.setNombreProducto(nombreProducto);
+        envasado.setDescripcion(descripcion);
+        envasado.setValorUnitario(valorUnitario);
+        envasado.setExistencias(existencias);
+        envasado.setFechaEnvasado(fechaEvasado);
+        envasado.setPesoEnvase(pesoEnvase);
+        envasado.setPais(pais);
 
-        envasado = envasadoSubController.crearProductoEnvasado(envasadoTemporal);
+        envasadoSubController.crearProductoEnvasado(envasado);
+        listaProductosEnvasados.add(envasado);
+        tableEnvasados.refresh();
 
-        if(envasado != null){
-            listaProductosEnvasados .add(envasado);
-            tableEnvasados.refresh();
-            // mensaje de confirmacion
-            //persistencia.guardarArchivoLog("Se guardado un cliente correctamente", 1, "La acción se ejecuto desde el método guardarClienteNatural de ClientesController.");
-
-        }
 
     }
+
+    public void eliminarEnvasados() {
+        boolean bandera = false, mensaje;
+        if (envasado != null) {
+            mensaje = mostrarMensajeConfirmacion("¿Está seguro que desea eliminar el procesamiento?.");
+            if (mensaje) {
+                bandera = envasadoSubController.eliminarEnvasado(envasado);
+                if (bandera) {
+                    listaProductosEnvasados.remove(envasado);
+                    envasado = null;
+                    tableEnvasados.getSelectionModel().clearSelection();
+                    mostrarMensaje("ELIMINACIÓN", "Eliminación de Producto",
+                            "El Producto se ha eliminado correctamente", Alert.AlertType.INFORMATION);
+                } else {
+                    mostrarMensaje("ELIMINACIÓN", "Eliminación de Producto.",
+                            "El Producto no se pudo eliminar.", Alert.AlertType.WARNING);
+                }
+            }
+        }
+    }
+
+    public void actualizarEnvados(){
+        ProductoEnvasado envasado = new ProductoEnvasado();
+        boolean bandera = false;
+
+        String codigo = txtCodigo.getText();
+        String nombreProducto = txtNombreProducto.getText();
+        String descripcion = txaDescripcion.getText();
+        Double valorUnitario = Double.valueOf(txtValorUnitario.getText());
+        int existencias = Integer.parseInt(txtExistencias.getText());
+        LocalDate fechaEvasado = dataFechaEnvase.getValue();
+        String pesoEnvase = txtPesoEnvase.getText();
+        Pais pais = cmbPais.getSelectionModel().getSelectedItem();
+
+        envasado.setCodigo(codigo);
+        envasado.setNombreProducto(nombreProducto);
+        envasado.setDescripcion(descripcion);
+        envasado.setValorUnitario(valorUnitario);
+        envasado.setExistencias(existencias);
+        envasado.setFechaEnvasado(fechaEvasado);
+        envasado.setPesoEnvase(pesoEnvase);
+        envasado.setPais(pais);
+
+        if(envasado != null){
+            bandera = envasadoSubController.actualizarEnvasado(envasado);
+
+            if(bandera){
+
+                mostrarMensaje("ACTUALIZACIÓN","Actualización de Producto.",
+                        "El Producto se actualizó correctamente.", Alert.AlertType.INFORMATION);
+                tableEnvasados.refresh();
+            }else {
+                mostrarMensaje("ACTUALIZACIÓN","Actualización de Producto.",
+                        "El Producto no se pudo actualizar.", Alert.AlertType.WARNING);
+            }
+        }
+    }
+
 
     public void mostrarPais(){
         listaPaises.add(Pais.ARGENTINA);
@@ -255,6 +307,7 @@ public class EnvasadosController implements Initializable {
     }
 
     @Override
+    @FXML
     public void initialize(URL url, ResourceBundle resourceBundle) {
         datosInicialesEnvasados();
     }
